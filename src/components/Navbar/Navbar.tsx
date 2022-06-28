@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
 
     const [isLogIn , setIsLogIn] = useState<boolean>(false);
     return (
-        <Flex direction={"column"} height="20vh" border={"2px solid grey"}>
+        <Flex direction={"column"} height="20vh" border={"2px solid grey"} className="Navbar">
 
             <Flex height={"10vh"} border="1px solid red" wrap={"wrap"} alignItems="center" justifyContent={"space-between"} padding="2px" className='info_shop'>
 
