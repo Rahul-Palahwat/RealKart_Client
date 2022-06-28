@@ -45,9 +45,9 @@ const AllProducts: React.FC = () => {
             <hr />
 
             <Flex height={"auto"} alignItems="center">
-                <Flex fontSize={"4xl"}><MdArrowBackIosNew/></Flex>
+                <Flex display={pageNumber>1?"":"none"} fontSize="4xl"><MdArrowBackIosNew onClick={()=> setPageNumber(pageNumber-1)}/></Flex>
                 {pageData.map((dat)=>(<Product title={dat.title} image={dat.imgLink} price={dat.newprice}/>))}
-                <Flex fontSize={"4xl"}><MdArrowForwardIos/></Flex>
+                <Flex display={pageNumber+1===(data.length/itemsPerPage)?"none":""} fontSize={"4xl"}><MdArrowForwardIos onClick={()=> setPageNumber(pageNumber+1)}/></Flex>
             </Flex>
         </Flex>
     )
