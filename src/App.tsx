@@ -1,25 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { Button, Icon, useColorMode } from '@chakra-ui/react';
 import './App.css';
 
 function App() {
+  const { colorMode, toggleColorMode } = useColorMode()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Button size={'sm'} onClick={() => toggleColorMode()}>
+    	{colorMode === 'light' ? <MoonIcon  /> : <SunIcon />}
+    </Button>
   );
 }
 
