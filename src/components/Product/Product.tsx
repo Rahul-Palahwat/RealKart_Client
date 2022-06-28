@@ -12,8 +12,8 @@ interface Props{
 const Product:React.FC<Props> = (props) => {
     const {title , image, price} = props;
   return (
-    <div className='total' style={{"width":"100%","height":"100%","margin":"2rem"}}>
-    <Flex alignItems={"center"} justifyContent="center" width={"100%"} height="100%">
+    <div className='total' style={{"width":"100%","height":"45vh","margin":"2rem"}}>
+    <Flex alignItems={"center"} justifyContent="center" width={"100%"} height="100%" wrap={"wrap"}>
     <Flex direction={"column"} alignItems="center" className='add' height="100%" width="100%">
         <Flex mt={2}><img src={image[0]} alt="Hello" style={{"height":"20vh","width":"20vh"}}/></Flex>
         <Flex mt={2}>{title}</Flex>

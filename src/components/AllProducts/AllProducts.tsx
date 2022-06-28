@@ -22,7 +22,7 @@ const AllProducts: React.FC = () => {
         description?: any
       }
 
-    const [itemsPerPage , setItemsPerPage] = useState<number>(5);
+    const [itemsPerPage , setItemsPerPage] = useState<number>(4);
 
     const [pageNumber, setPageNumber] = useState<number>(1);
     
@@ -45,9 +45,11 @@ const AllProducts: React.FC = () => {
             <hr />
 
             <Flex height={"auto"} alignItems="center">
-                <Flex display={pageNumber>1?"":"none"} fontSize="4xl"><MdArrowBackIosNew onClick={()=> setPageNumber(pageNumber-1)}/></Flex>
+                <Flex height={"100%"} className='left-right' display={pageNumber>1?"":"none"} fontSize="4xl"><MdArrowBackIosNew onClick={()=> setPageNumber(pageNumber-1)}/></Flex>
                 {pageData.map((dat)=>(<Product title={dat.title} image={dat.imgLink} price={dat.newprice}/>))}
-                <Flex display={pageNumber+1===(data.length/itemsPerPage)?"none":""} fontSize={"4xl"}><MdArrowForwardIos onClick={()=> setPageNumber(pageNumber+1)}/></Flex>
+                <Flex height={"auto"} className='left-right' display={pageNumber+1===(data.length/itemsPerPage)?"none":""} fontSize={"4xl"}>
+                    <MdArrowForwardIos onClick={()=> setPageNumber(pageNumber+1)}/>
+                </Flex>
             </Flex>
         </Flex>
     )
