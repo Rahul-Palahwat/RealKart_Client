@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
 
                 <Flex width="10%" height={"100%"} alignItems="center" justifyContent={"center"} fontSize="medium">
                     <Flex fontSize={"2xl"} cursor={"pointer"}><MdLocationPin /></Flex>
-                    <a href="/" style={{ "fontWeight": "bold" }}>Direction</a>
+                    <a href="/" style={{ "fontWeight": "bold" }}>Directions</a>
                 </Flex>
 
                 <Flex width="10%" height={"100%"} alignItems="center" justifyContent={"center"}>
@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
                                     <Flex mt={1}><BsCartPlusFill /></Flex>
                                         <Flex justifyContent={"center"}><Badge colorScheme='orange' mt={-1} ml={-6} backgroundColor={"red.500"} borderRadius="5px 5px 20px 20px" height={"4"} width="4" display={isLogIn ? "" : "none"}>1</Badge></Flex>
                                     </Flex>
-                                    <Flex fontSize={"3xl"}><CgProfile /></Flex>
+                                    <Flex fontSize={"3xl"} mr={2}><CgProfile /></Flex>
                                 </Flex>
                             </Flex>
                         }
@@ -52,11 +52,11 @@ const Navbar: React.FC = () => {
 
 
 
-                <Flex width="4%" height={"100%"} alignItems="center" justifyContent={"center"}>
+                {/* <Flex width="4%" height={"100%"} alignItems="center" justifyContent={"center"}>
                     <Button size={'sm'} onClick={() => toggleColorMode()}>
                         {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                     </Button>
-                </Flex>
+                </Flex> */}
 
             </Flex>
 
