@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
             </Flex>
 
             <Flex height={"10vh"} border="1px solid blue" wrap={"wrap"}>
-                <Searchbar isLogIn={isLogIn} />
+                <Searchbar />
             </Flex>
 
 

@@ -1,18 +1,13 @@
-import { Badge, Flex } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import React from 'react'
 
-import {BsCartPlusFill} from 'react-icons/bs'
 import {BiSearchAlt2} from 'react-icons/bi'
 
 import '../Searchbar/Searchbar.css'
 
-interface Props{
-  isLogIn: boolean
-}
 
-const Searchbar:React.FC<Props>= (props) => {
 
-  const {isLogIn} = props;
+const Searchbar:React.FC= () => {
 
 
   return (
