@@ -4,3 +4,13 @@
 .onestore{
     font-family: 'Quicksand', sans-serif;
 }
+li{
+    padding: 0.4rem;
+    /* text-decoration: underline; */
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+li:hover{
+    text-decoration: underline;
+}

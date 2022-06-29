@@ -18,10 +18,10 @@ const Footer:React.FC = () => {
 		<Flex height={"20vh"} width={'100%'} border="1px solid orange" alignItems={"center"} justifyContent="space-between">
 			<Flex border={"1px solid green"} height={"100%"} width={"100%"} alignItems="center" justifyContent={"center"}>
 				<ul style={{"listStyle":"none"}}>
-					<li>Hello</li>
-					<li>Hello</li>
-					<li>Hello</li>
-					<li>Hello</li>
+					<li>About Us</li>
+					<li>Contact Us</li>
+					<li>Location</li>
+					<li>Home</li>
 				</ul>
 			</Flex>
 			<Flex border={"1px solid green"} height={"100%"} width={"100%"} alignItems="center" justifyContent={"center"} direction="column">
@@ -30,10 +30,10 @@ const Footer:React.FC = () => {
 			</Flex>
 			<Flex border={"1px solid green"} height={"100%"} width={"100%"} alignItems="center" justifyContent={"center"}>
 				<ul style={{"listStyle":"none"}}>
-					<li>Hello</li>
-					<li>Hello</li>
-					<li>Hello</li>
-					<li>Hello</li>
+					<li>Services</li>
+					<li>Registration</li>
+					<li>Users</li>
+					<li>Visit</li>
 				</ul>
 			</Flex>
 			
