@@ -9,6 +9,7 @@ function App() {
   return (
     <div style={{"backgroundColor":"#EAECEC"}}>
       <Navbar/>
+      <hr />
       <AllProducts/>
       <Footer/>
     </div>

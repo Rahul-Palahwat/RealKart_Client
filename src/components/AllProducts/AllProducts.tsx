@@ -41,8 +41,8 @@ const AllProducts: React.FC = () => {
     return (
         <>
         {dataItems.map((item) => (
-            <Flex m={2} mt={5} border="1px solid red" className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
-            <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"7vh"} border="1px solid blue" m={1} p={2}>
+            <Flex m={2} mt={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
+            <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"7vh"} m={1} p={2}>
                 <Flex fontSize={"2xl"} fontWeight="bold" >{item==1?"All Products":item==2?"Best Selling":"Most Wishlisted"}</Flex>
                 <Flex pr={2}><a className='viewAll' href='/'>VIEW ALL</a></Flex>
             </Flex>
