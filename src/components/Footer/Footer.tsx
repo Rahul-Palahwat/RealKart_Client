@@ -10,7 +10,7 @@ const Footer:React.FC = () => {
     <Flex height={"auto"} className="Footer" alignItems="center" justifyContent={"center"} direction="column">
         <Flex height={"5vh"} width={"100%"} justifyContent="center" alignItems={"center"}>
 			<Flex>
-			<a href="/" style={{"color":"blue","textDecoration":"underline"}}>Visit Here </a>&nbsp; to get yourself registered here
+			<a href="/" style={{"color":"blue","textDecoration":"underline"}}>Visit Here </a>&nbsp; to get your shop registered here
 			</Flex>
         </Flex>
 		<hr/>
