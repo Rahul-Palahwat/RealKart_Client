@@ -1,4 +1,5 @@
 
+import { Flex } from '@chakra-ui/react';
 import './App.css';
 import AllProducts from './components/AllProducts/AllProducts';
 import Footer from './components/Footer/Footer';
@@ -7,10 +8,11 @@ import Navbar from './components/Navbar/Navbar';
 function App() {
   
   return (
-    <div className="whole_body">
-    {/* <div style={{"backgroundColor":"#EAECEC"}}> */}
-      <Navbar/>
-      <hr />
+    <div style={{"backgroundColor":"#EAECEC"}}>
+      <div className='whole_body'>
+        <Navbar/>
+        <hr />
+      </div>
       <AllProducts/>
       <Footer/>
     </div>

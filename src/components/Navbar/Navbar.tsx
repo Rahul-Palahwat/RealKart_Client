@@ -5,7 +5,7 @@ import { MdLocationPin } from 'react-icons/md'
 import { BsCartPlusFill, BsFillTelephoneFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 
-import '../Navbar/Navbar.css'
+import './Navbar.css'
 import Searchbar from '../Searchbar/Searchbar';
 
 const Navbar: React.FC = () => {

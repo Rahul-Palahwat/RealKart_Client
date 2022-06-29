@@ -1,4 +1,4 @@
-import { Button, Flex} from '@chakra-ui/react'
+import { Flex} from '@chakra-ui/react'
 import React, { useState } from 'react'
 
 import {MdArrowBackIosNew,MdArrowForwardIos} from 'react-icons/md'
@@ -25,6 +25,7 @@ const AllProducts: React.FC = () => {
       }
 
     const [itemsPerPage , setItemsPerPage] = useState<number>(4);
+    console.log(setItemsPerPage);
 
     const [pageNumber, setPageNumber] = useState<number>(1);
     
@@ -43,7 +44,7 @@ const AllProducts: React.FC = () => {
         {dataItems.map((item) => (
             <Flex m={2} mt={3} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
             <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"7vh"} m={1} p={2}>
-                <Flex fontSize={"2xl"} fontWeight="bold" >{item==1?"All Products":item==2?"Best Selling":"Most Wishlisted"}</Flex>
+                <Flex fontSize={"2xl"} fontWeight="bold" >{item===1?"All Products":item===2?"Best Selling":"Most Wishlisted"}</Flex>
                 <Flex pr={2}><a className='viewAll' href='/'>VIEW ALL</a></Flex>
             </Flex>
             <hr />
