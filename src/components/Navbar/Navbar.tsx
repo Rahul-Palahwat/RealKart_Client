@@ -18,22 +18,21 @@ const Navbar: React.FC = () => {
             <Flex height={"10vh"} border="1px solid red" wrap={"wrap"} alignItems="center" justifyContent={"space-between"} padding="2px" className='info_shop'>
 
 
-                <Flex border={"1px solid green"} width="25%" height={"100%"} alignItems="center" justifyContent={"center"} fontSize="2xl" fontWeight={"bold"} ml="2">
+                <Flex border={"1px solid green"} width="60%" height={"100%"} alignItems="center" justifyContent={"center"} fontSize="4xl" fontWeight={"bold"} ml="2">
                     <h1>Rajeev Kirana Store</h1>
                 </Flex>
 
-                <Flex border={"1px solid green"} width="20%" height={"100%"} alignItems="center" justifyContent={"center"} fontSize="medium">
+                <Flex border={"1px solid green"} width="10%" height={"100%"} alignItems="center" justifyContent={"center"} fontSize="medium">
                     <Flex fontSize={"2xl"}><MdLocationPin /></Flex>
-                    <h1 style={{ "fontWeight": "bold" }}>Location :&nbsp;</h1>
-                    <a href="" style={{ "color": "#37E2D5" }}>SunCity Agra</a>
+                    <h1 style={{ "fontWeight": "bold" }}>Direction</h1>
                 </Flex>
 
-                <Flex border={"1px solid green"} width="20%" height={"100%"} alignItems="center" justifyContent={"center"}>
-                    <BsFillTelephoneFill />&nbsp; <a href="">+91 &nbsp;</a>  <a href="" style={{ "color": "blue" }}>9520065920</a>
+                <Flex border={"1px solid green"} width="10%" height={"100%"} alignItems="center" justifyContent={"center"}>
+                    <BsFillTelephoneFill />&nbsp; <a href="">Contact Us</a>
                 </Flex>
 
 
-                <Flex border={"1px solid green"} width="25%" height={"100%"} alignItems="center" justifyContent={"flex-end"}>
+                <Flex border={"1px solid green"} width="15%" height={"100%"} alignItems="center" justifyContent={"flex-end"}>
                     <Flex alignItems={"center"} justifyContent="flex-end" width={"100%"}>
                         {!isLogIn
                             ? <Flex><Button color={"white"} bgColor={"facebook.400"} className="items" mr={5}>Sign Up</Button>
