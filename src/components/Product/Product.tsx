@@ -24,7 +24,7 @@ const Product:React.FC<Props> = (props) => {
         <Flex id="cart" width="100%" height={"100%"} alignItems={"flex-end"} mt={5}>
             
             <Flex mb={2} width="100%" justifyContent={"center"}>
-                <Button className='items' width="80%" colorScheme='orange'>Add to Cart</Button>
+                <Button className='items' width="80%" color={"white"} bgColor={"facebook.400"}>Add to Cart</Button>
             </Flex>
 
         </Flex>
