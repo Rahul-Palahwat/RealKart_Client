@@ -22,17 +22,12 @@ const Product:React.FC<Props> = (props) => {
         <Flex mt={2} ml={4} textDecoration="line-through" fontSize={"sm"} alignItems="flex-end">&#x20B9;{price}</Flex>
         </Flex>
         <Flex id="cart" width="100%" height={"100%"} alignItems={"flex-end"} mt={5}>
-            
             <Flex mb={2} width="100%" justifyContent={"center"}>
                 <Button className='items' width="80%" color={"white"} bgColor={"facebook.400"}>Add to Cart</Button>
             </Flex>
-
-        </Flex>
-        
-        
+        </Flex>  
     </Flex>
     </Flex>
-  
 </div>
   )
 }
