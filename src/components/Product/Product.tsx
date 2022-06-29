@@ -17,9 +17,9 @@ const Product:React.FC<Props> = (props) => {
     <Flex direction={"column"} alignItems="center" className='add' height="100%" width="100%">
         <Flex mt={2}><img src={image[0]} alt="Hello" style={{"height":"20vh","width":"20vh"}}/></Flex>
         <Flex mt={2}>{title}</Flex>
-        <Flex>
-        <Flex mt={2}>&#x20B9;{price}</Flex>
-        <Flex mt={2} ml={4} textDecoration="line-through">&#x20B9;{price}</Flex>
+        <Flex >
+        <Flex mt={2} color="#4167B2" fontWeight={"bold"}>&#x20B9;{price}</Flex>
+        <Flex mt={2} ml={4} textDecoration="line-through" fontSize={"sm"} alignItems="flex-end">&#x20B9;{price}</Flex>
         </Flex>
         <Flex id="cart" width="100%" height={"100%"} alignItems={"flex-end"} mt={5}>
             
