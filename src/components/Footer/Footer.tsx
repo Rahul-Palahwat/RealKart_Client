@@ -3,8 +3,9 @@ import React from 'react'
 
 const Footer:React.FC = () => {
   return (
-    <Flex fontSize={"3xl"} height={"20vh"} backgroundColor="black" color={"white"} alignItems="center" justifyContent={"center"}>
-        Hello from footer
+    <Flex height={"30vh"} backgroundColor="black" color={"white"} alignItems="center" justifyContent={"center"} direction="column">
+        <Flex height={"25vh"} border="1px solid white" width={"100%"} justifyContent="center">Hello from Footer</Flex>
+        <Flex height={"5vh"} border="1px solid white" width={"100%"} justifyContent="center" alignItems={"center"}>All Rights Reserved &copy;Pensive2022</Flex>
     </Flex>
   )
 }

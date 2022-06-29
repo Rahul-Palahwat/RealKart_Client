@@ -7,7 +7,8 @@ import Navbar from './components/Navbar/Navbar';
 function App() {
   
   return (
-    <div style={{"backgroundColor":"#EAECEC"}}>
+    <div className="whole_body">
+    {/* <div style={{"backgroundColor":"#EAECEC"}}> */}
       <Navbar/>
       <hr />
       <AllProducts/>

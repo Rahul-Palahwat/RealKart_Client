@@ -19,16 +19,16 @@ const Navbar: React.FC = () => {
 
 
                 <Flex width="60%" height={"100%"} alignItems="center" justifyContent={"center"} fontSize="4xl" fontWeight={"bold"} ml="2">
-                    <h1>Rajeev Kirana Store</h1>
+                    <Flex cursor={"pointer"}>Rajeev Kirana Store</Flex>
                 </Flex>
 
                 <Flex width="10%" height={"100%"} alignItems="center" justifyContent={"center"} fontSize="medium">
-                    <Flex fontSize={"2xl"}><MdLocationPin /></Flex>
-                    <h1 style={{ "fontWeight": "bold" }}>Direction</h1>
+                    <Flex fontSize={"2xl"} cursor={"pointer"}><MdLocationPin /></Flex>
+                    <a href="/" style={{ "fontWeight": "bold" }}>Direction</a>
                 </Flex>
 
                 <Flex width="10%" height={"100%"} alignItems="center" justifyContent={"center"}>
-                    <BsFillTelephoneFill />&nbsp; <a href="">Contact Us</a>
+                    <Flex cursor={"pointer"}><BsFillTelephoneFill /></Flex>&nbsp; <a href="/" style={{ "fontWeight": "bold" }}>Contact Us</a>
                 </Flex>
 
 
@@ -47,9 +47,6 @@ const Navbar: React.FC = () => {
                                 </Flex>
                             </Flex>
                         }
-
-
-
                     </Flex>
                 </Flex>
 
