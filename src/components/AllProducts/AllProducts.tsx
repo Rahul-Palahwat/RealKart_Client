@@ -10,6 +10,8 @@ import './AllProducts.css'
 
 const AllProducts: React.FC = () => {
 
+    const dataItems:number[] = [1,2,3];
+
     interface Data {
         itemCode: number
         category?: string
@@ -37,9 +39,11 @@ const AllProducts: React.FC = () => {
 
 
     return (
-        <Flex m={2} mt={5} border="1px solid red" className='AllProducts' direction="column" height={"auto"}>
+        <>
+        {dataItems.map((item) => (
+            <Flex m={2} mt={5} border="1px solid red" className='AllProducts' direction="column" height={"auto"}>
             <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"7vh"} border="1px solid blue" m={1} p={2}>
-                <Flex fontSize={"2xl"} fontWeight="bold" >All Products</Flex>
+                <Flex fontSize={"2xl"} fontWeight="bold" >{item==1?"All Products":item==2?"Best Selling":"Most Wishlisted"}</Flex>
                 <Flex pr={2}><Button colorScheme='green'>VIEW ALL</Button></Flex>
             </Flex>
             <hr />
@@ -52,6 +56,9 @@ const AllProducts: React.FC = () => {
                 </Flex>
             </Flex>
         </Flex>
+        ))}
+        </>
+        
     )
 }
 
