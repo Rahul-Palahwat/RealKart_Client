@@ -13,7 +13,7 @@ const Product:React.FC<Props> = (props) => {
     const {title , image, price} = props;
     const newtitle:string=title.slice(0,12);
   return (
-    <div className='total' style={{"width":"100%","height":"42vh","margin":"1rem 2rem"}}>
+    <div className='total' style={{"width":"100%","height":"42vh"}}>
     <Flex alignItems={"center"} justifyContent="center" width={"100%"} height="100%" wrap={"wrap"}>
     <Flex direction={"column"} alignItems="center" className='add' height="100%" width="100%">
         <Flex mt={2}><img src={image[0]} alt="Hello" style={{"height":"20vh","width":"20vh"}}/></Flex>
