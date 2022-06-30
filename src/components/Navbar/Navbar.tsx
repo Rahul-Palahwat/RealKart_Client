@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { Badge, Button, Flex, useColorMode } from '@chakra-ui/react';
+// import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { Badge, Button, Flex } from '@chakra-ui/react';
 import { MdLocationPin } from 'react-icons/md'
 import { BsCartPlusFill, BsFillTelephoneFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
@@ -9,7 +9,7 @@ import './Navbar.css'
 import Searchbar from '../Searchbar/Searchbar';
 
 const Navbar: React.FC = () => {
-    const { colorMode, toggleColorMode } = useColorMode();
+    // const { colorMode, toggleColorMode } = useColorMode();
 
     const [isLogIn, setIsLogIn] = useState<boolean>(false);
     return (
@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
                     <Flex cursor={"pointer"}>Rajeev Kirana Store</Flex>
                 </Flex>
 
-                <Flex width="10%" height={"100%"} alignItems="center" justifyContent={"center"} fontSize="medium">
+                <Flex width="10%" height={"100%"} alignItems="center" justifyContent={"flex-end"} fontSize="medium">
                     <Flex fontSize={"2xl"} cursor={"pointer"}><MdLocationPin /></Flex>
                     <a href="/" style={{ "fontWeight": "bold" }}>Directions</a>
                 </Flex>
