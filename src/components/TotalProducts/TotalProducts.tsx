@@ -7,11 +7,15 @@ import data from '../data.json'
 import Product from '../Product/Product'
 
 const TotalProducts: React.FC = () => {
+    
+
+
     return (
         <Flex width={"100vw"} height={"auto"}>
 
+            <Flex direction={"column"}>
 
-            <Flex m={2} mt={3} mb={5} className='AllProducts' direction="column" height={"50vh"} borderRadius={8} width={"20vw"}>
+            <Flex m={2} mt={3} mb={2} className='AllProducts' direction="column" height={"38vh"} borderRadius={8} width={"20vw"}>
                 <Flex width={"auto"} height={"7vh"} m={1} p={2} direction="column">
                     <Flex fontSize={"1.2rem"} fontWeight="bold" alignItems={"center"}>Shop by Category</Flex>
 
@@ -19,7 +23,7 @@ const TotalProducts: React.FC = () => {
                 <hr />
                 <Flex height={"auto"} alignItems="center">
                 <RadioGroup>
-                        <Flex direction={"column"} ml={3} mt={4}>
+                        <Flex direction={"column"} ml={3} mt={5}>
 
                             <Checkbox value='1' mb={5} > <p>Electronic Items</p> </Checkbox>
                             <Checkbox value='2' mb={5} > <p>Vehicles</p> </Checkbox>
@@ -29,6 +33,28 @@ const TotalProducts: React.FC = () => {
                         </Flex>
                     </RadioGroup>
                 </Flex>
+            </Flex>
+            <Flex m={2} mb={5} className='AllProducts' direction="column" height={"42vh"} borderRadius={8} width={"20vw"}>
+                <Flex width={"auto"} height={"7vh"} m={1} p={2} direction="column">
+                    <Flex fontSize={"1.2rem"} fontWeight="bold" alignItems={"center"}>Shop by Percentage Off</Flex>
+
+                </Flex>
+                <hr />
+                <Flex height={"auto"} alignItems="center">
+                <RadioGroup>
+                        <Flex direction={"column"} ml={3} mt={5}>
+
+                            <Checkbox value='1' mb={5} > <p>5% & Above</p> </Checkbox>
+                            <Checkbox value='2' mb={5} > <p>10% & Above</p> </Checkbox>
+                            <Checkbox value='3' mb={5} > <p>25% & Above</p> </Checkbox>
+                            <Checkbox value='4' mb={5} > <p>40% & Above</p> </Checkbox>
+                            <Checkbox value='4' mb={5} > <p>60% & Above</p> </Checkbox>
+
+                        </Flex>
+                    </RadioGroup>
+                </Flex>
+            </Flex>
+
             </Flex>
 
 
