@@ -6,10 +6,27 @@
     background-color: white;
     height: 40vh;
     /* box-shadow: 0 4px 8px 0 rgba(178, 192, 209, 0.2), 0 6px 20px 0 rgba(89, 158, 238, 0.19); */
-    box-shadow: 0 4px 8px 0 rgba(178, 192, 209, 0.2);
+    /* box-shadow: 0 4px 8px 0 rgba(178, 192, 209, 0.2); */
 }
 .left-right:hover{
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
+    height: auto;
+    width: auto;
+}
+
+.pos_left{
+    position: relative;
+    font-size: 3.2rem;
+    margin-right: -4rem;
+}
+
+.pos_right{
+    position: relative;
+    font-size: 3.2rem;
+    margin-left: -4rem;
+}
+.pos:hover{
+    border: 2px solid red;
 }
 
 .viewAll{

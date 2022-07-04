@@ -34,9 +34,9 @@ const Navbar: React.FC = () => {
                 <Flex width="15%" height={"100%"} alignItems="center" justifyContent={"flex-end"} pr={6}>
                     <Flex alignItems={"center"} justifyContent="flex-end" width={"100%"}>
                         {!isLogIn
-                            ? <Flex><Button color={"white"} bgColor={"facebook.400"} className="items" mr={5}>Sign Up</Button>
-                                <Button color={"white"} bgColor={"facebook.400"} className="items" mr={5} onClick={() => setIsLogIn(true)}>Log In</Button></Flex>
-                            : <Flex><Button color={"white"} bgColor={"facebook.400"} className="items" mr={5} onClick={() => setIsLogIn(false)}>Log Out</Button>
+                            ? <Flex><Button color={"white"} bgColor={"#47B5FF"} className="items" mr={5}>Sign Up</Button>
+                                <Button color={"white"} bgColor={"#47B5FF"} className="items" mr={5} onClick={() => setIsLogIn(true)}>Log In</Button></Flex>
+                            : <Flex><Button color={"white"} bgColor={"#47B5FF"} className="items" mr={5} onClick={() => setIsLogIn(false)}>Log Out</Button>
                                 <Flex justifyContent={"center"} height="5vh" alignItems={"center"} borderRadius={5}>
                                     <Flex fontSize={"3xl"} mr={5}>
                                     <Flex mt={1}><BsCartPlusFill /></Flex>
