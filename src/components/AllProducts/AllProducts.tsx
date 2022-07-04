@@ -51,7 +51,7 @@ const AllProducts: React.FC = () => {
             <Flex height={"auto"} alignItems="center">
                 <Flex height={"100%"} className='left-right' display={pageNumber>1?"":"none"} fontSize="4xl"><MdArrowBackIosNew className='pos_left' onClick={()=> setPageNumber(pageNumber-1)}/></Flex>
                 {pageData.map((dat)=>(<Product title={dat.title} image={dat.imgLink} price={dat.newprice}/>))}
-                <Flex height={"auto"} className='left-right' display={pageNumber+1===(data.length/itemsPerPage)?"none":""} fontSize={"4xl"}>
+                <Flex height={"auto"} className='left-right' display={pageNumber>=(data.length/itemsPerPage)?"none":""} fontSize={"4xl"}>
                     <MdArrowForwardIos onClick={()=> setPageNumber(pageNumber+1)} className="pos_right"/>
                 </Flex>
             </Flex>

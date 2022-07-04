@@ -18,15 +18,21 @@
     position: relative;
     font-size: 3.2rem;
     margin-right: -4rem;
+    border-radius: 0 2rem 2rem 0;
+    height: 20vh;
+    border: 4px solid rgb(249, 246, 246);
 }
 
 .pos_right{
     position: relative;
     font-size: 3.2rem;
     margin-left: -4rem;
+    border-radius: 2rem 0 0 2rem;
+    height: 20vh;
+    border: 4px solid rgb(249, 246, 246);
 }
-.pos:hover{
-    border: 2px solid red;
+.pos_right,.pos_left:hover{
+    border: 6px solid rgb(252, 248, 248);
 }
 
 .viewAll{
