@@ -1,6 +1,8 @@
 import { Button, Flex } from '@chakra-ui/react'
 import React from 'react'
 
+import { useLocation } from 'react-router-dom'
+
 import './Product.css'
 
 interface Props{
@@ -12,8 +14,14 @@ interface Props{
 const Product:React.FC<Props> = (props) => {
     const {title , image, price} = props;
     const newtitle:string=title.slice(0,12);
+
+    const location = useLocation();
+    console.log("location",location.pathname);
+    
+
+
   return (
-    <div className='total' style={{"width":"100%","height":"42vh"}}>
+    <Flex className='total' m={location.pathname==='/'?"1rem 2rem":""}>
     <Flex alignItems={"center"} justifyContent="center" width={"100%"} height="100%" wrap={"wrap"}>
     <Flex direction={"column"} alignItems="center" className='add' height="100%" width="100%">
         <Flex mt={2}><img src={image[0]} alt="Hello" style={{"height":"20vh","width":"20vh"}}/></Flex>
@@ -29,7 +37,7 @@ const Product:React.FC<Props> = (props) => {
         </Flex>  
     </Flex>
     </Flex>
-</div>
+</Flex>
   )
 }
 
