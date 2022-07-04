@@ -45,7 +45,7 @@ const AllProducts: React.FC = () => {
             <Flex m={2} mt={3} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
             <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"7vh"} m={1} p={2}>
                 <Flex fontSize={"2xl"} fontWeight="bold" >{item===1?"All Products":item===2?"Best Selling":"Most Wishlisted"}</Flex>
-                <Flex pr={2}><a className='viewAll' href='/'>VIEW ALL</a></Flex>
+                <Flex pr={2}><a className='viewAll' href='/all'>VIEW ALL</a></Flex>
             </Flex>
             <hr />
 

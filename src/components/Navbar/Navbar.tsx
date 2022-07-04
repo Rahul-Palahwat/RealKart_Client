@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
 
 
                 <Flex width="60%" height={"100%"} alignItems="center" justifyContent={"center"} fontSize="4xl" fontWeight={"bold"} ml="2">
-                    <Flex cursor={"pointer"}>Rajeev Kirana Store</Flex>
+                    <Flex cursor={"pointer"}> <a href="/">Rajeev Kirana Store</a> </Flex>
                 </Flex>
 
                 <Flex width="10%" height={"100%"} alignItems="center" justifyContent={"flex-end"} fontSize="medium">
