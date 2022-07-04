@@ -24,7 +24,7 @@ const AllProducts: React.FC = () => {
         description?: any
       }
 
-    const [itemsPerPage , setItemsPerPage] = useState<number>(4);
+    const [itemsPerPage , setItemsPerPage] = useState<number>(7);
     console.log(setItemsPerPage);
 
     const [pageNumber, setPageNumber] = useState<number>(1);
@@ -42,12 +42,11 @@ const AllProducts: React.FC = () => {
     return (
         <>
         {dataItems.map((item) => (
-            <Flex m={2} mt={3} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
+            <Flex m={2} mt={5} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
             <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"7vh"} m={1} p={2}>
-                <Flex fontSize={"2xl"} fontWeight="bold" >{item===1?"All Products":item===2?"Best Selling":"Most Wishlisted"}</Flex>
-                <Flex pr={2}><a className='viewAll' href='/all'>VIEW ALL</a></Flex>
+                <Flex fontSize={"2xl"} fontWeight="bold" ml={4}>{item===1?"All Products":item===2?"Best Selling":"Most Wishlisted"}</Flex>
+                <Flex pr={5}><a className='viewAll' href='/all'>VIEW ALL</a></Flex>
             </Flex>
-            <hr />
 
             <Flex height={"auto"} alignItems="center">
                 <Flex height={"100%"} className='left-right' display={pageNumber>1?"":"none"} fontSize="4xl"><MdArrowBackIosNew onClick={()=> setPageNumber(pageNumber-1)}/></Flex>

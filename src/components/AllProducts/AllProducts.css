@@ -5,7 +5,8 @@
     font-family: 'Ubuntu', sans-serif;
     background-color: white;
     height: 40vh;
-    box-shadow: 0 4px 8px 0 rgba(178, 192, 209, 0.2), 0 6px 20px 0 rgba(89, 158, 238, 0.19);
+    /* box-shadow: 0 4px 8px 0 rgba(178, 192, 209, 0.2), 0 6px 20px 0 rgba(89, 158, 238, 0.19); */
+    box-shadow: 0 4px 8px 0 rgba(178, 192, 209, 0.2);
 }
 .left-right:hover{
     background-color: antiquewhite;

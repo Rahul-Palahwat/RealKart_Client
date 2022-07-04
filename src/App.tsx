@@ -12,15 +12,14 @@ function App() {
 
   return (
     <Router>
-      <div style={{ "backgroundColor": "#EAECEC" }}>
-        <div className='whole_body'>
+      {/* <div style={{ "backgroundColor": "#EAECEC" }}> */}
+      <div style={{ "backgroundColor": "white" }}>
+        <div>
           <Navbar />
-          <hr />
         </div>
         <Routes>
           <Route path="/" element={<AllProducts/>}></Route>
           <Route path="/all" element={<TotalProducts/>}></Route>
-          {/* <TotalProducts /> */}
         </Routes>
         <Footer />
       </div>
