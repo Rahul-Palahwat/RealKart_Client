@@ -35,7 +35,9 @@ const AllProducts: React.FC = () => {
 
     const pageData: Data[] = data.slice(indexofFirstItem, indexOfLastItem);
 
-    console.log("Page data", { pageData });
+    // console.log("Page data", { pageData });
+
+    
 
 
 

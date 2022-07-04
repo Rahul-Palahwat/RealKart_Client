@@ -4,13 +4,22 @@ import { Badge, Button, Flex } from '@chakra-ui/react';
 import { BsCartPlusFill, BsFillTelephoneFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 
+// this is to import redux store 
+import { useAppSelector, useAppDispatch } from '../../Redux/app/hooks'
+
+import {logIn} from '../../Redux/features/Login/Login';
+
 import './Navbar.css'
 import Searchbar from '../Searchbar/Searchbar';
 
 const Navbar: React.FC = () => {
     // const { colorMode, toggleColorMode } = useColorMode();
 
-    const [isLogIn, setIsLogIn] = useState<boolean>(false);
+    const {isLogIn} = useAppSelector((state) => state.login)
+
+    const dispatch = useAppDispatch();
+
+    // const [isLogIn, setIsLogIn] = useState<boolean>(false);
     return (
         <Flex direction={"column"} height="18vh" className="Navbar">
 
@@ -35,8 +44,8 @@ const Navbar: React.FC = () => {
                     <Flex alignItems={"center"} justifyContent="flex-end" width={"100%"}>
                         {!isLogIn
                             ? <Flex><Button color={"white"} bgColor={"#47B5FF"} className="items" mr={5}>Sign Up</Button>
-                                <Button color={"white"} bgColor={"#47B5FF"} className="items" mr={5} onClick={() => setIsLogIn(true)}>Log In</Button></Flex>
-                            : <Flex><Button color={"white"} bgColor={"#47B5FF"} className="items" mr={5} onClick={() => setIsLogIn(false)}>Log Out</Button>
+                                <Button color={"white"} bgColor={"#47B5FF"} className="items" mr={5} onClick={() => {dispatch(logIn(true))}}>Log In</Button></Flex>
+                            : <Flex><Button color={"white"} bgColor={"#47B5FF"} className="items" mr={5} onClick={() => {dispatch(logIn(false))}}>Log Out</Button>
                                 <Flex justifyContent={"center"} height="5vh" alignItems={"center"} borderRadius={5}>
                                     <Flex fontSize={"3xl"} mr={5}>
                                     <Flex mt={1}><BsCartPlusFill /></Flex>
