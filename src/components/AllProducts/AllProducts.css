@@ -15,7 +15,7 @@
     left: 0.9rem;
     height: 20vh;
     bottom: 0.5rem;
-    border: 2px solid grey;
+    /* border: 2px solid grey; */
     background-color: rgb(208, 199, 199);
     opacity: 0.2;
     /* margin-right: -4rem; */
@@ -31,7 +31,7 @@
     right: 4rem;
     height: 20vh;
     bottom: 1.5rem;
-    border: 2px solid grey;
+    /* border: 2px solid grey; */
     background-color: rgb(208, 199, 199);
     opacity: 0.1;
     /* margin-left: -3.2rem; */

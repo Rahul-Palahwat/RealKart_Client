@@ -1,66 +1,35 @@
-import { Flex } from '@chakra-ui/react'
+import { Button, Flex } from '@chakra-ui/react'
 import React from 'react'
 
-import {FaInstagram,FaGithub, FaLinkedin, FaFacebook} from 'react-icons/fa'
+import { FaInstagram, FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa'
 
 import './Footer.css'
 
-const Footer:React.FC = () => {
-  return (
-    <Flex height={"auto"} className="Footer" alignItems="center" justifyContent={"center"} direction="column">
-        <Flex height={"5vh"} width={"100%"} justifyContent="center" alignItems={"center"}>
-			<Flex>
-			<a href="/" style={{"color":"blue","textDecoration":"underline"}}>Visit Here </a>&nbsp; to get your shop registered here
+const Footer: React.FC = () => {
+	return (
+		<Flex height={"auto"} className="Footer" alignItems="center" justifyContent={"center"} direction="column">
+			<Flex height={"8vh"} width={'100%'} justifyContent="center">
+				<Flex justifyContent="space-around" width={"100%"}>
+					<Flex width={"12%"}></Flex>
+					<Flex justifyContent={"center"} width={"10%"} borderRadius={"0 0 6rem 6rem"}><Flex justifyContent={"center"} fontSize="1.3rem" borderRadius={"0 0 6rem 6rem"} height={"100%"} width={"100%"} bgColor={"white"}> <a href="\">Home</a> </Flex></Flex>
+					<Flex width={"12%"}></Flex>
+					<Flex justifyContent={"center"}  width={"10%"}><Flex><a href="\about">About Us</a></Flex></Flex>
+					<Flex width={"12%"}></Flex>
+					<Flex justifyContent={"center"}  width={"10%"}><Flex><a href="\location">Location</a></Flex></Flex>
+					<Flex width={"12%"}></Flex>
+					<Flex justifyContent={"center"}  width={"10%"}><Flex><a href="\contact">Contact Us</a></Flex></Flex>
+					<Flex width={"12%"}></Flex>
+				</Flex>
 			</Flex>
-        </Flex>
-		<hr/>
-
-
-		<Flex height={"20vh"} width={'100%'} alignItems={"center"} justifyContent="space-between" m={2}>
-			<Flex height={"100%"} width={"100%"} alignItems="center" justifyContent={"center"}>
-				<ul style={{"listStyle":"none"}}>
-					<li>About Us</li>
-					<li>Contact Us</li>
-					<li>Location</li>
-					<li>Home</li>
-				</ul>
+			<Flex height={"5vh"} width={"100%"} justifyContent="space-around" alignItems={"center"}>
+				{/* <Flex fontSize={"2xl"}><FaLinkedin /></Flex>
+				<Flex fontSize={"2xl"}><FaGithub /></Flex> */}
+				<Flex>All Rights Reserved &copy;Pensive2022</Flex>
+				{/* <Flex fontSize={"2xl"}><FaInstagram /></Flex>
+				<Flex fontSize={"2xl"}><FaFacebook /></Flex> */}
 			</Flex>
-			<Flex height={"100%"} width={"100%"} alignItems="center" justifyContent={"center"} direction="column">
-				<Flex fontSize={"3xl"} className="onestore">One Store for all your products</Flex>
-				<Flex fontSize={"5xl"} className="info">Warement House</Flex>
-			</Flex>
-			<Flex height={"100%"} width={"100%"} alignItems="center" justifyContent={"center"}>
-				<ul style={{"listStyle":"none"}}>
-					<li>Services</li>
-					<li>Registration</li>
-					<li>Users</li>
-					<li>Visit</li>
-				</ul>
-			</Flex>
-			
-			
 		</Flex>
-		<hr />
-
-
-        <Flex height={"12vh"}  width={"100%"} direction={"column"}>
-          <Flex height={"5vh"} width={"100%"} justifyContent="center" alignItems={"center"}>
-			Follow Us Here
-		  </Flex>
-          <Flex height={"7vh"} width={'100%'} justifyContent="center" alignItems={"center"}>
-            <Flex width={"60%"} justifyContent="space-around" fontSize={"2xl"}>
-            <Flex><FaLinkedin/></Flex>
-            <Flex><FaGithub/></Flex>
-            <Flex><FaInstagram/></Flex>
-            <Flex><FaFacebook/></Flex>
-            </Flex>
-          </Flex>
-        </Flex>
-		<hr />
-
-        <Flex height={"5vh"} width={"100%"} justifyContent="center" alignItems={"center"}>All Rights Reserved &copy;Pensive2022</Flex>
-    </Flex>
-  )
+	)
 }
 
 export default Footer

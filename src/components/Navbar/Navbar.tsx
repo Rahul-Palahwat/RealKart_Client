@@ -35,9 +35,9 @@ const Navbar: React.FC = () => {
                     <a href="/" style={{ "fontWeight": "bold" }}>Directions</a>
                 </Flex> */}
 
-                <Flex width="10%" height={"100%"} alignItems="center" justifyContent={"flex-end"}>
+                {/* <Flex width="10%" height={"100%"} alignItems="center" justifyContent={"flex-end"}>
                     <Flex cursor={"pointer"}><BsFillTelephoneFill /></Flex>&nbsp; <a href="/" style={{ "fontWeight": "bold" }}>Contact Us</a>
-                </Flex>
+                </Flex> */}
 
 
                 <Flex width="15%" height={"100%"} alignItems="center" justifyContent={"flex-end"} pr={6}>
