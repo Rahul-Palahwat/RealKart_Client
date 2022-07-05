@@ -6,7 +6,7 @@ import { useBreakpointValue } from '@chakra-ui/react'
 
 // for reducer 
 import { useAppDispatch, useAppSelector } from '../../redux'
-import { getItems } from '../../redux/reducers/items'
+import { getMostWishlistedItems } from '../../redux/reducers/items'
 
 import './MostWishlisted.css'
 
@@ -14,7 +14,7 @@ const MostWishlisted:React.FC = () => {
 
     const dispatch = useAppDispatch();
 
-    const {loading, data , error} = useAppSelector((state) => state.items)
+    const {dataMostWishlistedProducts , getMostWishlistedProductsStatus} = useAppSelector((state) => state.items)
 
     const [items, setItems] = useState<any>([])
 
@@ -25,14 +25,14 @@ const MostWishlisted:React.FC = () => {
     const [pageNumber, setPageNumber] = useState<number>(1);
 
     useEffect(() => {
-        dispatch(getItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
+        dispatch(getMostWishlistedItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
     }, [pageNumber])
 
     useEffect(() => {
-        if (loading === false) {
-            setItems(data.docs)
+        if (getMostWishlistedProductsStatus === "SUCCESS") {
+            setItems(dataMostWishlistedProducts.docs)
         }
-    }, [loading])
+    }, [getMostWishlistedProductsStatus])
 
     useEffect(() => {
         if (itemsInSlider) {
@@ -54,12 +54,12 @@ const MostWishlisted:React.FC = () => {
                 </Flex>
             </Flex>
             <Flex height={"auto"} alignItems="center">
-                {loading ? <Flex alignItems={"center"} justifyContent={"center"} width={"100vw"} height={"46.7vh"}><Spinner size={"xl"} /></Flex> : <>
+                {getMostWishlistedProductsStatus === "NOT_STARTED" || getMostWishlistedProductsStatus === "FETCHING" ? <Flex alignItems={"center"} justifyContent={"center"} width={"100vw"} height={"46.7vh"}><Spinner size={"xl"} /></Flex> : <>
                     <Flex width={"0%"} height={"100%"} className='left-right' display={pageNumber > 1 ? "" : "none"} fontSize="4xl">
                         <MdArrowBackIosNew className='pos_left' onClick={() => setPageNumber(pageNumber - 1)} />
                     </Flex>
                     {items.map((dat: any) => (<Product title={dat.name} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.sellingPrice} key={dat._id} />))}
-                    <Flex width={"0%"} height={"100"} className='left-right' display={pageNumber >= (data.total.length / itemsPerPage) ? "none" : ""} fontSize={"4xl"}>
+                    <Flex width={"0%"} height={"100"} className='left-right' display={pageNumber >= (dataMostWishlistedProducts.total.length / itemsPerPage) ? "none" : ""} fontSize={"4xl"}>
                         <MdArrowForwardIos className="pos_right" onClick={() => setPageNumber(pageNumber + 1)} />
                     </Flex></>}
             </Flex>
