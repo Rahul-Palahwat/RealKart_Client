@@ -8,6 +8,7 @@ import TotalProducts from './components/TotalProducts/TotalProducts';
 import AllProducts from './components/AllProducts/AllProducts';
 import { Box, Flex } from '@chakra-ui/react';
 import BestSelling from './components/BestSelling/BestSelling';
+import MostWishlisted from './components/MostWishlisted/MostWishlisted';
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Flex direction={"column"}>
 						<AllProducts/>
 						<BestSelling/>
+						<MostWishlisted/>
 					</Flex>
 				
 				}></Route>
