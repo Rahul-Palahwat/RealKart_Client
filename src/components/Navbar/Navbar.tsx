@@ -5,9 +5,9 @@ import { BsCartPlusFill, BsFillTelephoneFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 
 // this is to import redux store 
-import { useAppSelector, useAppDispatch } from '../../Redux/app/hooks'
+import { useAppSelector, useAppDispatch } from '../../redux/'
 
-import {logIn} from '../../Redux/features/Login/Login';
+import { logIn } from '../../redux/reducers/Login';
 
 import './Navbar.css'
 import Searchbar from '../Searchbar/Searchbar';
