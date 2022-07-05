@@ -1,16 +1,16 @@
-.Navbar{
+/* .Navbar{
     font-family: 'Baloo 2', sans-serif;
-}
+} */
 a{
     color: red;
     text-decoration: underline;
 }
-.Navbar{
-    /* background-color: grey; */
-}
-.items:hover{
+/* .Navbar{
+    background-color: grey;
+} */
+/* .items:hover{
     color: blue;
-}
+} */
 
 .info_shop{
     background-image: linear-gradient(#a1e0f9 , white);
