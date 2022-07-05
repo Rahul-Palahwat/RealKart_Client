@@ -1,0 +1,65 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Baloo+Bhai+2&family=Fira+Sans:wght@500&family=Neucha&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400&family=Source+Code+Pro:wght@300&family=Ubuntu:wght@300&display=swap');
+
+.AllProducts{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: white;
+    /* height: 40vh; */
+    /* box-shadow: 0 4px 8px 0 rgba(178, 192, 209, 0.2), 0 6px 20px 0 rgba(89, 158, 238, 0.19); */
+    /* box-shadow: 0 4px 8px 0 rgba(178, 192, 209, 0.2); */
+}
+
+.pos_left{
+    position: relative;
+    font-size: 3.2rem;
+    left: 0.9rem;
+    height: 20vh;
+    bottom: 0.5rem;
+    /* border: 2px solid grey; */
+    background-color: rgb(208, 199, 199);
+    opacity: 0.2;
+    /* margin-right: -4rem; */
+    /* padding-left: 1rem; */
+    border-radius: 0 2rem 2rem 0;
+    /* height: 20vh; */
+    /* border: 4px solid rgb(249, 246, 246); */
+}
+
+.pos_right{
+    position: relative;
+    font-size: 3.2rem;
+    right: 4rem;
+    height: 20vh;
+    bottom: 1.5rem;
+    /* border: 2px solid grey; */
+    background-color: rgb(208, 199, 199);
+    opacity: 0.1;
+    /* margin-left: -3.2rem; */
+    border-radius: 2rem 0 0 2rem;
+    /* height: 20vh; */
+    /* border: 4px solid rgb(249, 246, 246); */
+}
+.pos_right:hover{
+    /* border: 6px solid rgb(252, 248, 248); */
+    opacity: 0.8;
+}
+.pos_left:hover{
+    /* border: 6px solid rgb(252, 248, 248); */
+    opacity: 0.8;
+}
+
+
+.viewAll{
+    color: #4167B2;
+    font-size: large;
+    font-weight: 900;
+}
+
+/* font-family: 'Baloo 2', cursive;
+font-family: 'Baloo Bhai 2', cursive;
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Neucha', cursive;
+font-family: 'Quicksand', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Source Code Pro', monospace;
+font-family: 'Ubuntu', sans-serif; */

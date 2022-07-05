@@ -6,13 +6,20 @@ import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import TotalProducts from './components/TotalProducts/TotalProducts';
 import AllProducts from './components/AllProducts/AllProducts';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
+import BestSelling from './components/BestSelling/BestSelling';
 
 function App() {
 	return (
 		<Wrapper>
 			<Routes>
-				<Route path="/" element={<AllProducts/>}></Route>
+				<Route path="/" element={
+					<Flex direction={"column"}>
+						<AllProducts/>
+						<BestSelling/>
+					</Flex>
+				
+				}></Route>
 				<Route path="/all" element={<TotalProducts/>}></Route>
 			</Routes>
 		</Wrapper>
