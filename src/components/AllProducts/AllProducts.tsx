@@ -10,7 +10,7 @@ import { useBreakpointValue } from '@chakra-ui/react'
 
 // for reducer 
 import { useAppDispatch , useAppSelector } from '../../redux'
-import { getItems } from '../../redux/reducers/FetchItems'
+import { getItems } from '../../redux/reducers/items'
 // import _ from 'lodash'
 
 
@@ -30,7 +30,7 @@ interface Data {
 
 const AllProducts: React.FC = () => {
     const dispatch = useAppDispatch();
-    const {loading , data , error} = useAppSelector((state) => state.get);
+    const {loading , data , error} = useAppSelector((state) => state.items);
     console.log(error);
     const [items , setItems] = useState<any>([])
     const dataItems: number[] = [1, 2, 3];
@@ -39,16 +39,6 @@ const AllProducts: React.FC = () => {
     const [pageNumber, setPageNumber] = useState<number>(1);
     const indexOfLastItem: number = pageNumber * itemsPerPage;
     const indexofFirstItem: number = indexOfLastItem - itemsPerPage;
-    // const pageData: Data[] = data?.slice(indexofFirstItem, itemsInSlider);
-    // const indexOfLastItem: number = pageNumber * itemsPerPage;
-
-    // const indexofFirstItem: number = indexOfLastItem - itemsPerPage;
-
-    // const pageData: any = items.slice(indexofFirstItem, indexOfLastItem);
-    // const pageData: any = items;
-
-    // console.log("Page data", { pageData });
-
 
     useEffect(() => {
         dispatch(getItems({'store':'6232a2a4cd65fb954ebd83a5','limit':itemsPerPage, 'page': pageNumber}));

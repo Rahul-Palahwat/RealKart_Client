@@ -13,7 +13,6 @@ const initialState:InitialState = {
     error : '',
 }
 
-
 export const getItems = createAsyncThunk ( 'get/products' , async(payload: {} , thunkAPI) => {
     const response = await api.get('/products/all' , payload)
 
@@ -26,8 +25,6 @@ export const getItems = createAsyncThunk ( 'get/products' , async(payload: {} , 
     }
 
 } )
-
-
 
 const itemsSlice = createSlice({
     name: "get",
@@ -50,4 +47,4 @@ const itemsSlice = createSlice({
     }
 })
 
-export const GetItemsReducer =  itemsSlice.reducer
+export const ItemsReducer =  itemsSlice.reducer
