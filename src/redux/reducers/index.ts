@@ -1,9 +1,12 @@
 import { combineReducers } from "redux"
 import { LoginReducer } from "./Login"
 
+import { GetItemsReducer } from "./FetchItems"
+
 
 const appReducer = combineReducers({
-    login: LoginReducer
+    login: LoginReducer,
+    get: GetItemsReducer
 })
 
 

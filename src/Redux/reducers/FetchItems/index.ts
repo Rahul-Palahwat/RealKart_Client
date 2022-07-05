@@ -1,35 +1,6 @@
 import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "../../../utils/api";
 
-
-// interface Store{
-//     _id: string
-//     name: string
-// }
-
-// interface Data{
-//     _id: string
-//     name: string
-//     hsn: string
-//     costPrice: number
-//     sellingPrice: number
-//     sgst: number
-//     cgst: number
-//     igst: number
-//     stock: number
-//     minStock: number
-//     store: Store
-//     centralTax: string
-//     code: string
-//     company: string
-//     localTax: string
-//     unit: string
-//     createdAt: string
-//     updatedAt: string
-//     show: boolean
-
-// }
-
 interface InitialState{
     loading : boolean
     data : any
@@ -78,3 +49,5 @@ const itemsSlice = createSlice({
         })
     }
 })
+
+export const GetItemsReducer =  itemsSlice.reducer

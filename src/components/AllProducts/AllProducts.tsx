@@ -1,16 +1,35 @@
 import { Flex } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
 
-import data from '../data.json'
+import dataTemp from '../data.json'
+
 import Product from '../Product/Product'
 
 import './AllProducts.css'
 
+// for reducer 
+import { useAppDispatch , useAppSelector } from '../../redux'
+import { getItems } from '../../redux/reducers/FetchItems'
+
+
+
 const AllProducts: React.FC = () => {
 
+    const dispatch = useAppDispatch();
+
+    const {loading , data , error} = useAppSelector((state) => state.get);
+
+
     const dataItems: number[] = [1, 2, 3];
+
+    useEffect(() => {
+        dispatch(getItems({'store':'6232a2a4cd65fb954ebd83a5'}));
+    },[])
+
+    console.log("DATA", data.docs);
+
 
     interface Data {
         itemCode: number
@@ -33,7 +52,7 @@ const AllProducts: React.FC = () => {
 
     const indexofFirstItem: number = indexOfLastItem - itemsPerPage;
 
-    const pageData: Data[] = data.slice(indexofFirstItem, indexOfLastItem);
+    const pageData: Data[] = dataTemp.slice(indexofFirstItem, indexOfLastItem);
 
     // console.log("Page data", { pageData });
 
@@ -54,8 +73,8 @@ const AllProducts: React.FC = () => {
                         <Flex width={"0%"} height={"100%"} className='left-right' display={pageNumber > 1 ? "" : "none"} fontSize="4xl">
                             <MdArrowBackIosNew className='pos_left' onClick={() => setPageNumber(pageNumber - 1)} />
                         </Flex>
-                        {pageData.map((dat) => (<Product title={dat.title} image={dat.imgLink} price={dat.newprice} />))}
-                        <Flex width={"0%"} height={"100"} className='left-right' display={pageNumber >= (data.length / itemsPerPage) ? "none" : ""} fontSize={"4xl"}>
+                        {pageData.map((dat) => (<Product title={dat.title} image={dat.imgLink} price={dat.newprice} key={dat.itemCode}/>))}
+                        <Flex width={"0%"} height={"100"} className='left-right' display={pageNumber >= (dataTemp.length / itemsPerPage) ? "none" : ""} fontSize={"4xl"}>
                             <MdArrowForwardIos className="pos_right"  onClick={() => setPageNumber(pageNumber + 1)}/>
                         </Flex>
                     </Flex>

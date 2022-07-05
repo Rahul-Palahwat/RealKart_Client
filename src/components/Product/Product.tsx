@@ -18,7 +18,7 @@ const Product: React.FC<Props> = (props) => {
     // const newprice = price;
 
     const location = useLocation();
-    console.log("location", location.pathname);
+    // console.log("location", location.pathname);
 
 
 
