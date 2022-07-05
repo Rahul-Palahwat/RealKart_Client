@@ -5,7 +5,7 @@ import { ChakraProvider, ColorModeScript, extendTheme,  type ThemeConfig } from 
 
 import { Provider } from 'react-redux';
 
-import store from './redux/app/store'
+import { store } from './redux/'
 
 
 const config: ThemeConfig = {

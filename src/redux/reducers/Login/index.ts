@@ -6,16 +6,15 @@ interface InitialState{
     error: string
 }
 
+export const logIn = createAsyncThunk('login/logIn' , async(bool: boolean) => {
+    return bool
+})
+
 const initialState:InitialState = {
     loading: false,
     isLogIn: false,
     error:''
 }
-
-export const logIn = createAsyncThunk('login/logIn' , async(bool: boolean) => {
-    return bool
-})
-
 
 const loginSlice = createSlice({
     name:'login',
@@ -38,4 +37,4 @@ const loginSlice = createSlice({
 })
 
 
-export default loginSlice.reducer
+export const LoginReducer =  loginSlice.reducer
