@@ -8,7 +8,7 @@ interface InitialState{
 }
 
 const initialState:InitialState = {
-    loading: false,
+    loading: true,
     data : [],
     error : '',
 }

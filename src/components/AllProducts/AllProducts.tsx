@@ -12,6 +12,7 @@ import './AllProducts.css'
 // for reducer 
 import { useAppDispatch , useAppSelector } from '../../redux'
 import { getItems } from '../../redux/reducers/FetchItems'
+import _ from 'lodash'
 
 
 
@@ -24,27 +25,12 @@ const AllProducts: React.FC = () => {
 
     const dataItems: number[] = [1, 2, 3];
 
-    useEffect(() => {
-        dispatch(getItems({'store':'6232a2a4cd65fb954ebd83a5'}));
-    },[])
+    const [items , setItems] = useState<any>([])
 
-    console.log("DATA", data.docs);
-
-
-    interface Data {
-        itemCode: number
-        category?: string
-        imgLink: string[]
-        title: string
-        location?: string
-        owner?: string
-        used?: string
-        newprice: number
-        description?: any
-    }
+   
 
     const [itemsPerPage, setItemsPerPage] = useState<number>(7);
-    console.log(setItemsPerPage);
+    // console.log(setItemsPerPage);
 
     const [pageNumber, setPageNumber] = useState<number>(1);
 
@@ -52,18 +38,32 @@ const AllProducts: React.FC = () => {
 
     const indexofFirstItem: number = indexOfLastItem - itemsPerPage;
 
-    const pageData: Data[] = dataTemp.slice(indexofFirstItem, indexOfLastItem);
+    const pageData: any = dataTemp.slice(indexofFirstItem, indexOfLastItem);
+    // const pageData: any = items;
 
     // console.log("Page data", { pageData });
 
+
+    useEffect(() => {
+        dispatch(getItems({'store':'6232a2a4cd65fb954ebd83a5','limit':itemsPerPage, 'page': pageNumber}));
+        loading==false && setItems(data.docs)
+    },[])
+
     
 
+    // console.log({data:data.docs, loading});
+
+    loading == false && _.map(data.docs, (el) => {
+        console.log({el})
+    })
 
 
     return (
         <>
-            {dataItems.map((item) => (
-                <Flex m={2} mt={5} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
+            {!loading && dataItems.map((item) => (
+                
+                <Flex key={item} m={2} mt={5} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
+                    
                     <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"7vh"} m={1} p={2}>
                         <Flex fontSize={"2xl"} fontWeight="bold" ml={4}>{item === 1 ? "All Products" : item === 2 ? "Best Selling" : "Most Wishlisted"}</Flex>
                         <Flex pr={5}><a className='viewAll' href='/all'>VIEW ALL</a></Flex>
@@ -73,7 +73,7 @@ const AllProducts: React.FC = () => {
                         <Flex width={"0%"} height={"100%"} className='left-right' display={pageNumber > 1 ? "" : "none"} fontSize="4xl">
                             <MdArrowBackIosNew className='pos_left' onClick={() => setPageNumber(pageNumber - 1)} />
                         </Flex>
-                        {pageData.map((dat) => (<Product title={dat.title} image={dat.imgLink} price={dat.newprice} key={dat.itemCode}/>))}
+                        {pageData.map((dat:any) => (<Product title={dat.title} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.newprice} key={dat.itemCode}/>))}
                         <Flex width={"0%"} height={"100"} className='left-right' display={pageNumber >= (dataTemp.length / itemsPerPage) ? "none" : ""} fontSize={"4xl"}>
                             <MdArrowForwardIos className="pos_right"  onClick={() => setPageNumber(pageNumber + 1)}/>
                         </Flex>
