@@ -66,7 +66,7 @@ const AllProducts: React.FC = () => {
 
     return (
         <>
-            {!loading && dataItems.map((item) => (
+            {loading ? <Flex height={"80vh"}></Flex>: dataItems.map((item) => (
                 
                 <Flex key={item} m={2} mt={5} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
                     
