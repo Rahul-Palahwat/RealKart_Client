@@ -1,9 +1,10 @@
 import { Flex } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
 import data from '../data.json'
 import Product from '../Product/Product'
 import './AllProducts.css'
+import { useBreakpointValue } from '@chakra-ui/react'
 
 interface Data {
     itemCode: number
@@ -19,11 +20,18 @@ interface Data {
 
 const AllProducts: React.FC = () => {
     const dataItems: number[] = [1, 2, 3];
+    const itemsInSlider = useBreakpointValue({base:2, md:4, lg:5, xl:7 })
     const [itemsPerPage, setItemsPerPage] = useState<number>(7);
     const [pageNumber, setPageNumber] = useState<number>(1);
     const indexOfLastItem: number = pageNumber * itemsPerPage;
     const indexofFirstItem: number = indexOfLastItem - itemsPerPage;
-    const pageData: Data[] = data.slice(indexofFirstItem, indexOfLastItem);
+    const pageData: Data[] = data.slice(indexofFirstItem, itemsInSlider);
+    useEffect(() => {
+      if(itemsInSlider) {
+        setItemsPerPage(itemsInSlider)
+      }
+    }, [])
+    
     return (<>
         {dataItems.map((item) => (
             <Flex m={2} mt={5} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
