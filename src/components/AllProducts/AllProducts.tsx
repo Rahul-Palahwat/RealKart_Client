@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react'
 
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
 
-import dataTemp from '../data.json'
-
 import Product from '../Product/Product'
 
 import './AllProducts.css'
@@ -12,7 +10,7 @@ import './AllProducts.css'
 // for reducer 
 import { useAppDispatch , useAppSelector } from '../../redux'
 import { getItems } from '../../redux/reducers/FetchItems'
-import _ from 'lodash'
+// import _ from 'lodash'
 
 
 
@@ -21,6 +19,8 @@ const AllProducts: React.FC = () => {
     const dispatch = useAppDispatch();
 
     const {loading , data , error} = useAppSelector((state) => state.get);
+    console.log(error);
+    
 
 
     const dataItems: number[] = [1, 2, 3];
@@ -30,15 +30,15 @@ const AllProducts: React.FC = () => {
    
 
     const [itemsPerPage, setItemsPerPage] = useState<number>(7);
-    // console.log(setItemsPerPage);
+    console.log(setItemsPerPage);
 
     const [pageNumber, setPageNumber] = useState<number>(1);
 
-    const indexOfLastItem: number = pageNumber * itemsPerPage;
+    // const indexOfLastItem: number = pageNumber * itemsPerPage;
 
-    const indexofFirstItem: number = indexOfLastItem - itemsPerPage;
+    // const indexofFirstItem: number = indexOfLastItem - itemsPerPage;
 
-    const pageData: any = dataTemp.slice(indexofFirstItem, indexOfLastItem);
+    // const pageData: any = items.slice(indexofFirstItem, indexOfLastItem);
     // const pageData: any = items;
 
     // console.log("Page data", { pageData });
@@ -46,16 +46,22 @@ const AllProducts: React.FC = () => {
 
     useEffect(() => {
         dispatch(getItems({'store':'6232a2a4cd65fb954ebd83a5','limit':itemsPerPage, 'page': pageNumber}));
-        loading==false && setItems(data.docs)
-    },[])
+    },[pageNumber])
+
+    useEffect(() => {
+      if(loading === false) {
+        setItems(data.docs)
+      }
+    }, [loading])
+    
 
     
 
     // console.log({data:data.docs, loading});
 
-    loading == false && _.map(data.docs, (el) => {
-        console.log({el})
-    })
+    // loading == false && _.map(data.docs, (el) => {
+    //     console.log({el})
+    // })
 
 
     return (
@@ -73,8 +79,8 @@ const AllProducts: React.FC = () => {
                         <Flex width={"0%"} height={"100%"} className='left-right' display={pageNumber > 1 ? "" : "none"} fontSize="4xl">
                             <MdArrowBackIosNew className='pos_left' onClick={() => setPageNumber(pageNumber - 1)} />
                         </Flex>
-                        {pageData.map((dat:any) => (<Product title={dat.title} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.newprice} key={dat.itemCode}/>))}
-                        <Flex width={"0%"} height={"100"} className='left-right' display={pageNumber >= (dataTemp.length / itemsPerPage) ? "none" : ""} fontSize={"4xl"}>
+                        {items.map((dat:any) => (<Product title={dat.name} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.sellingPrice} key={dat._id}/>))}
+                        <Flex width={"0%"} height={"100"} className='left-right' display={pageNumber >= (data.total.length / itemsPerPage) ? "none" : ""} fontSize={"4xl"}>
                             <MdArrowForwardIos className="pos_right"  onClick={() => setPageNumber(pageNumber + 1)}/>
                         </Flex>
                     </Flex>

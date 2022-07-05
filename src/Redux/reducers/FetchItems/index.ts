@@ -38,8 +38,8 @@ const itemsSlice = createSlice({
             state.loading = true
         })
         builder.addCase(getItems.fulfilled , (state , actions) => {
-            state.loading = false
             state.data = actions.payload
+            state.loading = false
             state.error = ''
         })
         builder.addCase(getItems.rejected , (state , actions) => {
