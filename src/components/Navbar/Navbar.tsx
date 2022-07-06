@@ -29,15 +29,15 @@ const Navbar: React.FC = () => {
                 {/* <Flex width="10%" height={"100%"} alignItems="center" justifyContent={"flex-end"}>
                     <Flex cursor={"pointer"}><BsFillTelephoneFill /></Flex>&nbsp; <a href="/" style={{ "fontWeight": "bold" }}>Contact Us</a>
                 </Flex> */}
-                <Flex width="15%" height={"100%"} alignItems="center" justifyContent={"flex-end"} pr={6}>
+                <Flex width="15%" height={"100%"} alignItems="flex-end" justifyContent={"flex-end"} pr={6}>
                     <Flex alignItems={"center"} justifyContent="flex-end" width={"100%"}>
                         {!isLogIn ? 
                             <Flex>
-                                <Button color={"white"} bgColor={"#47B5FF"} mr={5}>Sign Up</Button>
-                                <Button color={"white"} bgColor={"#47B5FF"} mr={5} onClick={() => {dispatch(logIn(true))}}>Log In</Button>
+                                <Button color={"white"} bgColor={"#47B5FF"} mr={5} height={"6vh"}>Sign Up</Button>
+                                <Button color={"white"} bgColor={"#47B5FF"} mr={5} height={"6vh"} onClick={() => {dispatch(logIn(true))}}>Log In</Button>
                             </Flex>
                         :   <Flex>
-                                <Button color={"white"} bgColor={"#47B5FF"} mr={5} onClick={() => {dispatch(logIn(false))}}>Log Out</Button>
+                                <Button color={"white"} bgColor={"#47B5FF"} height={"6vh"} mr={5} onClick={() => {dispatch(logIn(false))}}>Log Out</Button>
                                 <Flex justifyContent={"center"} height="5vh" alignItems={"center"} borderRadius={5}>
                                     <Flex fontSize={"3xl"} mr={5}>
                                         <Flex mt={1}><BsCartPlusFill /></Flex>
