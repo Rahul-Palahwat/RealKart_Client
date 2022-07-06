@@ -45,11 +45,11 @@ const BestSelling:React.FC = () => {
   return (
     <>
         <Flex m={2} mt={5} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
-            <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"7vh"} m={1} p={2}>
+            <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"10vh"} m={1} p={2}>
                 <Flex fontSize={"2xl"} fontWeight="bold" ml={4}>
                     Best Selling
                 </Flex>
-                <Flex pr={5} pt={"2rem"}>
+                <Flex pr={5} pt={"2.5rem"}>
                     <a className='viewAll' href='/all'><Flex fontSize={"1.1rem"}>View All</Flex></a>
                 </Flex>
             </Flex>
