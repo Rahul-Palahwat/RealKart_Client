@@ -30,16 +30,18 @@ function App() {
 
 
 const Wrapper = (props:any) => {
-	return (
+	return (<>
 		<Box style={{ "backgroundColor": "white" }}>
 			<Navbar />
 			<Box>
 				{props.children}
 			</Box>
-			<Box>
-				<Footer />
-			</Box>
+			
 		</Box>
+		{/* <Box>
+				<Footer />
+		</Box> */}
+		</>
 	)
 }
 

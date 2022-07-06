@@ -49,7 +49,7 @@ const AllProducts: React.FC = () => {
     }, [itemsInSlider])
 
     return (<>
-        <Flex m={2} mt={5} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
+        <Flex m={2} mt={3} mb={1} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
             <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"10vh"} m={1} p={2}>
                 <Flex fontSize={"2xl"} fontWeight="bold" ml={4}>
                     All Products

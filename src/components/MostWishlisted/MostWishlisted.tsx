@@ -44,7 +44,7 @@ const MostWishlisted:React.FC = () => {
 
   return (
     <>
-        <Flex m={2} mt={5} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
+        <Flex m={2} mt={2} mb={1} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
             <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"10vh"} m={1} p={2}>
                 <Flex fontSize={"2xl"} fontWeight="bold" ml={4}>
                     Most Wishlisted
