@@ -1,5 +1,8 @@
-import { Button, Flex } from '@chakra-ui/react'
+import { CheckIcon, InfoIcon, PlusSquareIcon } from '@chakra-ui/icons'
+import { Button, Flex, IconButton } from '@chakra-ui/react'
 import React from 'react'
+
+import { BsBagCheck , BsCartPlus } from 'react-icons/bs'
 
 import { useLocation } from 'react-router-dom'
 
@@ -13,7 +16,7 @@ interface Props {
 
 const Product: React.FC<Props> = (props) => {
     const { title, image, price } = props;
-    const newtitle: string = title.slice(0, 12);
+    const newtitle: string = title.slice(0, 18);
 
     // const newprice = price;
 
@@ -31,9 +34,16 @@ const Product: React.FC<Props> = (props) => {
                         <Flex mt={2} color="#4167B2" fontWeight={"bold"}>&#x20B9;{price.toLocaleString("en-IN")}</Flex>
                         <Flex mt={2} ml={4} textDecoration="line-through" fontSize={"0.8rem"} alignItems="flex-end">&#x20B9;{price}</Flex>
                     </Flex>
-                    <Flex id="cart" width="80%" height={"100%"} alignItems={"flex-end"} mt={3}>
-                        <Flex mb={3} width="100%" justifyContent={"center"}>
-                            <Button className='items' width="80%" color={"white"} bgColor={"#47B5FF"} fontSize="0.8rem" height={"1.8rem"}>Add to Cart</Button>
+                    <Flex id="cart" width="100%" height={"100%"} alignItems={"center"} mt={3} justifyContent="space-around">
+                        <Flex mb={3} justifyContent={"center"} alignItems="center">
+                            {/* <Flex width={"80%"}><Button className='items' width="80%" color={"white"} bgColor={"#47B5FF"} fontSize="0.8rem" height={"1.8rem"}>Add to Cart</Button></Flex> */}
+                            <Flex><IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' icon={<BsCartPlus />} /></Flex>
+                        </Flex>
+                        <Flex mb={3} justifyContent={"center"} alignItems="center">
+                            <Flex><IconButton aria-label='Search database' variant={"ghost"} colorScheme="teal" icon={<BsBagCheck />} /></Flex>
+                        </Flex>
+                        <Flex mb={3} justifyContent={"center"} alignItems="center">
+                            <Flex><IconButton aria-label='Search database' variant={"ghost"} colorScheme="blue" icon={<InfoIcon />} /></Flex>
                         </Flex>
                     </Flex>
                 </Flex>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 // import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { Badge, Button, Flex } from '@chakra-ui/react';
-import { BsCartPlusFill, BsFillTelephoneFill } from 'react-icons/bs'
-import { CgProfile } from 'react-icons/cg'
+import { Badge, Button, Flex, IconButton } from '@chakra-ui/react';
+import { BsCartPlus , BsPerson} from 'react-icons/bs'
+// import { CgProfile } from 'react-icons/cg'
 
 // this is to import redux store 
 import { useAppSelector, useAppDispatch } from '../../redux'
@@ -40,12 +40,12 @@ const Navbar: React.FC = () => {
                                 <Button color={"white"} bgColor={"#47B5FF"} height={"6vh"} mr={5} onClick={() => {dispatch(logIn(false))}}>Log Out</Button>
                                 <Flex justifyContent={"center"} height="5vh" alignItems={"center"} borderRadius={5}>
                                     <Flex fontSize={"3xl"} mr={5}>
-                                        <Flex mt={1}><BsCartPlusFill /></Flex>
+                                        <Flex mt={1}><IconButton aria-label='Search database' icon={<BsCartPlus />} /></Flex>
                                             <Flex justifyContent={"center"}>
-                                                <Badge colorScheme='orange' mt={-1} ml={-6} backgroundColor={"red.500"} borderRadius="5px 5px 20px 20px" height={"4"} width="4" display={isLogIn ? "" : "none"}>1</Badge>
+                                                <Badge colorScheme='orange' zIndex={1} mt={"0.5rem"} ml={"-2.4rem"} backgroundColor={"red.500"} borderRadius="5px 5px 20px 20px" height={"3"} width="3" display={isLogIn ? "" : "none"} fontSize="0.6rem">1</Badge>
                                             </Flex>
                                         </Flex>
-                                    <Flex fontSize={"3xl"} mr={2}><CgProfile /></Flex>
+                                    <Flex fontSize={"3xl"} mr={2}><IconButton aria-label='Search database' icon={<BsPerson />} /></Flex>
                                 </Flex>
                             </Flex>
                         }

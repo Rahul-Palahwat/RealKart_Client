@@ -1,7 +1,7 @@
-import { Button, Flex } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import React from 'react'
 
-import { FaInstagram, FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa'
+// import { FaInstagram, FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa'
 
 import './Footer.css'
 
