@@ -2,13 +2,13 @@
 
 import { Routes, Route } from 'react-router-dom'
 
-import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import TotalProducts from './components/TotalProducts/TotalProducts';
 import AllProducts from './components/AllProducts/AllProducts';
 import { Box, Flex } from '@chakra-ui/react';
 import BestSelling from './components/BestSelling/BestSelling';
 import MostWishlisted from './components/MostWishlisted/MostWishlisted';
+import Footer from './components/Footer/Footer';
 
 function App() {
 	return (
@@ -36,11 +36,10 @@ const Wrapper = (props:any) => {
 			<Box>
 				{props.children}
 			</Box>
-			
 		</Box>
-		{/* <Box>
-				<Footer />
-		</Box> */}
+		<Box>
+			<Footer/>
+		</Box>
 		</>
 	)
 }

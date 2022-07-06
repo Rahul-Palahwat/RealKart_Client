@@ -32,7 +32,7 @@ const Product: React.FC<Props> = (props) => {
                     <Flex mt={3}><img src={image[0]} alt="Hello" style={{ "height": "20vh","borderRadius":"0.5rem"}} /></Flex>
                     <Flex justifyContent={"space-between"} mt={2}>
                         <Flex mt={2} color="#4167B2" fontWeight={"bold"}>&#x20B9;{price.toLocaleString("en-IN")}</Flex>
-                        <Flex mt={2} ml={4} textDecoration="line-through" fontSize={"0.8rem"} alignItems="flex-end">&#x20B9;{price}</Flex>
+                        <Flex mt={2} ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{price}</Flex>
                     </Flex>
                     <Flex id="cart" width="80%" height={"100%"} alignItems={"center"} mt={1} justifyContent="space-around">
                         <Flex mb={4} justifyContent={"center"} alignItems="center">
