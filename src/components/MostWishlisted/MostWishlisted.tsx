@@ -44,7 +44,7 @@ const MostWishlisted:React.FC = () => {
 
   return (
     <>
-        <Flex m={2} mt={5} mb={5} className='AllProductsmost' direction="column" height={"auto"} borderRadius={8}>
+        <Flex m={2} mt={5} mb={5} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
             <Flex alignItems={"center"} justifyContent="space-between" width={"auto"} height={"7vh"} m={1} p={2}>
                 <Flex fontSize={"2xl"} fontWeight="bold" ml={4}>
                     Most Wishlisted
@@ -56,11 +56,11 @@ const MostWishlisted:React.FC = () => {
             <Flex height={"auto"} alignItems="center">
                 {getMostWishlistedProductsStatus === "NOT_STARTED" || getMostWishlistedProductsStatus === "FETCHING" ? <Flex alignItems={"center"} justifyContent={"center"} width={"100vw"} height={"46.7vh"}><Spinner size={"xl"} /></Flex> : <>
                     <Flex width={"0%"} height={"100%"} display={pageNumber > 1 ? "" : "none"} fontSize="4xl">
-                        <MdArrowBackIosNew className='pos_leftmost' onClick={() => setPageNumber(pageNumber - 1)} />
+                        <MdArrowBackIosNew className='pos_left' onClick={() => setPageNumber(pageNumber - 1)} />
                     </Flex>
                     {items.map((dat: any) => (<Product title={dat.name} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.sellingPrice} key={dat._id} />))}
                     <Flex width={"0%"} height={"100"} display={pageNumber >= (dataMostWishlistedProducts.total.length / itemsPerPage) ? "none" : ""} fontSize={"4xl"}>
-                        <MdArrowForwardIos className="pos_rightmost" onClick={() => setPageNumber(pageNumber + 1)} />
+                        <MdArrowForwardIos className="pos_right" onClick={() => setPageNumber(pageNumber + 1)} />
                     </Flex></>}
             </Flex>
         </Flex>
