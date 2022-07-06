@@ -49,8 +49,8 @@ const MostWishlisted:React.FC = () => {
                 <Flex fontSize={"2xl"} fontWeight="bold" ml={4}>
                     Most Wishlisted
                 </Flex>
-                <Flex pr={5}>
-                    <a className='viewAll' href='/all'>VIEW ALL</a>
+                <Flex pr={5} pt={"2rem"}>
+                    <a className='viewAll' href='/all'><Flex fontSize={"1.1rem"}>View All</Flex></a>
                 </Flex>
             </Flex>
             <Flex height={"auto"} alignItems="center">
