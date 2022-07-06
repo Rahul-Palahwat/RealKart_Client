@@ -20,10 +20,10 @@ const Footer: React.FC = () => {
                     <Flex alignItems={"center"} justifyContent="center">Privacy Policy &nbsp; | &nbsp; Terms</Flex>
                 </Flex>
                 <Flex justifyContent={"space-around"} width="15vw" mr={2}>
-                <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<FaFacebook />} />
-                <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<FaInstagram />} />
-                <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<FaTwitter />} />
-                <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<FaLinkedin />} />
+                <a href="https://www.linkedin.com/company/realpensive/" target={"_blank"}><IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<FaLinkedin />} /></a>
+                <a href="https://www.facebook.com/realpensive1" target={"_blank"}><IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<FaFacebook />} /></a>
+                <a href="https://www.instagram.com/realpensive/" target={"_blank"}><IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<FaInstagram />} /></a>
+                <a href="https://twitter.com/pensivereal" target={"_blank"}><IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<FaTwitter />} /></a>
                 </Flex>
 
             </Flex>
