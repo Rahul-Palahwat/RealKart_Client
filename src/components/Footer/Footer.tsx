@@ -8,7 +8,7 @@ import './Footer.css'
 const Footer: React.FC = () => {
 	return (
 		<Flex height={"auto"} className="Footer" alignItems="center" justifyContent={"center"} direction="column">
-			<Flex height={"8vh"} width={'100%'} justifyContent="center">
+			<Flex height={"12vh"} width={'100%'} justifyContent="center" alignItems={"center"}>
 				<Flex justifyContent="space-around" width={"100%"}>
 
 					<Flex width={"12%"}></Flex>

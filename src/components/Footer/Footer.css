@@ -20,5 +20,6 @@ hr{
     width: 100vw;
 }
 .Footer{
-    background-image: linear-gradient(white,#47B5FF);
+    /* background-image: linear-gradient(white,#47B5FF); */
+    background-color: #47B5FF;
 }
