@@ -1,5 +1,5 @@
 import { Badge, Button, Flex, FormControl, FormLabel, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BsCartPlus, BsPerson } from 'react-icons/bs'
 
 // import { FaInstagram, FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa'
@@ -8,6 +8,7 @@ import { BsCartPlus, BsPerson } from 'react-icons/bs'
 import { useAppSelector, useAppDispatch } from '../../redux'
 
 import { logIn } from '../../redux/reducers/Login/index';
+import ModalSignUp from '../ModalSignUp/ModalSignUp';
 
 import './MainNav.css'
 
@@ -16,65 +17,18 @@ const MainNav: React.FC = () => {
 	const { isLogIn } = useAppSelector((state) => state.login)
 	const dispatch = useAppDispatch();
 
-
-
-
-
 	const { isOpen, onOpen, onClose } = useDisclosure()
 
-	const initialRef = React.useRef(null)
+	// const initialRef = React.useRef(null)
 
-
-
-
-	// function InitialFocus() {
-	// 	const { isOpen, onOpen, onClose } = useDisclosure()
-
-	// 	const initialRef = React.useRef(null)
-
-
-	// 	return (
-	// 	  <>
-	// 	  <Button onClick={onOpen}>Open Modal</Button>
-	// 		<Modal
-	// 		  initialFocusRef={initialRef}
-	// 		  isOpen={isOpen}
-	// 		  onClose={onClose}
-	// 		>
-	// 		  <ModalOverlay />
-	// 		  <ModalContent>
-	// 			<ModalHeader>Create your account</ModalHeader>
-	// 			<ModalCloseButton />
-	// 			<ModalBody pb={6}>
-	// 			  <FormControl>
-	// 				<FormLabel>First name</FormLabel>
-	// 				<Input ref={initialRef} placeholder='First name' />
-	// 			  </FormControl>
-
-	// 			  <FormControl mt={4}>
-	// 				<FormLabel>Last name</FormLabel>
-	// 				<Input placeholder='Last name' />
-	// 			  </FormControl>
-	// 			</ModalBody>
-
-	// 			<ModalFooter>
-	// 			  <Button colorScheme='blue' mr={3}>
-	// 				Save
-	// 			  </Button>
-	// 			  <Button onClick={onClose}>Cancel</Button>
-	// 			</ModalFooter>
-	// 		  </ModalContent>
-	// 		</Modal>
-	// 	  </>
-	// 	)
-	//   }
-
-
-
-
-
-
-
+	const openModal = () => {
+		console.log("Hello Modal")
+		return(
+			<>
+				<ModalSignUp onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
+			</>
+		)
+	}
 
 
 
@@ -104,35 +58,6 @@ const MainNav: React.FC = () => {
 						{!isLogIn ?
 							<Flex alignItems={"flex-end"} justifyContent={"space-between"}>
 								<Button onClick={onOpen} color={"white"} bgColor={"#47B5FF"} mr={8} height={"6vh"} fontSize="1.1rem" cursor={"pointer"}>Sign Up</Button>
-								<Modal
-									initialFocusRef={initialRef}
-									isOpen={isOpen}
-									onClose={onClose}
-								>
-									<ModalOverlay />
-									<ModalContent>
-										<ModalHeader>Create your account</ModalHeader>
-										<ModalCloseButton />
-										<ModalBody pb={6}>
-											<FormControl>
-												<FormLabel>First name</FormLabel>
-												<Input ref={initialRef} placeholder='First name' />
-											</FormControl>
-
-											<FormControl mt={4}>
-												<FormLabel>Last name</FormLabel>
-												<Input placeholder='Last name' />
-											</FormControl>
-										</ModalBody>
-
-										<ModalFooter>
-											<Button colorScheme='blue' mr={3}>
-												Save
-											</Button>
-											<Button onClick={onClose}>Cancel</Button>
-										</ModalFooter>
-									</ModalContent>
-								</Modal>
 								<Button color={"white"} bgColor={"#47B5FF"} mr={8} height={"6vh"} fontSize="1.1rem" cursor={"pointer"} onClick={() => { dispatch(logIn(true)) }}>Log In</Button>
 							</Flex>
 							: <Flex>
@@ -150,10 +75,8 @@ const MainNav: React.FC = () => {
 						}
 					</Flex>
 				</Flex>
-
-
-
 			</Flex>
+			<ModalSignUp onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
 		</>
 	)
 }
