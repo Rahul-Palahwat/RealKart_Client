@@ -25,9 +25,7 @@ const Footer: React.FC = () => {
                 <a href="https://www.instagram.com/realpensive/" target={"_blank"}><IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<FaInstagram />} /></a>
                 <a href="https://twitter.com/pensivereal" target={"_blank"}><IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<FaTwitter />} /></a>
                 </Flex>
-
             </Flex>
-
         </>
     )
 }
