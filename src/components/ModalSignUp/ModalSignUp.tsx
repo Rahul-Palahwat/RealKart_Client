@@ -32,57 +32,57 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                 onClose={onClose}
             >
                 <ModalOverlay />
-                <ModalContent>
+                <ModalContent pl="2rem" pr={"2rem"}>
                     <Flex direction={"column"}>
-                    <ModalHeader>Create your account</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody pb={6}>
-                        <Flex justifyContent={"space-between"} alignItems={"center"}>
-                            <Flex width={"45%"}>
-                            <FormControl>
-                                <FormLabel>First name</FormLabel>
-                                <Input ref={initialRef} placeholder='First name' />
-                            </FormControl>
+                        <ModalHeader ><Flex justifyContent="center">Create your account</Flex></ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody pb={6}>
+                            <Flex justifyContent={"space-between"} alignItems={"center"}>
+                                <Flex width={"45%"}>
+                                    <FormControl>
+                                        <FormLabel>First name</FormLabel>
+                                        <Input ref={initialRef} placeholder='First name' />
+                                    </FormControl>
+                                </Flex>
+                                <Flex width={"45%"} alignItems={"center"}>
+                                    <FormControl>
+                                        <FormLabel>Last name</FormLabel>
+                                        <Input placeholder='Last name' />
+                                    </FormControl>
+                                </Flex>
                             </Flex>
-                            <Flex width={"45%"} alignItems={"center"}>
-                            <FormControl>
-                                <FormLabel>Last name</FormLabel>
-                                <Input placeholder='Last name' />
-                            </FormControl>
+                            <Flex width={"50%"}>
+                                <FormControl>
+                                    <FormLabel mt="0.8rem" mb="0.8rem">E-mail</FormLabel>
+                                    <Input placeholder='Enter your E-mail address' type={"email"} />
+                                </FormControl>
                             </Flex>
-                        </Flex>
-                        <Flex>
-                        <FormControl>
-                                <FormLabel>E-mail</FormLabel>
-                                <Input placeholder='Enter your E-mail address' type={"email"}/>
-                            </FormControl>
-                        </Flex>
-                        <Flex>
-                        <FormControl>
-                                <FormLabel>Contact No.</FormLabel>
-                                <Input placeholder='Enter your phone number' type={"number"}/>
-                            </FormControl>
-                        </Flex>
-                        <Flex>
-                        <FormControl>
-                                <FormLabel>Password</FormLabel>
-                                <Input placeholder='Enter your password' type={"password"}/>
-                            </FormControl>
-                        </Flex>
-                        <Flex>
-                        <FormControl>
-                                <FormLabel>Confirm Password</FormLabel>
-                                <Input placeholder='Retype your password' type={"password"}/>
-                            </FormControl>
-                        </Flex>
-                    </ModalBody>
+                            <Flex width={"50%"}>
+                                <FormControl>
+                                    <FormLabel mt="0.8rem" mb="0.8rem">Contact No.</FormLabel>
+                                    <Input placeholder='Enter your phone number' type={"number"} />
+                                </FormControl>
+                            </Flex>
+                            <Flex width={"50%"}>
+                                <FormControl>
+                                    <FormLabel mt="0.8rem" mb="0.8rem">Password</FormLabel>
+                                    <Input placeholder='Enter your password' type={"password"} />
+                                </FormControl>
+                            </Flex>
+                            <Flex width={"50%"}>
+                                <FormControl>
+                                    <FormLabel mt="0.8rem" mb="0.8rem">Confirm Password</FormLabel>
+                                    <Input placeholder='Retype your password' type={"password"} />
+                                </FormControl>
+                            </Flex>
+                        </ModalBody>
 
-                    <ModalFooter>
-                        <Button colorScheme='blue' mr={3}>
-                            Submit
-                        </Button>
-                        <Button onClick={onClose}>Cancel</Button>
-                    </ModalFooter>
+                        <ModalFooter>
+                            <Button colorScheme='blue' mr={3}>
+                                Submit
+                            </Button>
+                            <Button onClick={onClose}>Cancel</Button>
+                        </ModalFooter>
                     </Flex>
                 </ModalContent>
             </Modal>
