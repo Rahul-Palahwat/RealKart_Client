@@ -101,7 +101,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                                     </Flex>
                                     <Flex className="googleButton facebook">
                                         <img src={facebook} alt="" className='icon' />
-                                        Google
+                                        Facebook
                                     </Flex>
                                 </Flex>
                             </Flex>

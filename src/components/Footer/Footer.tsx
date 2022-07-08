@@ -12,11 +12,11 @@ const Footer: React.FC = () => {
             <Flex height={"10vh"} bgColor="black" color={"white"} alignItems="center" justifyContent={"space-between"}>
 
                 <Flex width={"15vw"} alignItems="center" justifyContent={"space-around"} ml={4}>
-                    <Flex fontSize="1.5rem">Pensive-Kart</Flex>
                     <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<PhoneIcon />} />
+                    <Flex fontSize="1.5rem">Pensive-Kart</Flex>
                 </Flex>
                 <Flex direction={"column"} justifyContent="center">
-                    <Flex>&copy;2022 All Rights Reserved @RealPensive</Flex>
+                    <Flex>&copy;2022 All Rights Reserved <Flex color={"skyblue"}> <a href="https://www.realpensive.com/" target={"_blank"}> @RealPensive</a></Flex></Flex>
                     <Flex alignItems={"center"} justifyContent="center">Privacy Policy &nbsp; | &nbsp; Terms</Flex>
                 </Flex>
                 <Flex justifyContent={"space-around"} width="15vw" mr={2}>
