@@ -6,7 +6,7 @@ import { ItemsReducer } from "./items"
 
 const appReducer = combineReducers({
     login: LoginReducer,
-    items: ItemsReducer
+    items: ItemsReducer,
 })
 
 

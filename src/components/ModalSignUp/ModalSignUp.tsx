@@ -8,12 +8,17 @@ import {
 } from '@chakra-ui/react'
 
 
+// for reducer 
+import { useAppDispatch, useAppSelector } from '../../redux'
+
+
 // import google png from assets folder 
 import Google from '../../assets/google.png'
 import facebook from '../../assets/facebook.png'
 
 // this is modal css file 
 import './ModalSignUp.css'
+import { signInGoogle } from '../../redux/reducers/Login'
 
 interface ModalSignUpProps {
     onOpen: () => void,
@@ -23,8 +28,14 @@ interface ModalSignUpProps {
 }
 
 const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) => {
-
     const initialRef = React.useRef(null)
+    const dispatch = useAppDispatch();
+    const { getUser , dataGoogle } = useAppSelector((state) => state.login);
+
+    const googleLogin = () => {
+        console.log("Hello")
+        dispatch(signInGoogle({}))
+    }
 
     useEffect(() => {
 
@@ -95,7 +106,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                                 {/* right flex  */}
                                 <Flex direction={"column"} alignItems="center" justifyContent={"center"} width={"40%"}>
                                     <Flex color={"green"}>Why create an Account?</Flex>
-                                    <Flex className="googleButton google">
+                                    <Flex className="googleButton google" onClick={googleLogin}>
                                         <img src={Google} alt="" className='icon' />
                                         Google
                                     </Flex>
