@@ -27,7 +27,8 @@ interface ModalSignUpProps {
 
 }
 
-interface InitialState{
+// Interface for InitialState for reducer 
+interface InitialState {
     firstName: string,
     lastName: string,
     email: string,
@@ -37,8 +38,8 @@ interface InitialState{
 }
 
 // for UseReducer for form 
-const initialState:InitialState = {
-    firstName : '',
+const initialState: InitialState = {
+    firstName: '',
     lastName: '',
     email: '',
     contactNo: '',
@@ -46,10 +47,10 @@ const initialState:InitialState = {
     confirmPassword: ''
 }
 
-const formReducer = (state:any , action:any) => {
-    switch(action.type){
+const formReducer = (state: any, action: any) => {
+    switch (action.type) {
         case 'handleChange':
-            return {...state , [action.field] : action.payload}
+            return { ...state, [action.field]: action.payload }
         default:
             return state
     }
@@ -57,9 +58,9 @@ const formReducer = (state:any , action:any) => {
 
 const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) => {
 
-    const [data , formDispatch] = useReducer(formReducer , initialState);
+    const [data, formDispatch] = useReducer(formReducer, initialState);
 
-    const handleChange = (e:any) => {
+    const handleChange = (e: any) => {
         formDispatch({
             type: 'handleChange',
             field: e.target.name,
@@ -69,10 +70,22 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
 
     console.log(data);
 
+    // for handling form submit 
+    const handleSubmit = () => {
+        console.log("hello")
+        //logic for id already exists
+        //logic for phone no already exists
+        //logic for password match
+        if(data.password != data.confirmPassword){
+            return console.log("Password did not match")
+        }
+        //logic to save user to the database
+    }
+
 
     const initialRef = React.useRef(null)
     const dispatch = useAppDispatch();
-    const { getUser , dataGoogle } = useAppSelector((state) => state.login);
+    const { getUser, dataGoogle } = useAppSelector((state) => state.login);
 
     const googleLogin = () => {
         console.log("Hello")
@@ -94,79 +107,79 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                 <ModalOverlay />
                 <ModalContent pl="2rem" pr={"2rem"}>
                     <Flex direction={"column"}>
-                        <form>
-                        <ModalHeader ><Flex justifyContent="center">Create your account</Flex></ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody pb={6}>
-                            <Flex justifyContent={"space-between"} alignItems={"center"}>
-                                <Flex width={"45%"}>
-                                    <FormControl>
-                                        <FormLabel>First name</FormLabel>
-                                        <Input ref={initialRef} placeholder='First name' value={data.firstName} name='firstName' onChange={(e) => handleChange(e)} />
-                                    </FormControl>
-                                </Flex>
-                                <Flex width={"45%"} alignItems={"center"}>
-                                    <FormControl>
-                                        <FormLabel>Last name</FormLabel>
-                                        <Input placeholder='Last name' value={data.lastName} name='lastName' onChange={(e) => handleChange(e)} />
-                                    </FormControl>
-                                </Flex>
-                            </Flex>
-                            {/* After name  */}
-                            <Flex width={"100%"}>
-                                {/* Left flex  */}
-                                <Flex direction={"column"} width="50%">
-                                    <Flex width={"100%"}>
+                        <form id='customer_form'>
+                            <ModalHeader ><Flex justifyContent="center">Create your account</Flex></ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody pb={6}>
+                                <Flex justifyContent={"space-between"} alignItems={"center"}>
+                                    <Flex width={"45%"}>
                                         <FormControl>
-                                            <FormLabel mt="0.8rem" mb="0.8rem">E-mail</FormLabel>
-                                            <Input placeholder='Enter your E-mail address' type={"email"} value={data.email} name='email' onChange={(e) => handleChange(e)}/>
+                                            <FormLabel>First name</FormLabel>
+                                            <Input required ref={initialRef} placeholder='First name' value={data.firstName} name='firstName' onChange={(e) => handleChange(e)} />
                                         </FormControl>
                                     </Flex>
-                                    <Flex width={"100%"}>
+                                    <Flex width={"45%"} alignItems={"center"}>
                                         <FormControl>
-                                            <FormLabel mt="0.8rem" mb="0.8rem">Contact No.</FormLabel>
-                                            <Input placeholder='Enter your phone number' type={"text"} value={data.contactNo} name='contactNo' onChange={(e) => handleChange(e)} />
-                                        </FormControl>
-                                    </Flex>
-                                    <Flex width={"100%"}>
-                                        <FormControl>
-                                            <FormLabel mt="0.8rem" mb="0.8rem">Password</FormLabel>
-                                            <Input placeholder='Enter your password' type={"password"} value={data.password} name='password' onChange={(e) => handleChange(e)}/>
-                                        </FormControl>
-                                    </Flex>
-                                    <Flex width={"100%"}>
-                                        <FormControl>
-                                            <FormLabel mt="0.8rem" mb="0.8rem">Confirm Password</FormLabel>
-                                            <Input placeholder='Retype your password' type={"password"} value={data.confirmPassword} name='confirmPassword' onChange={(e) => handleChange(e)} />
+                                            <FormLabel>Last name</FormLabel>
+                                            <Input placeholder='Last name' value={data.lastName} name='lastName' onChange={(e) => handleChange(e)} />
                                         </FormControl>
                                     </Flex>
                                 </Flex>
-                                {/* middle line  */}
-                                <Flex className="center" width={"10%"} height={"50vh"} justifyContent="center">
-                                    <Flex className="line" />
-                                    <Flex className="or">OR</Flex>
-                                </Flex>
-                                {/* right flex  */}
-                                <Flex direction={"column"} alignItems="center" justifyContent={"center"} width={"40%"}>
-                                    <Flex color={"green"}>Why create an Account?</Flex>
-                                    <Flex className="googleButton google" onClick={googleLogin}>
-                                        <img src={Google} alt="" className='icon' />
-                                        Google
+                                {/* After name  */}
+                                <Flex width={"100%"}>
+                                    {/* Left flex  */}
+                                    <Flex direction={"column"} width="50%">
+                                        <Flex width={"100%"}>
+                                            <FormControl>
+                                                <FormLabel mt="0.8rem" mb="0.8rem">E-mail</FormLabel>
+                                                <Input required placeholder='Enter your E-mail address' type={"email"} value={data.email} name='email' onChange={(e) => handleChange(e)} />
+                                            </FormControl>
+                                        </Flex>
+                                        <Flex width={"100%"}>
+                                            <FormControl>
+                                                <FormLabel mt="0.8rem" mb="0.8rem">Contact No.</FormLabel>
+                                                <Input required placeholder='Enter your phone number' type={"text"} value={data.contactNo} name='contactNo' onChange={(e) => handleChange(e)} />
+                                            </FormControl>
+                                        </Flex>
+                                        <Flex width={"100%"}>
+                                            <FormControl>
+                                                <FormLabel mt="0.8rem" mb="0.8rem">Password</FormLabel>
+                                                <Input required placeholder='Enter your password' type={"password"} value={data.password} name='password' onChange={(e) => handleChange(e)} />
+                                            </FormControl>
+                                        </Flex>
+                                        <Flex width={"100%"}>
+                                            <FormControl>
+                                                <FormLabel mt="0.8rem" mb="0.8rem">Confirm Password</FormLabel>
+                                                <Input required placeholder='Retype your password' type={"password"} value={data.confirmPassword} name='confirmPassword' onChange={(e) => handleChange(e)} />
+                                            </FormControl>
+                                        </Flex>
                                     </Flex>
-                                    <Flex className="googleButton facebook">
-                                        <img src={facebook} alt="" className='icon' />
-                                        Facebook
+                                    {/* middle line  */}
+                                    <Flex className="center" width={"10%"} height={"50vh"} justifyContent="center">
+                                        <Flex className="line" />
+                                        <Flex className="or">OR</Flex>
+                                    </Flex>
+                                    {/* right flex  */}
+                                    <Flex direction={"column"} alignItems="center" justifyContent={"center"} width={"40%"}>
+                                        <Flex color={"green"}>Why create an Account?</Flex>
+                                        <Flex className="googleButton google" onClick={googleLogin}>
+                                            <img src={Google} alt="" className='icon' />
+                                            Google
+                                        </Flex>
+                                        <Flex className="googleButton facebook">
+                                            <img src={facebook} alt="" className='icon' />
+                                            Facebook
+                                        </Flex>
                                     </Flex>
                                 </Flex>
-                            </Flex>
-                        </ModalBody>
+                            </ModalBody>
 
-                        <ModalFooter>
-                            <Button colorScheme='blue' mr={3}>
-                                Submit
-                            </Button>
-                            <Button onClick={onClose}>Cancel</Button>
-                        </ModalFooter>
+                            <ModalFooter>
+                                <Button type='submit' form='customer_form' colorScheme='blue' mr={3} onClick={() => handleSubmit()}>
+                                    Submit
+                                </Button>
+                                <Button onClick={onClose}>Cancel</Button>
+                            </ModalFooter>
                         </form>
                     </Flex>
                 </ModalContent>
