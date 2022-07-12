@@ -19,6 +19,9 @@ import facebook from '../../assets/facebook.png'
 // this is modal css file 
 import './ModalSignUp.css'
 import { signInGoogle } from '../../redux/reducers/Login'
+import { text } from 'node:stream/consumers'
+import { formReducer } from '../../utils/formReducer'
+import { formFields } from './data'
 
 interface ModalSignUpProps {
     onOpen: () => void,
@@ -47,28 +50,31 @@ const initialState: InitialState = {
     confirmPassword: ''
 }
 
-const formReducer = (state: any, action: any) => {
-    switch (action.type) {
-        case 'handleChange':
-            return { ...state, [action.field]: action.payload }
-        default:
-            return state
-    }
-}
+// const formReducer = (state: any, action: any) => {
+//     switch (action.type) {
+//         case 'handleChange':
+//             return { ...state, [action.field]: action.payload }
+//         default:
+//             return state
+//     }
+// }
 
 const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) => {
 
-    const [data, formDispatch] = useReducer(formReducer, initialState);
+    const [formState, dispatchChangeinFormState] = useReducer(formReducer, initialState);
 
-    const handleChange = (e: any) => {
-        formDispatch({
-            type: 'handleChange',
-            field: e.target.name,
-            payload: e.target.value,
-        })
+    const _changeInInput = (type:string, value:any) => {
+        console.log('In _change', {type, value})
+        dispatchChangeinFormState({type, value})
     }
 
-    console.log(data);
+    // const handleChange = (e: any) => {
+    //     formDispatch({
+    //         type: 'handleChange',
+    //         field: e.target.name,
+    //         payload: e.target.value,
+    //     })
+    // }
 
     // for handling form submit 
     const handleSubmit = () => {
@@ -76,11 +82,13 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
         //logic for id already exists
         //logic for phone no already exists
         //logic for password match
-        if(data.password != data.confirmPassword){
+        if (formState.password != formState.confirmPassword) {
             return console.log("Password did not match")
         }
         //logic to save user to the database
     }
+
+    console.log({formState})
 
 
     const initialRef = React.useRef(null)
@@ -96,7 +104,6 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
 
     }, [])
 
-
     return (
         <>
             <Modal size={"3xl"}
@@ -111,56 +118,29 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                             <ModalHeader ><Flex justifyContent="center">Create your account</Flex></ModalHeader>
                             <ModalCloseButton />
                             <ModalBody pb={6}>
-                                <Flex justifyContent={"space-between"} alignItems={"center"}>
-                                    <Flex width={"45%"}>
-                                        <FormControl>
-                                            <FormLabel>First name</FormLabel>
-                                            <Input required ref={initialRef} placeholder='First name' value={data.firstName} name='firstName' onChange={(e) => handleChange(e)} />
-                                        </FormControl>
-                                    </Flex>
-                                    <Flex width={"45%"} alignItems={"center"}>
-                                        <FormControl>
-                                            <FormLabel>Last name</FormLabel>
-                                            <Input placeholder='Last name' value={data.lastName} name='lastName' onChange={(e) => handleChange(e)} />
-                                        </FormControl>
-                                    </Flex>
-                                </Flex>
                                 {/* After name  */}
                                 <Flex width={"100%"}>
                                     {/* Left flex  */}
                                     <Flex direction={"column"} width="50%">
-                                        <Flex width={"100%"}>
-                                            <FormControl>
-                                                <FormLabel mt="0.8rem" mb="0.8rem">E-mail</FormLabel>
-                                                <Input required placeholder='Enter your E-mail address' type={"email"} value={data.email} name='email' onChange={(e) => handleChange(e)} />
-                                            </FormControl>
-                                        </Flex>
-                                        <Flex width={"100%"}>
-                                            <FormControl>
-                                                <FormLabel mt="0.8rem" mb="0.8rem">Contact No.</FormLabel>
-                                                <Input required placeholder='Enter your phone number' type={"text"} value={data.contactNo} name='contactNo' onChange={(e) => handleChange(e)} />
-                                            </FormControl>
-                                        </Flex>
-                                        <Flex width={"100%"}>
-                                            <FormControl>
-                                                <FormLabel mt="0.8rem" mb="0.8rem">Password</FormLabel>
-                                                <Input required placeholder='Enter your password' type={"password"} value={data.password} name='password' onChange={(e) => handleChange(e)} />
-                                            </FormControl>
-                                        </Flex>
-                                        <Flex width={"100%"}>
-                                            <FormControl>
-                                                <FormLabel mt="0.8rem" mb="0.8rem">Confirm Password</FormLabel>
-                                                <Input required placeholder='Retype your password' type={"password"} value={data.confirmPassword} name='confirmPassword' onChange={(e) => handleChange(e)} />
-                                            </FormControl>
-                                        </Flex>
+                                        {formFields.map((formField) => (
+                                            <Flex width={"100%"} key={formField.placeholder} mt="0.8rem" mb="0.8rem">
+                                                <FormControl>
+                                                    <FormLabel>{formField.label}</FormLabel>
+                                                    <Input required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => {console.log('in field ', {type:formField.name, value:e.target.value} );_changeInInput( formField.name ,e.target.value)}} />
+                                                </FormControl>
+                                            </Flex>
+                                        ))}
+                                        
                                     </Flex>
+
+
                                     {/* middle line  */}
-                                    <Flex className="center" width={"10%"} height={"50vh"} justifyContent="center">
+                                    {/* <Flex className="center" width={"10%"} height={"50vh"} justifyContent="center">
                                         <Flex className="line" />
                                         <Flex className="or">OR</Flex>
-                                    </Flex>
+                                    </Flex> */}
                                     {/* right flex  */}
-                                    <Flex direction={"column"} alignItems="center" justifyContent={"center"} width={"40%"}>
+                                    {/* <Flex direction={"column"} alignItems="center" justifyContent={"center"} width={"40%"}>
                                         <Flex color={"green"}>Why create an Account?</Flex>
                                         <Flex className="googleButton google" onClick={googleLogin}>
                                             <img src={Google} alt="" className='icon' />
@@ -170,7 +150,10 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                                             <img src={facebook} alt="" className='icon' />
                                             Facebook
                                         </Flex>
-                                    </Flex>
+                                    </Flex> */}
+
+
+
                                 </Flex>
                             </ModalBody>
 
