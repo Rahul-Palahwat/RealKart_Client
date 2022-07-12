@@ -115,7 +115,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                                                             <Flex width={"48%"} key={formField.placeholder}>
                                                                 <FormControl>
                                                                     {/* <FormLabel mt="0.8rem" mb="0.8rem">{formField.label}</FormLabel> */}
-                                                                    <Input width={"100%"} fontSize={"0.7rem"} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
+                                                                    <Input width={"100%"} fontSize={"0.8rem"} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
                                                                 </FormControl>
                                                             </Flex>
                                                         )
@@ -130,7 +130,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                                                         <Flex width={"60%"} key={formField.placeholder}>
                                                             <Flex alignItems="center" direction="column" width="100%">
                                                                 {/* <FormLabel mt="0.8rem" mb={idx === formFields.length-1 ? "0rem" :"0.8rem"}>{formField.label}</FormLabel> */}
-                                                                <Input fontSize={"0.7rem"} mt="0.8rem" mb="0.8rem" type={formField.type} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
+                                                                <Input className='phone' fontSize={"0.7rem"} mt="0.8rem" mb="0.8rem" type={formField.type} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
                                                             </Flex>
                                                         </Flex>
                                                     )
@@ -145,7 +145,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                                                             <Flex width={"48%"} key={formField.placeholder}>
                                                                 <FormControl>
                                                                     {/* <FormLabel mt="0.8rem" mb="0.8rem">{formField.label}</FormLabel> */}
-                                                                    <Input width={"100%"} fontSize={"0.7rem"} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
+                                                                    <Input width={"100%"} fontSize={"0.8rem"} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
                                                                 </FormControl>
                                                             </Flex>
                                                         )
@@ -160,23 +160,23 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
 
 
                                 {/* middle line  */}
-                                <Flex className="center" width={"90%"} height={"10vh"} justifyContent="center" alignItems={"center"} mt="1rem">
+                                <Flex className="center" width={"90%"} height={"6vh"} justifyContent="center" alignItems={"center"} mt="1rem">
                                     <Flex className="line" />
-                                    <Flex className="or">OR</Flex>
+                                    {/* <Flex className="or">OR</Flex> */}
                                 </Flex>
                                 {/* right flex  */}
                                 <Flex direction={"column"} alignItems="center" justifyContent={"center"} width={"100%"} mt="1rem">
                                     {/* <Flex color={"green"} mb={'1.5rem'}>Why  an Account?</Flex> */}
-                                    <Flex justifyContent={"space-between"} width={"100%"}>
-                                    <Flex className="googleButton google" onClick={googleLogin}>
+                                    <Flex justifyContent={"space-around"} width={"65%"}>
+                                    <Flex className="googleButton google" onClick={googleLogin} justifyContent="center">
                                         <img src={Google} alt="" className='icon' />
                                         Google
                                     </Flex>
-                                    <Flex className="googleButton facebook">
+                                    <Flex className="googleButton facebook" justifyContent={'center'}>
                                         <img src={facebook} alt="" className='icon' />
                                         Facebook
                                     </Flex>
-                                    <Flex className="googleButton email" onClick={googleLogin}>
+                                    <Flex className="googleButton email" onClick={googleLogin} justifyContent="center">
                                         <img src={Email} alt="" className='icon' style={{"filter":"invert(100%)"}}/>
                                         Email
                                     </Flex>
@@ -187,12 +187,12 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
 
                             </Flex>
                         </ModalBody>
-                        <Flex pb={2} width={"96.5%"} justifyContent="flex-end">
+                        <Flex pb={2} pt={3} width={"98%"} justifyContent="flex-end">
                             <ModalFooter p={0}>
-                                <Button type='submit' form='customer_form' colorScheme='blue' mr={3}>
+                                <Button type='submit' size={'sm'} form='customer_form' colorScheme='blue' mr={2}>
                                     Submit
                                 </Button>
-                                <Button onClick={onClose}>Cancel</Button>
+                                <Button size={'sm'} onClick={onClose} ml={2}>Cancel</Button>
                             </ModalFooter>
                         </Flex>
                     </Flex>
