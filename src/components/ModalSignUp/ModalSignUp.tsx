@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import {
     Badge, Button, Flex,
     FormControl, FormLabel, IconButton,
@@ -27,7 +27,49 @@ interface ModalSignUpProps {
 
 }
 
+interface InitialState{
+    firstName: string,
+    lastName: string,
+    email: string,
+    contactNo: string,
+    password: string,
+    confirmPassword: string,
+}
+
+// for UseReducer for form 
+const initialState:InitialState = {
+    firstName : '',
+    lastName: '',
+    email: '',
+    contactNo: '',
+    password: '',
+    confirmPassword: ''
+}
+
+const formReducer = (state:any , action:any) => {
+    switch(action.type){
+        case 'handleChange':
+            return {...state , [action.field] : action.payload}
+        default:
+            return state
+    }
+}
+
 const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) => {
+
+    const [data , formDispatch] = useReducer(formReducer , initialState);
+
+    const handleChange = (e:any) => {
+        formDispatch({
+            type: 'handleChange',
+            field: e.target.name,
+            payload: e.target.value,
+        })
+    }
+
+    console.log(data);
+
+
     const initialRef = React.useRef(null)
     const dispatch = useAppDispatch();
     const { getUser , dataGoogle } = useAppSelector((state) => state.login);
@@ -52,6 +94,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                 <ModalOverlay />
                 <ModalContent pl="2rem" pr={"2rem"}>
                     <Flex direction={"column"}>
+                        <form>
                         <ModalHeader ><Flex justifyContent="center">Create your account</Flex></ModalHeader>
                         <ModalCloseButton />
                         <ModalBody pb={6}>
@@ -59,13 +102,13 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                                 <Flex width={"45%"}>
                                     <FormControl>
                                         <FormLabel>First name</FormLabel>
-                                        <Input ref={initialRef} placeholder='First name' />
+                                        <Input ref={initialRef} placeholder='First name' value={data.firstName} name='firstName' onChange={(e) => handleChange(e)} />
                                     </FormControl>
                                 </Flex>
                                 <Flex width={"45%"} alignItems={"center"}>
                                     <FormControl>
                                         <FormLabel>Last name</FormLabel>
-                                        <Input placeholder='Last name' />
+                                        <Input placeholder='Last name' value={data.lastName} name='lastName' onChange={(e) => handleChange(e)} />
                                     </FormControl>
                                 </Flex>
                             </Flex>
@@ -76,25 +119,25 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                                     <Flex width={"100%"}>
                                         <FormControl>
                                             <FormLabel mt="0.8rem" mb="0.8rem">E-mail</FormLabel>
-                                            <Input placeholder='Enter your E-mail address' type={"email"} />
+                                            <Input placeholder='Enter your E-mail address' type={"email"} value={data.email} name='email' onChange={(e) => handleChange(e)}/>
                                         </FormControl>
                                     </Flex>
                                     <Flex width={"100%"}>
                                         <FormControl>
                                             <FormLabel mt="0.8rem" mb="0.8rem">Contact No.</FormLabel>
-                                            <Input placeholder='Enter your phone number' type={"number"} />
+                                            <Input placeholder='Enter your phone number' type={"text"} value={data.contactNo} name='contactNo' onChange={(e) => handleChange(e)} />
                                         </FormControl>
                                     </Flex>
                                     <Flex width={"100%"}>
                                         <FormControl>
                                             <FormLabel mt="0.8rem" mb="0.8rem">Password</FormLabel>
-                                            <Input placeholder='Enter your password' type={"password"} />
+                                            <Input placeholder='Enter your password' type={"password"} value={data.password} name='password' onChange={(e) => handleChange(e)}/>
                                         </FormControl>
                                     </Flex>
                                     <Flex width={"100%"}>
                                         <FormControl>
                                             <FormLabel mt="0.8rem" mb="0.8rem">Confirm Password</FormLabel>
-                                            <Input placeholder='Retype your password' type={"password"} />
+                                            <Input placeholder='Retype your password' type={"password"} value={data.confirmPassword} name='confirmPassword' onChange={(e) => handleChange(e)} />
                                         </FormControl>
                                     </Flex>
                                 </Flex>
@@ -124,6 +167,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                             </Button>
                             <Button onClick={onClose}>Cancel</Button>
                         </ModalFooter>
+                        </form>
                     </Flex>
                 </ModalContent>
             </Modal>
