@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import {
     Badge, Button, Flex,
     FormControl, FormLabel, IconButton,
@@ -15,11 +15,17 @@ import { useAppDispatch, useAppSelector } from '../../redux'
 // import google png from assets folder 
 import Google from '../../assets/google.png'
 import facebook from '../../assets/facebook.png'
+import Email from '../../assets/Email.png'
 
 // this is modal css file 
 import './ModalSignUp.css'
 import { signInGoogle } from '../../redux/reducers/Login'
 import { useNavigate } from 'react-router-dom'
+import { text } from 'node:stream/consumers'
+
+// for form data handling 
+import { formReducer } from '../../utils/formReducer'
+import { formFields } from './data'
 
 interface ModalSignUpProps {
     onOpen: () => void,
@@ -28,11 +34,54 @@ interface ModalSignUpProps {
 
 }
 
+// Interface for InitialState for reducer 
+interface InitialState {
+    firstName: string,
+    lastName: string,
+    email: string,
+    contactNo: string,
+    password: string,
+    confirmPassword: string,
+}
+
+// for UseReducer for form 
+const initialState: InitialState = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    contactNo: '',
+    password: '',
+    confirmPassword: ''
+}
+
 const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) => {
+
+    const [formState, dispatchChangeinFormState] = useReducer(formReducer, initialState);
+
+    const _changeInInput = (type: string, value: any) => {
+        console.log('In _change', { type, value })
+        dispatchChangeinFormState({ type, value })
+    }
+    // for handling form submit 
+    const handleSubmit = () => {
+        console.log("hello")
+        //logic for id already exists
+        //logic for phone no already exists
+        //logic for password match
+        if (formState.password != formState.confirmPassword) {
+            return console.log("Password did not match")
+        }
+        //logic to save user to the database
+    }
+
+    console.log({ formState })
+
+
     const initialRef = React.useRef(null)
     const dispatch = useAppDispatch();
-    const { getUser , dataGoogle } = useAppSelector((state) => state.login);
     let navigate = useNavigate();
+    const { getUser, dataGoogle } = useAppSelector((state) => state.login);
+
     const googleLogin = () => {
         console.log("Hello")
         // dispatch(signInGoogle({}))
@@ -44,10 +93,13 @@ scrollbars=no, resizable=no, copyhistory=no`
     }
 
     console.log({getUser, dataGoogle})
+    useEffect(() => {
+
+    }, [])
 
     return (
         <>
-            <Modal size={"3xl"}
+            <Modal size={"2xl"}
                 initialFocusRef={initialRef}
                 isOpen={isOpen}
                 onClose={onClose}
@@ -57,76 +109,100 @@ scrollbars=no, resizable=no, copyhistory=no`
                     <Flex direction={"column"}>
                         <ModalHeader ><Flex justifyContent="center">Create your account</Flex></ModalHeader>
                         <ModalCloseButton />
-                        <ModalBody pb={6}>
-                            <Flex justifyContent={"space-between"} alignItems={"center"}>
-                                <Flex width={"45%"}>
-                                    <FormControl>
-                                        <FormLabel>First name</FormLabel>
-                                        <Input ref={initialRef} placeholder='First name' />
-                                    </FormControl>
-                                </Flex>
-                                <Flex width={"45%"} alignItems={"center"}>
-                                    <FormControl>
-                                        <FormLabel>Last name</FormLabel>
-                                        <Input placeholder='Last name' />
-                                    </FormControl>
-                                </Flex>
-                            </Flex>
-                            {/* After name  */}
-                            <Flex width={"100%"}>
+                        <ModalBody pb={0}>
+                            <Flex width={"100%"} direction="column" alignItems={"center"} justifyContent="center" >
                                 {/* Left flex  */}
-                                <Flex direction={"column"} width="50%">
-                                    <Flex width={"100%"}>
-                                        <FormControl>
-                                            <FormLabel mt="0.8rem" mb="0.8rem">E-mail</FormLabel>
-                                            <Input placeholder='Enter your E-mail address' type={"email"} />
-                                        </FormControl>
-                                    </Flex>
-                                    <Flex width={"100%"}>
-                                        <FormControl>
-                                            <FormLabel mt="0.8rem" mb="0.8rem">Contact No.</FormLabel>
-                                            <Input placeholder='Enter your phone number' type={"number"} />
-                                        </FormControl>
-                                    </Flex>
-                                    <Flex width={"100%"}>
-                                        <FormControl>
-                                            <FormLabel mt="0.8rem" mb="0.8rem">Password</FormLabel>
-                                            <Input placeholder='Enter your password' type={"password"} />
-                                        </FormControl>
-                                    </Flex>
-                                    <Flex width={"100%"}>
-                                        <FormControl>
-                                            <FormLabel mt="0.8rem" mb="0.8rem">Confirm Password</FormLabel>
-                                            <Input placeholder='Retype your password' type={"password"} />
-                                        </FormControl>
-                                    </Flex>
+                                <Flex direction={"column"} width="90%">
+                                    <form id='customer_form' onSubmit={(e) => { e.preventDefault(); handleSubmit() }}>
+
+                                        <Flex justifyContent={"center"} width="100%">
+                                            <Flex justifyContent={"space-between"} width={"50%"}>
+                                                {formFields.map((formField, idx) => {
+                                                    if (idx < 2) {
+                                                        return (
+                                                            <Flex width={"48%"} key={formField.placeholder}>
+                                                                <FormControl>
+                                                                    {/* <FormLabel mt="0.8rem" mb="0.8rem">{formField.label}</FormLabel> */}
+                                                                    <Input width={"100%"} fontSize={"0.8rem"} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
+                                                                </FormControl>
+                                                            </Flex>
+                                                        )
+                                                    }
+                                                })}
+                                            </Flex>
+                                        </Flex>
+                                        <Flex direction="column" width="100%" alignItems={"center"}>
+                                            {formFields.map((formField, idx) => {
+                                                if (idx === 2) {
+                                                    return (
+                                                        <Flex width={"60%"} key={formField.placeholder}>
+                                                            <Flex alignItems="center" direction="column" width="100%">
+                                                                {/* <FormLabel mt="0.8rem" mb={idx === formFields.length-1 ? "0rem" :"0.8rem"}>{formField.label}</FormLabel> */}
+                                                                <Input className='phone' fontSize={"0.7rem"} mt="0.8rem" mb="0.8rem" type={formField.type} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
+                                                            </Flex>
+                                                        </Flex>
+                                                    )
+                                                }
+                                            })}
+                                        </Flex>
+                                        <Flex justifyContent={"center"} width="100%">
+                                            <Flex justifyContent={"space-between"} width={"70%"}>
+                                                {formFields.map((formField, idx) => {
+                                                    if (idx > 2) {
+                                                        return (
+                                                            <Flex width={"48%"} key={formField.placeholder}>
+                                                                <FormControl>
+                                                                    {/* <FormLabel mt="0.8rem" mb="0.8rem">{formField.label}</FormLabel> */}
+                                                                    <Input width={"100%"} fontSize={"0.8rem"} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
+                                                                </FormControl>
+                                                            </Flex>
+                                                        )
+                                                    }
+                                                })}
+                                            </Flex>
+                                        </Flex>
+
+                                    </form>
                                 </Flex>
+
+
+
                                 {/* middle line  */}
-                                <Flex className="center" width={"10%"} height={"50vh"} justifyContent="center">
+                                <Flex className="center" width={"90%"} height={"6vh"} justifyContent="center" alignItems={"center"} mt="1rem">
                                     <Flex className="line" />
-                                    <Flex className="or">OR</Flex>
+                                    {/* <Flex className="or">OR</Flex> */}
                                 </Flex>
                                 {/* right flex  */}
-                                <Flex direction={"column"} alignItems="center" justifyContent={"center"} width={"40%"}>
-                                    <Flex color={"green"}>Why create an Account?</Flex>
-                                    <Flex className="googleButton google" onClick={googleLogin}>
+                                <Flex direction={"column"} alignItems="center" justifyContent={"center"} width={"100%"} mt="1rem">
+                                    {/* <Flex color={"green"} mb={'1.5rem'}>Why  an Account?</Flex> */}
+                                    <Flex justifyContent={"space-around"} width={"65%"}>
+                                    <Flex className="googleButton google" onClick={googleLogin} justifyContent="center">
                                         <img src={Google} alt="" className='icon' />
                                         Google
                                     </Flex>
-                                    <Flex className="googleButton facebook">
+                                    <Flex className="googleButton facebook" justifyContent={'center'}>
                                         <img src={facebook} alt="" className='icon' />
                                         Facebook
                                     </Flex>
+                                    <Flex className="googleButton email" onClick={googleLogin} justifyContent="center">
+                                        <img src={Email} alt="" className='icon' style={{"filter":"invert(100%)"}}/>
+                                        Email
+                                    </Flex>
+                                    </Flex>
                                 </Flex>
+
+
+
                             </Flex>
                         </ModalBody>
-
-                        <ModalFooter>
-                            <Button colorScheme='blue' mr={3}>
-                                Submit
-                            </Button>
-                            <Button onClick={onClose}>Cancel</Button>
-                        </ModalFooter>
+                        <Flex pb={2} pt={3} width={"98%"} justifyContent="flex-end">
+                            <ModalFooter p={0}>
+                                <Button type='submit' size={'sm'} form='customer_form' colorScheme='blue' mr={2}>
+                                    Submit
+                                </Button>
+                                <Button size={'sm'} onClick={onClose} ml={2}>Cancel</Button>
+                            </ModalFooter>
+                        </Flex>
                     </Flex>
                 </ModalContent>
             </Modal>
