@@ -1,29 +1,19 @@
 import { InfoIcon } from '@chakra-ui/icons'
 import { Flex, IconButton } from '@chakra-ui/react'
 import React from 'react'
-
 import { BsBagCheck , BsCartPlus } from 'react-icons/bs'
-
 import { useLocation } from 'react-router-dom'
-
 import './Product.css'
-
 interface Props {
     title: string
     image: string[]
     price: number
 }
-
 const Product: React.FC<Props> = (props) => {
     const { title, image, price } = props;
     const newtitle: string = title.slice(0, 18);
-
     // const newprice = price;
-
     const location = useLocation();
-
-
-
     return (
         <Flex className='total' m={location.pathname === '/' ? "0.5rem 0.5rem" : ""} borderRadius={"1.2rem"}>
             <Flex alignItems={"center"} justifyContent="center" width={"100%"} height="100%" wrap={"wrap"} p={2}>
@@ -51,5 +41,4 @@ const Product: React.FC<Props> = (props) => {
         </Flex>
     )
 }
-
 export default Product

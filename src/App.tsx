@@ -9,6 +9,8 @@ import { Box, Flex } from '@chakra-ui/react';
 import BestSelling from './components/BestSelling/BestSelling';
 import MostWishlisted from './components/MostWishlisted/MostWishlisted';
 import Footer from './components/Footer/Footer';
+import AllBestSelling from './components/All BestSelling/AllBestSelling';
+import AllMostWishlisted from './components/AllMostWishlisted/AllMostWishlisted';
 
 function App() {
 	return (
@@ -23,6 +25,8 @@ function App() {
 				
 				}></Route>
 				<Route path="/all" element={<TotalProducts/>}></Route>
+				<Route path="/AllBestSelling" element={<AllBestSelling/>}></Route>
+				<Route path="/AllMostWishlisted" element={<AllMostWishlisted/>}></Route>
 			</Routes>
 		</Wrapper>
   	);

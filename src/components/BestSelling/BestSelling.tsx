@@ -35,7 +35,7 @@ const BestSelling:React.FC = () => {
                     Best Selling
                 </Flex>
                 <Flex pr={5} pt={"2.5rem"}>
-                    <a className='viewAll' href='/all'><Flex fontSize={"1.1rem"}>View All</Flex></a>
+                    <a className='viewAll' href='/AllBestSelling'><Flex fontSize={"1.1rem"}>View All</Flex></a>
                 </Flex>
             </Flex>
             <Flex height={"auto"} alignItems="center">

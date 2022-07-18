@@ -10,7 +10,6 @@ export const formReducer = (state:Object, action:formReducerAction) => {
         [action.type]: action.value
     })
 }
-
 interface formReducerAction {
     value: any,
     type: string
