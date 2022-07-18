@@ -17,7 +17,7 @@ const TotalProducts: React.FC = () => {
     const [pageNumber, setPageNumber] = useState<number>(1);
     useEffect(() => {
         dispatch(getTotalItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
-    }, [pageNumber])
+    }, [])
     useEffect(() => {
         if (getAllProductsStatus === "SUCCESS") {
             setItems(dataAllProducts.docs)
