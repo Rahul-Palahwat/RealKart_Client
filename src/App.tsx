@@ -16,13 +16,13 @@ function App() {
 			<Routes>
 				<Route path="/" element={
 					<Flex direction={"column"}>
-						<AllProducts/>
-						<BestSelling/>
-						<MostWishlisted/>
+						{/* <AllProducts/> */}
+						{/* <BestSelling/> */}
+						{/* <MostWishlisted/> */}
 					</Flex>
 				
 				}></Route>
-				<Route path="/all" element={<TotalProducts/>}></Route>
+				{/* <Route path="/all" element={<TotalProducts/>}></Route> */}
 			</Routes>
 		</Wrapper>
   	);

@@ -7,7 +7,8 @@ interface InitialState{
     isLogIn: boolean
     error: string,
     getUser : string,
-    dataGoogle: any
+    dataGoogle: any,
+    createUser: any
 }
 
 export const logIn = createAsyncThunk('login/logIn' , async(bool: boolean) => {
@@ -25,12 +26,25 @@ export const signInGoogle = createAsyncThunk(
     }
 })
 
+export const create_customer = createAsyncThunk( 'create/user' , async(payload: {}, thunkAPI) => {
+    console.log(payload)
+    const response = await api.post('/auth/customer/signup' , payload)
+    let {ok , data , problem} = response;
+    console.log("response" , response);
+    if(ok) {
+        return data
+    } else {
+        return thunkAPI.rejectWithValue(problem)
+    }
+} )
+
 
 const initialState:InitialState = {
     loading: false,
     isLogIn: false,
     getUser : STATUS.NOT_STARTED,
     dataGoogle: null,
+    createUser: null,
     error:''
 }
 
@@ -62,6 +76,17 @@ const loginSlice = createSlice({
         builder.addCase(signInGoogle.rejected , state => {
             state.getUser = STATUS.FAILED
             state.dataGoogle = []
+        })
+
+        builder.addCase(create_customer.pending , state => {
+            state.getUser = STATUS.FETCHING
+        })
+        builder.addCase(create_customer.fulfilled , (state , actions) => {
+            state.createUser = actions.payload
+            state.getUser = STATUS.SUCCESS
+        })
+        builder.addCase(create_customer.rejected , state => {
+            state.getUser = STATUS.FAILED
         })
     }
 })

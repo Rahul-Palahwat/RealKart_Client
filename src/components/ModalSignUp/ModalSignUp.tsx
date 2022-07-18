@@ -19,7 +19,7 @@ import Email from '../../assets/Email.png'
 
 // this is modal css file 
 import './ModalSignUp.css'
-import { signInGoogle } from '../../redux/reducers/Login'
+import { create_customer, signInGoogle } from '../../redux/reducers/Login'
 import { text } from 'node:stream/consumers'
 
 // for form data handling 
@@ -71,6 +71,15 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
             return console.log("Password did not match")
         }
         //logic to save user to the database
+        dispatch(create_customer({
+            'store' : '6232a2a4cd65fb954ebd83a5',
+            // 'name' : "rahul",
+            // 'contact' : "9878987898",
+            // 'password' : "hello",
+            'name' : formState.firstName,
+            'contact' : formState.contactNo,
+            'password' : formState.password,
+        }))
     }
 
     console.log({ formState })
@@ -78,7 +87,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
 
     const initialRef = React.useRef(null)
     const dispatch = useAppDispatch();
-    const { getUser, dataGoogle } = useAppSelector((state) => state.login);
+    const { getUser, dataGoogle , createUser } = useAppSelector((state) => state.login);
 
     const googleLogin = () => {
         console.log("Hello")
