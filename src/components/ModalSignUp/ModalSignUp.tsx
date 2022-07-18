@@ -81,11 +81,19 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
 
         //logic for password match
         if (formState.password != formState.confirmPassword) {
-            return console.log("Password did not match")
+            toast({
+                position: 'top',
+                title: 'Account not created.',
+                description: "Password doesn't match",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+              })
+            return console.log("Password does not match")
         }
         //logic to save user to the database
         const data = await dispatch(create_customer({
-            'store' : '6232a2a4cd65fb954ebd83a',
+            'store' : '6232a2a4cd65fb954ebd83a5',
             'name' : formState.firstName,
             'contact' : formState.contactNo,
             'password' : formState.password,
