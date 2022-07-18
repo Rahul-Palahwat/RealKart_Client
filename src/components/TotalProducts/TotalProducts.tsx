@@ -22,20 +22,16 @@ const TotalProducts: React.FC = () => {
         if (getAllProductsStatus === "SUCCESS") {
             setItems(dataAllProducts.docs)
             console.log("total",dataAllProducts.total)
+            console.log("items per page1",itemsPerPage)
             setItemsPerPage(dataAllProducts.total)
+            console.log("items per page2",itemsPerPage)
         }
     }, [getAllProductsStatus])
     useEffect(() => {
-        // console.log("I am in")
+        console.log("I am in")
         dispatch(getTotalItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
     }, [itemsPerPage])
     console.log(items)
-    // console.log(getAllProductsStatus);
-    // useEffect(() => {
-    //     if (itemsInSlider) {
-    //         setItemsPerPage(itemsInSlider)
-    //     }
-    // }, [itemsInSlider])
 
 
   
