@@ -1,7 +1,6 @@
 import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
 import { api_item } from "../../../utils/api";
 import { STATUS } from "../../../utils/constants";
-
 interface InitialState{
     getAllProductsStatus: string
     getBestSellingProductsStatus: string
@@ -10,7 +9,6 @@ interface InitialState{
     dataBestSellingProducts : any
     dataMostWishlistedProducts : any
 }
-
 const initialState:InitialState = {
     getAllProductsStatus: STATUS.NOT_STARTED,
     getBestSellingProductsStatus: STATUS.NOT_STARTED,
@@ -19,44 +17,33 @@ const initialState:InitialState = {
     dataBestSellingProducts: [],
     dataMostWishlistedProducts: [],
 }
-
 export const getTotalItems = createAsyncThunk ( 'get/allProducts' , async(payload: {} , thunkAPI) => {
     const response = await api_item.get('/products/all' , payload)
-
     let {ok , data , problem} = response
-
     if(ok) {
         return data
     } else {
         return thunkAPI.rejectWithValue(problem)
     }
-
 } )
-
 export const getBestSellingItems = createAsyncThunk ('get/allBestSellingProducts', async(payload: {}, thunkAPI) => {
     const response = await api_item.get('/products/all' , payload)
-
     let {ok , data , problem} = response
-
     if(ok) {
         return data
     } else {
         return thunkAPI.rejectWithValue(problem)
     }
 })
-
 export const getMostWishlistedItems = createAsyncThunk ('get/allMostWishlistedProducts', async(payload: {}, thunkAPI) => {
     const response = await api_item.get('/products/all' , payload)
-
     let {ok, data , problem} = response
-
     if(ok) {
         return data
     } else {
         return thunkAPI.rejectWithValue(problem)
     }
 })
-
 const itemsSlice = createSlice({
     name: "get",
     initialState: initialState,
@@ -101,5 +88,4 @@ const itemsSlice = createSlice({
         })
     }
 })
-
 export const ItemsReducer =  itemsSlice.reducer

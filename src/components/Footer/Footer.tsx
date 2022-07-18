@@ -1,16 +1,12 @@
 import { PhoneIcon } from '@chakra-ui/icons'
 import { Flex, IconButton } from '@chakra-ui/react'
 import React from 'react'
-
 import {FaFacebook, FaInstagram, FaLinkedin, FaTwitter} from 'react-icons/fa'
-
 import './Footer.css'
-
 const Footer: React.FC = () => {
     return (
         <>
             <Flex height={"10vh"} bgColor="black" color={"white"} alignItems="center" justifyContent={"space-between"}>
-
                 <Flex width={"15vw"} alignItems="center" justifyContent={"space-around"} ml={4}>
                     <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<PhoneIcon />} />
                     <Flex fontSize="1.5rem">Pensive-Kart</Flex>
@@ -29,5 +25,4 @@ const Footer: React.FC = () => {
         </>
     )
 }
-
 export default Footer

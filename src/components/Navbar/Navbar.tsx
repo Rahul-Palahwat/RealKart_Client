@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
-// import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Flex } from '@chakra-ui/react';
-// import { CgProfile } from 'react-icons/cg'
-
 import './Navbar.css'
 import Searchbar from '../Searchbar/Searchbar';
 import MainNav from '../MainNav/MainNav';
-
 const Navbar: React.FC = () => {
-
     return (
         <Flex direction={"column"} height="26vh" className="Navbar">
             <Flex height={"12vh"} bgColor="white">
@@ -17,9 +12,7 @@ const Navbar: React.FC = () => {
             <Flex height={"14vh"} wrap={"wrap"} bgColor="white">
                 <Searchbar />
             </Flex>
-
         </Flex>
     )
 }
-
 export default Navbar

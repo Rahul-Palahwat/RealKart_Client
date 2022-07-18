@@ -3,45 +3,30 @@ import React, { useEffect, useState } from 'react'
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md'
 import Product from '../Product/Product'
 import { useBreakpointValue } from '@chakra-ui/react'
-
 // for reducer 
 import { useAppDispatch, useAppSelector } from '../../redux'
 import { getMostWishlistedItems } from '../../redux/reducers/items'
-
 import './MostWishlisted.css'
-
 const MostWishlisted:React.FC = () => {
-
     const dispatch = useAppDispatch();
-
     const {dataMostWishlistedProducts , getMostWishlistedProductsStatus} = useAppSelector((state) => state.items)
-
     const [items, setItems] = useState<any>([])
-
     const itemsInSlider = useBreakpointValue({ base: 2, md: 4, lg: 5, xl: 7 })
-
     const [itemsPerPage, setItemsPerPage] = useState<number>(7);
-
     const [pageNumber, setPageNumber] = useState<number>(1);
-
     useEffect(() => {
         dispatch(getMostWishlistedItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
     }, [pageNumber])
-
     useEffect(() => {
         if (getMostWishlistedProductsStatus === "SUCCESS") {
             setItems(dataMostWishlistedProducts.docs)
         }
     }, [getMostWishlistedProductsStatus])
-
     useEffect(() => {
         if (itemsInSlider) {
             setItemsPerPage(itemsInSlider)
         }
     }, [itemsInSlider])
-
-
-
   return (
     <>
         <Flex m={2} mt={2} mb={1} className='AllProducts' direction="column" height={"auto"} borderRadius={8}>
@@ -67,5 +52,4 @@ const MostWishlisted:React.FC = () => {
     </>
   )
 }
-
 export default MostWishlisted

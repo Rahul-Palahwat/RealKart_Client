@@ -1,5 +1,5 @@
-import { CheckIcon, InfoIcon, PlusSquareIcon } from '@chakra-ui/icons'
-import { Button, Flex, IconButton } from '@chakra-ui/react'
+import { InfoIcon } from '@chakra-ui/icons'
+import { Flex, IconButton } from '@chakra-ui/react'
 import React from 'react'
 
 import { BsBagCheck , BsCartPlus } from 'react-icons/bs'

@@ -1,38 +1,29 @@
 import React, { useEffect, useReducer } from 'react'
 import {
-    Badge, Button, Flex,
-    FormControl, FormLabel, IconButton,
+    Button, Flex,
+    FormControl,
     Input, Modal, ModalBody, ModalCloseButton,
     ModalContent, ModalFooter, ModalHeader,
-    ModalOverlay, useDisclosure, useToast
+    ModalOverlay, useToast
 } from '@chakra-ui/react'
-
-
 // for reducer 
 import { useAppDispatch, useAppSelector } from '../../redux'
-
-
+import { logIn } from '../../redux/reducers/Login/index';
 // import google png from assets folder 
 import Google from '../../assets/google.png'
 import facebook from '../../assets/facebook.png'
 import Email from '../../assets/Email.png'
-
 // this is modal css file 
 import './ModalSignUp.css'
 import { create_customer, signInGoogle } from '../../redux/reducers/Login'
-import { text } from 'node:stream/consumers'
-
 // for form data handling 
 import { formReducer } from '../../utils/formReducer'
 import { formFields } from './data'
-
 interface ModalSignUpProps {
     onOpen: () => void,
     onClose: () => void,
     isOpen: boolean
-
 }
-
 // Interface for InitialState for reducer 
 interface InitialState {
     firstName: string,
@@ -42,7 +33,6 @@ interface InitialState {
     password: string,
     confirmPassword: string,
 }
-
 // for UseReducer for form 
 const initialState: InitialState = {
     firstName: '',
@@ -52,23 +42,12 @@ const initialState: InitialState = {
     password: '',
     confirmPassword: ''
 }
-
 const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) => {
-
     // for toast 
     const toast = useToast();
-
-
-
-
-
     const [formState, dispatchChangeinFormState] = useReducer(formReducer, initialState);
-
-
     const dispatch = useAppDispatch();
-    const { getUser, dataGoogle , createUser } = useAppSelector((state) => state.login);
-
-
+    // for e change value 
     const _changeInInput = (type: string, value: any) => {
         console.log('In _change', { type, value })
         dispatchChangeinFormState({ type, value })
@@ -76,9 +55,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
     // for handling form submit 
     const handleSubmit = async () => {
         //logic for id already exists
-
         //logic for phone no already exists
-
         //logic for password match
         if (formState.password != formState.confirmPassword) {
             toast({
@@ -109,7 +86,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                 duration: 9000,
                 isClosable: true,
               })
-            
+            dispatch(logIn(true));
             onClose();
         }else{
             console.log("error in modal")
@@ -122,24 +99,13 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                 isClosable: true,
               })
         }
-        
-        
     }
-
-    console.log({ formState })
-
-
+    // console.log({ formState })
     const initialRef = React.useRef(null)
-    
     const googleLogin = () => {
         console.log("Hello")
         dispatch(signInGoogle({}))
     }
-
-    useEffect(() => {
-
-    }, [])
-
     return (
         <>
             <Modal size={"2xl"}
@@ -207,9 +173,6 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
 
                                     </form>
                                 </Flex>
-
-
-
                                 {/* middle line  */}
                                 <Flex className="center" width={"90%"} height={"6vh"} justifyContent="center" alignItems={"center"} mt="1rem">
                                     <Flex className="line" />
@@ -233,9 +196,6 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
                                     </Flex>
                                     </Flex>
                                 </Flex>
-
-
-
                             </Flex>
                         </ModalBody>
                         <Flex pb={2} pt={3} width={"98%"} justifyContent="flex-end">
@@ -252,5 +212,4 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
         </>
     )
 }
-
 export default ModalSignUp

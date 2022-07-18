@@ -1,7 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import { api_user } from '../../../utils/api'
 import { STATUS } from '../../../utils/constants'
-
 interface InitialState{
     loading: boolean
     isLogIn: boolean
@@ -10,11 +9,9 @@ interface InitialState{
     dataGoogle: any,
     createUser: any
 }
-
 export const logIn = createAsyncThunk('login/logIn' , async(bool: boolean) => {
     return bool
 })
-
 export const signInGoogle = createAsyncThunk(
     'googleSignIn/user' , async(payload: {}, thunkAPI) => {
     const response = await api_user.get('/auth/google/new', payload)
@@ -25,7 +22,6 @@ export const signInGoogle = createAsyncThunk(
         return thunkAPI.rejectWithValue(problem)
     }
 })
-
 export const create_customer = createAsyncThunk( 'create/user' , async(payload: {}, thunkAPI) => {
     // console.log(payload)
     const response = await api_user.post('/auth/customer/signup' , payload)
@@ -37,8 +33,6 @@ export const create_customer = createAsyncThunk( 'create/user' , async(payload: 
         return thunkAPI.rejectWithValue(problem)
     }
 } )
-
-
 const initialState:InitialState = {
     loading: false,
     isLogIn: false,
@@ -47,7 +41,6 @@ const initialState:InitialState = {
     createUser: null,
     error:''
 }
-
 const loginSlice = createSlice({
     name:'login',
     initialState: initialState,
@@ -65,7 +58,6 @@ const loginSlice = createSlice({
             state.loading = false
             state.error = actions.error.message || "Login Failed"
         })
-
         builder.addCase(signInGoogle.pending , state => {
             state.getUser = STATUS.FETCHING
         })
@@ -77,7 +69,6 @@ const loginSlice = createSlice({
             state.getUser = STATUS.FAILED
             state.dataGoogle = []
         })
-
         builder.addCase(create_customer.pending , state => {
             state.getUser = STATUS.FETCHING
         })
@@ -90,6 +81,4 @@ const loginSlice = createSlice({
         })
     }
 })
-
-
 export const LoginReducer =  loginSlice.reducer
