@@ -19,7 +19,7 @@ const Product: React.FC<Props> = (props) => {
     const newtitle: string = title.slice(0, 18);
     // const newprice = price;
     const location = useLocation();
-    console.log(info)
+    // console.log(info)
     return (
         <Flex className='total' m={location.pathname === '/' ? "0.5rem 0.5rem" : ""} borderRadius={"1.2rem"}>
 
@@ -53,9 +53,10 @@ const Product: React.FC<Props> = (props) => {
                     <Flex mt={4} textAlign="center">{title}</Flex>
                     {/* <Flex mt={3}><img src={image[0]} alt="Hello" style={{ "height": "20vh","borderRadius":"0.5rem"}} /></Flex> */}
                     <Flex justifyContent={"space-between"} textAlign="center" mt={2}>Company:{company}</Flex>
+                    <Flex justifyContent={"space-between"} textAlign="center" mt={2}>{desc.length>0?`Description : ${desc}`:""}</Flex>
                     <Flex justifyContent={"space-between"} mt={3}>Min Stock : {minStock}</Flex>
                     <Flex justifyContent={"space-between"} mt={3}>Total Stock : {stock}</Flex>
-                    <Flex id="cart" width="80%" height={"100%"} alignItems={"center"} mt={9} justifyContent="space-around">
+                    <Flex id="cart" width="80%" height={"100%"} alignItems={"center"} mt={"auto"} justifyContent="space-around">
                         <Flex mb={4} justifyContent={"center"} alignItems="center">
                             {/* <Flex width={"80%"}><Button className='items' width="80%" color={"white"} bgColor={"#47B5FF"} fontSize="0.8rem" height={"1.8rem"}>Add to Cart</Button></Flex> */}
                             <Flex><IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' icon={<BsCartPlus />} /></Flex>

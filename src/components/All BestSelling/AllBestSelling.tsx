@@ -21,14 +21,15 @@ const AllBestSelling: React.FC = () => {
     useEffect(() => {
         if (getAllProductsStatus === "SUCCESS") {
             setItems(dataAllProducts.docs)
+            console.log("total",dataAllProducts.total)
+            setItemsPerPage(dataAllProducts.total)
         }
     }, [getAllProductsStatus])
-    // console.log(getAllProductsStatus);
     useEffect(() => {
-        if (itemsInSlider) {
-            setItemsPerPage(itemsInSlider)
-        }
-    }, [itemsInSlider])
+        // console.log("I am in")
+        dispatch(getTotalItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
+    }, [itemsPerPage])
+    console.log(items)
     return (<>
         <Flex width={"100vw"} height={"auto"}>
             <Flex direction={"column"}>
@@ -81,7 +82,7 @@ const AllBestSelling: React.FC = () => {
                                 color={"black"} m={2}
                                 borderRadius={"2rem"}
                                 key={dat._id}>
-                                <Product desc = {dat.shortDescription} minStock={dat.minStock} stock = {dat.stock} title={dat.name} company={dat.company} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.sellingPrice} key={dat._id} />
+                                <Product desc = {dat.shortDescription || ""} minStock={dat.minStock || ""} stock = {dat.stock || ""} title={dat.name || ""} company={dat.company || ""} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.sellingPrice || ""} key={dat._id} />
                             </GridItem>
                         )}
                     </Grid>

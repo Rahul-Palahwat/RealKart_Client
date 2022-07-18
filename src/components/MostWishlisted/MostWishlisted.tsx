@@ -43,7 +43,7 @@ const MostWishlisted:React.FC = () => {
                     <Flex width={"0%"} height={"100%"} display={pageNumber > 1 ? "" : "none"} fontSize="4xl">
                         <MdArrowBackIosNew className='pos_left' onClick={() => setPageNumber(pageNumber - 1)} />
                     </Flex>
-                    {items.map((dat: any) => (<Product desc = {dat.shortDescription} minStock={dat.minStock} stock = {dat.stock} company={dat.company} title={dat.name} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.sellingPrice} key={dat._id} />))}
+                    {items.map((dat: any) => (<Product desc = {dat.shortDescription || ""} minStock={dat.minStock || ""} stock = {dat.stock || ""} title={dat.name || ""} company={dat.company || ""} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.sellingPrice || ""} key={dat._id} />))}
                     <Flex width={"0%"} height={"100"} display={pageNumber >= (dataMostWishlistedProducts.total.length / itemsPerPage) ? "none" : ""} fontSize={"4xl"}>
                         <MdArrowForwardIos className="pos_right" onClick={() => setPageNumber(pageNumber + 1)} />
                     </Flex></>}
