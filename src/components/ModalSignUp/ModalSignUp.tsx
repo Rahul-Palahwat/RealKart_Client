@@ -19,6 +19,7 @@ import facebook from '../../assets/facebook.png'
 // this is modal css file 
 import './ModalSignUp.css'
 import { signInGoogle } from '../../redux/reducers/Login'
+import { useNavigate } from 'react-router-dom'
 
 interface ModalSignUpProps {
     onOpen: () => void,
@@ -31,16 +32,18 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
     const initialRef = React.useRef(null)
     const dispatch = useAppDispatch();
     const { getUser , dataGoogle } = useAppSelector((state) => state.login);
-
+    let navigate = useNavigate();
     const googleLogin = () => {
         console.log("Hello")
-        dispatch(signInGoogle({}))
+        // dispatch(signInGoogle({}))
+        // window.open('http://localhost:3000/auth/google/new')
+        window.open('http://localhost:3000/auth/google/new', '',
+                        `toolbar=no, location=no, directories=no, status=no, menubar=no, 
+scrollbars=no, resizable=no, copyhistory=no`
+                    );
     }
 
-    useEffect(() => {
-
-    }, [])
-
+    console.log({getUser, dataGoogle})
 
     return (
         <>
