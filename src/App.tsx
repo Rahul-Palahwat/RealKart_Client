@@ -9,19 +9,13 @@ import { Box, Flex } from '@chakra-ui/react';
 import BestSelling from './components/BestSelling/BestSelling';
 import MostWishlisted from './components/MostWishlisted/MostWishlisted';
 import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
 
 function App() {
 	return (
 		<Wrapper>
 			<Routes>
-				<Route path="/" element={
-					<Flex direction={"column"}>
-						<AllProducts/>
-						<BestSelling/>
-						<MostWishlisted/>
-					</Flex>
-				
-				}></Route>
+				<Route path="/" element={<Home />}></Route>
 				<Route path="/all" element={<TotalProducts/>}></Route>
 			</Routes>
 		</Wrapper>
