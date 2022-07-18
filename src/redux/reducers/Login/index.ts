@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-import { api } from '../../../utils/api'
+import { api_user } from '../../../utils/api'
 import { STATUS } from '../../../utils/constants'
 
 interface InitialState{
@@ -17,7 +17,7 @@ export const logIn = createAsyncThunk('login/logIn' , async(bool: boolean) => {
 
 export const signInGoogle = createAsyncThunk(
     'googleSignIn/user' , async(payload: {}, thunkAPI) => {
-    const response = await api.get('/auth/google/new', payload)
+    const response = await api_user.get('/auth/google/new', payload)
     let {ok, data , problem} = response
     if(ok){
         return data 
@@ -28,7 +28,7 @@ export const signInGoogle = createAsyncThunk(
 
 export const create_customer = createAsyncThunk( 'create/user' , async(payload: {}, thunkAPI) => {
     // console.log(payload)
-    const response = await api.post('/auth/customer/signup' , payload)
+    const response = await api_user.post('/auth/customer/signup' , payload)
     let {ok , data , problem} = response;
     // console.log("response" , response);
     if(ok) {

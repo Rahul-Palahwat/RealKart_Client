@@ -1,5 +1,5 @@
 import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
-import { api } from "../../../utils/api";
+import { api_item } from "../../../utils/api";
 import { STATUS } from "../../../utils/constants";
 
 interface InitialState{
@@ -21,7 +21,7 @@ const initialState:InitialState = {
 }
 
 export const getTotalItems = createAsyncThunk ( 'get/allProducts' , async(payload: {} , thunkAPI) => {
-    const response = await api.get('/products/all' , payload)
+    const response = await api_item.get('/products/all' , payload)
 
     let {ok , data , problem} = response
 
@@ -34,7 +34,7 @@ export const getTotalItems = createAsyncThunk ( 'get/allProducts' , async(payloa
 } )
 
 export const getBestSellingItems = createAsyncThunk ('get/allBestSellingProducts', async(payload: {}, thunkAPI) => {
-    const response = await api.get('/products/all' , payload)
+    const response = await api_item.get('/products/all' , payload)
 
     let {ok , data , problem} = response
 
@@ -46,7 +46,7 @@ export const getBestSellingItems = createAsyncThunk ('get/allBestSellingProducts
 })
 
 export const getMostWishlistedItems = createAsyncThunk ('get/allMostWishlistedProducts', async(payload: {}, thunkAPI) => {
-    const response = await api.get('/products/all' , payload)
+    const response = await api_item.get('/products/all' , payload)
 
     let {ok, data , problem} = response
 

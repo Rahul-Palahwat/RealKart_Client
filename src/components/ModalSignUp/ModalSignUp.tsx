@@ -85,6 +85,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
         }))
         if(data.payload !== 'SERVER_ERROR'){
             console.log("data in modal", data.payload);
+            onClose();
         }else{
             console.log("error in modal")
         }
