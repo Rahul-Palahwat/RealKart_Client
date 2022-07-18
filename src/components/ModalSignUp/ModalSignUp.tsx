@@ -4,7 +4,7 @@ import {
     FormControl, FormLabel, IconButton,
     Input, Modal, ModalBody, ModalCloseButton,
     ModalContent, ModalFooter, ModalHeader,
-    ModalOverlay, useDisclosure
+    ModalOverlay, useDisclosure, useToast
 } from '@chakra-ui/react'
 
 
@@ -55,6 +55,13 @@ const initialState: InitialState = {
 
 const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) => {
 
+    // for toast 
+    const toast = useToast();
+
+
+
+
+
     const [formState, dispatchChangeinFormState] = useReducer(formReducer, initialState);
 
 
@@ -78,16 +85,34 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
         }
         //logic to save user to the database
         const data = await dispatch(create_customer({
-            'store' : '6232a2a4cd65fb954ebd83a5',
+            'store' : '6232a2a4cd65fb954ebd83a',
             'name' : formState.firstName,
             'contact' : formState.contactNo,
             'password' : formState.password,
         }))
         if(data.payload !== 'SERVER_ERROR'){
             console.log("data in modal", data.payload);
+            // for toast 
+            toast({
+                position: 'top',
+                title: 'Account created.',
+                description: "We've created your account for you.",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+              })
+            
             onClose();
         }else{
             console.log("error in modal")
+            toast({
+                position: 'top',
+                title: 'Account not created.',
+                description: "Please Provide correct Credentails",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+              })
         }
         
         
