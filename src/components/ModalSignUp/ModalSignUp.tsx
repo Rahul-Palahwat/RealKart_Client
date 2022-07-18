@@ -57,38 +57,46 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
 
     const [formState, dispatchChangeinFormState] = useReducer(formReducer, initialState);
 
+
+    const dispatch = useAppDispatch();
+    const { getUser, dataGoogle , createUser } = useAppSelector((state) => state.login);
+
+
     const _changeInInput = (type: string, value: any) => {
         console.log('In _change', { type, value })
         dispatchChangeinFormState({ type, value })
     }
     // for handling form submit 
-    const handleSubmit = () => {
-        console.log("hello")
+    const handleSubmit = async () => {
         //logic for id already exists
+
         //logic for phone no already exists
+
         //logic for password match
         if (formState.password != formState.confirmPassword) {
             return console.log("Password did not match")
         }
         //logic to save user to the database
-        dispatch(create_customer({
+        const data = await dispatch(create_customer({
             'store' : '6232a2a4cd65fb954ebd83a5',
-            // 'name' : "rahul",
-            // 'contact' : "9878987898",
-            // 'password' : "hello",
             'name' : formState.firstName,
             'contact' : formState.contactNo,
             'password' : formState.password,
         }))
+        if(data.payload !== 'SERVER_ERROR'){
+            console.log("data in modal", data.payload);
+        }else{
+            console.log("error in modal")
+        }
+        
+        
     }
 
     console.log({ formState })
 
 
     const initialRef = React.useRef(null)
-    const dispatch = useAppDispatch();
-    const { getUser, dataGoogle , createUser } = useAppSelector((state) => state.login);
-
+    
     const googleLogin = () => {
         console.log("Hello")
         dispatch(signInGoogle({}))

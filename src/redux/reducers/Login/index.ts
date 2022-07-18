@@ -27,10 +27,10 @@ export const signInGoogle = createAsyncThunk(
 })
 
 export const create_customer = createAsyncThunk( 'create/user' , async(payload: {}, thunkAPI) => {
-    console.log(payload)
+    // console.log(payload)
     const response = await api.post('/auth/customer/signup' , payload)
     let {ok , data , problem} = response;
-    console.log("response" , response);
+    // console.log("response" , response);
     if(ok) {
         return data
     } else {
