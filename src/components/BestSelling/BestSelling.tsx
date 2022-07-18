@@ -8,7 +8,6 @@ import { useBreakpointValue } from '@chakra-ui/react'
 import { useAppDispatch, useAppSelector } from '../../redux'
 import { getBestSellingItems } from '../../redux/reducers/items'
 
-import './BestSelling.css'
 
 const BestSelling:React.FC = () => {
 

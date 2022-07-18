@@ -4,7 +4,6 @@ import React from 'react'
 
 import {FaFacebook, FaInstagram, FaLinkedin, FaTwitter} from 'react-icons/fa'
 
-import './Footer.css'
 
 const Footer: React.FC = () => {
     return (

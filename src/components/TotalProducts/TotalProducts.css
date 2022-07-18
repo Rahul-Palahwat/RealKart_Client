@@ -5,24 +5,12 @@
     font-family: 'Ubuntu', sans-serif;
     background-color: white;
 }
-/* /* .Items{
-    height: auto;
-} */
 .left-right:hover{
     background-color: antiquewhite;
-} */
+}
 
 .viewAll{
     color: #4167B2;
     font-size: large;
     font-weight: 900;
 }
-
-/* font-family: 'Baloo 2', cursive;
-font-family: 'Baloo Bhai 2', cursive;
-font-family: 'Fira Sans', sans-serif;
-font-family: 'Neucha', cursive;
-font-family: 'Quicksand', sans-serif;
-font-family: 'Roboto', sans-serif;
-font-family: 'Source Code Pro', monospace;
-font-family: 'Ubuntu', sans-serif; */
