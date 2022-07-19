@@ -22,7 +22,7 @@ const Cart: React.FC = () => {
 
                     {/* address component  */}
                     <Flex border={"1px solid red"} height="15vh" justifyContent={"center"} alignItems='flex-end'>
-                        <Flex border={"1px solid grey"} width="20%" alignItems={'center'} fontSize='1.3rem' height={"100%"} fontWeight="bold">MyCart(4)</Flex>
+                        <Flex p={2} border={"1px solid grey"} width="20%" alignItems={'center'} fontSize='1.3rem' height={"100%"} fontWeight="bold">MyCart(4)</Flex>
 
                         <Flex border={"1px solid blue"} width="73%" ml="2rem" height={"95%"} justifyContent="space-between">
 
