@@ -9,6 +9,7 @@ import './MainNav.css'
 
 const MainNav: React.FC = () => {
 	const { isLogIn } = useAppSelector((state) => state.login)
+	const {items} = useAppSelector((state) => state.cartItem)
 	const dispatch = useAppDispatch();
 	const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -78,7 +79,7 @@ const MainNav: React.FC = () => {
 									<IconButton aria-label='Search database' icon={<BsCartPlus />} />
 								</Flex>
 								<Flex justifyContent={"center"}>
-									<Badge colorScheme='orange' zIndex={1} mt={"0.3rem"} ml={"-2.4rem"} backgroundColor={"red.500"} borderRadius="5px 5px 20px 20px" height={"3"} width="3" display={isLogIn ? "" : "none"} fontSize="0.6rem">0</Badge>
+									<Badge colorScheme='orange' zIndex={1} mt={"0.3rem"} ml={"-2.4rem"} backgroundColor={"orange.300"} borderRadius="5px 5px 20px 20px" height={"3"} width="3" display={isLogIn ? "" : "none"} fontSize="0.6rem">{items.length}</Badge>
 								</Flex>
 							</Flex>
 							<Flex alignItems={'center'} mr={2} fontSize={"3xl"}>
