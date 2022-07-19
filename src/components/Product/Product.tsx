@@ -1,14 +1,14 @@
 import { InfoIcon, SmallCloseIcon } from '@chakra-ui/icons'
-import { Flex, IconButton, Spinner, Tooltip } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import { Flex, IconButton, Spinner, Tooltip, useDisclosure } from '@chakra-ui/react'
+import React, { useState } from 'react'
 import { BsBagCheck, BsCartPlus } from 'react-icons/bs'
 import { useLocation } from 'react-router-dom'
 import './Product.css'
-
 // for redux 
 import { useAppSelector, useAppDispatch } from '../../redux'
 import { addToCart } from '../../redux/reducers/CartItems'
-
+// modal for signup when not logged in and trying to add item to cart 
+import ModalSignUp from '../ModalSignUp/ModalSignUp';
 interface Props {
     title: string,
     image: string[],
@@ -20,25 +20,19 @@ interface Props {
     id: string,
 }
 const Product: React.FC<Props> = (props) => {
-
     const dispatch = useAppDispatch();
-
-    const { addToCartStatus, items, error } = useAppSelector((state) => state.cartItem)
+    const { addToCartStatus, items } = useAppSelector((state) => state.cartItem)
     const { isLogIn } = useAppSelector((state) => state.login)
-
-
-
     const [info, setInfo] = useState<boolean>(true);
     const { title, image, price, company, desc, minStock, stock, id } = props;
     const newtitle: string = title.slice(0, 18);
     // const newprice = price;
     const location = useLocation();
     // console.log(info)
-
-
+    // for modal 
+    const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <Flex className='total' m={location.pathname === '/' ? "0.5rem 0.5rem" : ""} borderRadius={"1.2rem"}>
-
             {info ?
                 <Flex alignItems={"center"} justifyContent="center" width={"100%"} height="100%" wrap={"wrap"} p={2}>
                     <Flex direction={"column"} alignItems="center" className='add' height="100%" width="100%">
@@ -52,20 +46,19 @@ const Product: React.FC<Props> = (props) => {
                             <Flex mb={4} justifyContent={"center"} alignItems="center">
                                 <Flex>
                                     {addToCartStatus === 'FETCHING'
-                                    ?<Spinner/>
-                                :<Tooltip label='Add to Cart' hasArrow arrowSize={10}>
-                                <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn && dispatch(addToCart(id)), console.log(items))} icon={<BsCartPlus />} />
-                                </Tooltip>
-                                }
-                                
-                                    </Flex>
+                                        ? <Spinner />
+                                        : <Tooltip label='Add to Cart' hasArrow arrowSize={10}>
+                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? (dispatch(addToCart(id)),console.log(items)) : (onOpen()))} icon={<BsCartPlus />} />
+                                        </Tooltip>
+                                    }
+                                </Flex>
                             </Flex>
                             <Flex mb={4} justifyContent={"center"} alignItems="center">
                                 <Flex>
-                                <Tooltip label='Buy Now' hasArrow arrowSize={10}>
-                                    <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<BsBagCheck />} />
+                                    <Tooltip label='Buy Now' hasArrow arrowSize={10}>
+                                        <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" onClick={() => (isLogIn ? (console.log(items)) : (onOpen()))} icon={<BsBagCheck />} />
                                     </Tooltip>
-                                    </Flex>
+                                </Flex>
                             </Flex>
                             <Flex mb={4} justifyContent={"center"} alignItems="center">
                                 <Flex>
@@ -77,7 +70,6 @@ const Product: React.FC<Props> = (props) => {
                         </Flex>
                     </Flex>
                 </Flex>
-
                 :
                 <Flex alignItems={"center"} justifyContent="center" width={"100%"} height="100%" wrap={"wrap"} p={0}>
                     <Flex direction={"column"} alignItems="center" className='add' height="100%" width="100%">
@@ -89,22 +81,21 @@ const Product: React.FC<Props> = (props) => {
                         <Flex justifyContent={"space-between"} mt={3}>Total Stock : {stock}</Flex>
                         <Flex id="cart" width="80%" height={"100%"} alignItems={"center"} mt={1} justifyContent="space-around">
                             <Flex mb={4} justifyContent={"center"} alignItems="center">
-                            <Flex>
+                                <Flex>
                                     {addToCartStatus === 'FETCHING'
-                                    ?<Spinner/>
-                                :<Tooltip label='Add to Cart' hasArrow arrowSize={10}>
-                                <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn && dispatch(addToCart(id)), console.log(items))} icon={<BsCartPlus />} />
-                                </Tooltip>
-                                }
-                                
-                                    </Flex>
+                                        ? <Spinner />
+                                        : <Tooltip label='Add to Cart' hasArrow arrowSize={10}>
+                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? (dispatch(addToCart(id)),console.log(items)) : (onOpen()))} icon={<BsCartPlus />} />
+                                        </Tooltip>
+                                    }
+                                </Flex>
                             </Flex>
                             <Flex mb={4} justifyContent={"center"} alignItems="center">
                                 <Flex>
-                                <Tooltip label='Buy Now' hasArrow arrowSize={10}>
-                                    <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<BsBagCheck />} />
+                                    <Tooltip label='Buy Now' hasArrow arrowSize={10}>
+                                        <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" onClick={() => (isLogIn ? (console.log(items)) : (onOpen()))} icon={<BsBagCheck />} />
                                     </Tooltip>
-                                    </Flex>
+                                </Flex>
                             </Flex>
                             <Flex mb={4} justifyContent={"center"} alignItems="center">
                                 <Flex>
@@ -117,7 +108,7 @@ const Product: React.FC<Props> = (props) => {
                     </Flex>
                 </Flex>
             }
-
+            <ModalSignUp onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
         </Flex>
     )
 }
