@@ -20,3 +20,7 @@ hr{
 .footer{
     background-color: #47B5FF;
 }
+
+.mainBtn:hover{
+    color: #47B5FF;
+}

@@ -25,11 +25,11 @@ const MainNav: React.FC = () => {
 			<Flex flex='2' justifyContent='space-around' width={"100%"}>
 				{!isLogIn ?
 					<Flex alignItems={'center'}>
-						<Button onClick={onOpen} color={"white"} bgColor={"#47B5FF"} fontSize="1.1rem" cursor={"pointer"}>Sign Up</Button>
-						<Button onClick={() => { dispatch(logIn(true)) }} color={"white"} bgColor={"#47B5FF"} fontSize="1.1rem" cursor={"pointer"}>Log In</Button>
+						<Button onClick={onOpen} color={"white"} bgColor={"#47B5FF"} fontSize="1.1rem" cursor={"pointer"} className="mainBtn">Sign Up</Button>
+						<Button onClick={() => { dispatch(logIn(true)) }} color={"white"} bgColor={"#47B5FF"} className="mainBtn" fontSize="1.1rem" cursor={"pointer"}>Log In</Button>
 					</Flex>
 				: 	<Flex justifyContent='flex-end' alignItems={'center'}>
-						<Button color={"white"} bgColor={"#47B5FF"} height={"6vh"} mr={5} onClick={() => { dispatch(logIn(false)) }}>Log Out</Button>
+						<Button color={"white"} bgColor={"#47B5FF"} height={"6vh"} mr={5} className="mainBtn" onClick={() => { dispatch(logIn(false)) }}>Log Out</Button>
 						<Flex alignItems={'center'}>
 							<Flex mr={2} fontSize={"3xl"}>
 								<Flex >
