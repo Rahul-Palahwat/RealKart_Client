@@ -65,9 +65,9 @@ const loginSlice = createSlice({
             state.dataGoogle = actions.payload
             state.getUser = STATUS.SUCCESS
         })
-        builder.addCase(signInGoogle.rejected , state => {
+        builder.addCase(signInGoogle.rejected , (state, actions) => {
             state.getUser = STATUS.FAILED
-            state.dataGoogle = []
+            console.log({actions})
         })
         builder.addCase(create_customer.pending , state => {
             state.getUser = STATUS.FETCHING

@@ -6,7 +6,6 @@
 }
 li{
     padding: 0.4rem;
-    /* text-decoration: underline; */
     cursor: pointer;
     font-size: 0.9rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -16,13 +15,8 @@ li:hover{
 }
 
 hr{
-    /* border: "1px solid grey"; */
     width: 100vw;
 }
-.Footer{
-    /* background-image: linear-gradient(#47B5FF, white); */
-    /* border: 2px solid red; */
-    /* background-image: linear-gradient(#eef6fb,#47B5FF); */
+.footer{
     background-color: #47B5FF;
-    /* background-color: white; */
 }

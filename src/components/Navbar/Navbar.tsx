@@ -6,9 +6,7 @@ import MainNav from '../MainNav/MainNav';
 const Navbar: React.FC = () => {
     return (
         <Flex direction={"column"} height="26vh" className="Navbar">
-            <Flex height={"12vh"} bgColor="white">
-                <MainNav />
-            </Flex>
+            <MainNav />
             <Flex height={"14vh"} wrap={"wrap"} bgColor="white">
                 <Searchbar />
             </Flex>

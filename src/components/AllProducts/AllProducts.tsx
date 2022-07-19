@@ -7,7 +7,6 @@ import { useBreakpointValue } from '@chakra-ui/react'
 import { useAppDispatch, useAppSelector } from '../../redux'
 import { getTotalItems } from '../../redux/reducers/items'
 // Css files 
-import './AllProducts.css'
 import '../../index.css'
 
 const AllProducts: React.FC = () => {

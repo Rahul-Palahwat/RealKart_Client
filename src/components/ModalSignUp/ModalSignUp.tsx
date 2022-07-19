@@ -16,6 +16,10 @@ import Email from '../../assets/Email.png'
 // this is modal css file 
 import './ModalSignUp.css'
 import { create_customer, signInGoogle } from '../../redux/reducers/Login'
+
+// import { signInGoogle } from '../../redux/reducers/Login'
+// import { useNavigate } from 'react-router-dom'
+// import { text } from 'node:stream/consumers'
 // for form data handling 
 import { formReducer } from '../../utils/formReducer'
 import { formFields } from './data'
@@ -102,10 +106,23 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
     }
     // console.log({ formState })
     const initialRef = React.useRef(null)
+
+    // const dispatch = useAppDispatch();
+    // let navigate = useNavigate();
+    // const { getUser, dataGoogle } = useAppSelector((state) => state.login);
     const googleLogin = () => {
         console.log("Hello")
-        dispatch(signInGoogle({}))
+        // dispatch(signInGoogle({}))
+        // window.open('http://localhost:3000/auth/google/new')
+        window.open('http://localhost:3000/auth/google/new', '',
+                        `toolbar=no, location=no, directories=no, status=no, menubar=no, 
+scrollbars=no, resizable=no, copyhistory=no`
+                    );
     }
+    // console.log({getUser, dataGoogle})
+    // useEffect(() => {
+
+    // }, [])
     return (
         <>
             <Modal size={"2xl"}

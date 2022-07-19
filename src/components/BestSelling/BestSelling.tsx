@@ -6,7 +6,7 @@ import { useBreakpointValue } from '@chakra-ui/react'
 // for reducer 
 import { useAppDispatch, useAppSelector } from '../../redux'
 import { getBestSellingItems } from '../../redux/reducers/items'
-import './BestSelling.css'
+// import './BestSelling.css'
 const BestSelling:React.FC = () => {
     const dispatch = useAppDispatch();
     const {getBestSellingProductsStatus , dataBestSellingProducts} = useAppSelector((state) => state.items)
