@@ -1,4 +1,4 @@
-import { Badge, Button, Flex, IconButton, useDisclosure } from '@chakra-ui/react'
+import { Badge, Button, Flex, IconButton, Tooltip, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { BsCartPlus, BsPerson } from 'react-icons/bs'
 // this is to import redux store 
@@ -33,14 +33,20 @@ const MainNav: React.FC = () => {
 						<Flex alignItems={'center'}>
 							<Flex mr={2} fontSize={"3xl"}>
 								<Flex >
+								<Tooltip label='Go to Cart' hasArrow arrowSize={10}>
+									<a href="/cart">
 									<IconButton aria-label='Search database' icon={<BsCartPlus />} />
+									</a>
+									</Tooltip>
 								</Flex>
 								<Flex justifyContent={"center"}>
 									<Badge colorScheme='orange' zIndex={1} mt={"0.3rem"} ml={"-2.4rem"} backgroundColor={"orange.300"} borderRadius="5px 5px 20px 20px" height={"3"} width="3" display={isLogIn ? "" : "none"} fontSize="0.6rem">{items.length}</Badge>
 								</Flex>
 							</Flex>
 							<Flex alignItems={'center'} mr={2} fontSize={"3xl"}>
+							<Tooltip label='Profile' hasArrow arrowSize={10}>
 								<IconButton aria-label='Search database' icon={<BsPerson />} />
+								</Tooltip>
 							</Flex>
 						</Flex>
 					</Flex>

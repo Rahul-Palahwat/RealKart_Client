@@ -25,13 +25,17 @@ const TotalProducts: React.FC = () => {
             console.log("items per page1",itemsPerPage)
             setItemsPerPage(dataAllProducts.total)
             console.log("items per page2",itemsPerPage)
+            // setItemsPerPage(dataAllProducts.total)
+            // console.log("items per page3",itemsPerPage)
         }
     }, [getAllProductsStatus])
     useEffect(() => {
         console.log("I am in")
+        console.log("items per page in itemsperpage",itemsPerPage)
+        console.log(items)
         dispatch(getTotalItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
     }, [itemsPerPage])
-    console.log(items)
+    // console.log(items)
 
 
   

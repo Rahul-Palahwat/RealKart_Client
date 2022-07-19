@@ -7,12 +7,14 @@ import AllBestSelling from './components/All BestSelling/AllBestSelling';
 import AllMostWishlisted from './components/AllMostWishlisted/AllMostWishlisted';
 
 import Home from './components/Home/Home';
+import Cart from './components/Cart/Cart';
 
 function App() {
 	return (
 		<Wrapper>
 			<Routes>
 				<Route path="/" element={<Home />}></Route>
+				<Route path="/cart" element={<Cart/>}></Route>
 				<Route path="/all" element={<TotalProducts/>}></Route>
 				<Route path="/AllBestSelling" element={<AllBestSelling/>}></Route>
 				<Route path="/AllMostWishlisted" element={<AllMostWishlisted/>}></Route>

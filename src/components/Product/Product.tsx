@@ -30,6 +30,7 @@ const Product: React.FC<Props> = (props) => {
     const location = useLocation();
     // console.log(info)
     // for modal 
+    console.log(items);
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <Flex className='total' m={location.pathname === '/' ? "0.5rem 0.5rem" : ""} borderRadius={"1.2rem"}>
@@ -48,7 +49,7 @@ const Product: React.FC<Props> = (props) => {
                                     {addToCartStatus === 'FETCHING'
                                         ? <Spinner />
                                         : <Tooltip label='Add to Cart' hasArrow arrowSize={10}>
-                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? (dispatch(addToCart(id)),console.log(items)) : (onOpen()))} icon={<BsCartPlus />} />
+                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? (dispatch(addToCart(id))) : (onOpen()))} icon={<BsCartPlus />} />
                                         </Tooltip>
                                     }
                                 </Flex>
@@ -85,7 +86,7 @@ const Product: React.FC<Props> = (props) => {
                                     {addToCartStatus === 'FETCHING'
                                         ? <Spinner />
                                         : <Tooltip label='Add to Cart' hasArrow arrowSize={10}>
-                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? (dispatch(addToCart(id)),console.log(items)) : (onOpen()))} icon={<BsCartPlus />} />
+                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? (dispatch(addToCart(id))) : (onOpen()))} icon={<BsCartPlus />} />
                                         </Tooltip>
                                     }
                                 </Flex>
