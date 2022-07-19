@@ -5,18 +5,33 @@ interface InitialState{
     getAllProductsStatus: string
     getBestSellingProductsStatus: string
     getMostWishlistedProductsStatus: string
+    getSingleProductStatus: string
     dataAllProducts : any
     dataBestSellingProducts : any
     dataMostWishlistedProducts : any
+    dataSingleProduct: any
 }
 const initialState:InitialState = {
     getAllProductsStatus: STATUS.NOT_STARTED,
     getBestSellingProductsStatus: STATUS.NOT_STARTED,
     getMostWishlistedProductsStatus: STATUS.NOT_STARTED,
+    getSingleProductStatus: STATUS.NOT_STARTED,
     dataAllProducts : [],
     dataBestSellingProducts: [],
     dataMostWishlistedProducts: [],
+    dataSingleProduct:[],
 }
+
+export const getSingleProduct = createAsyncThunk('get/singleProduct' , async(payload: {}, thunkAPI) => {
+    const response = await api_item.get('/products' , payload)
+    let {ok , data , problem} = response
+    if(ok){
+        return data 
+    }else{
+        return thunkAPI.rejectWithValue(problem)
+    }
+})
+
 export const getTotalItems = createAsyncThunk ( 'get/allProducts' , async(payload: {} , thunkAPI) => {
     const response = await api_item.get('/products/all' , payload)
     let {ok , data , problem} = response
@@ -85,6 +100,18 @@ const itemsSlice = createSlice({
         builder.addCase(getMostWishlistedItems.rejected , (state , actions) => {
             state.getMostWishlistedProductsStatus = STATUS.FAILED
             state.dataMostWishlistedProducts = []
+        })
+        //for single product
+        builder.addCase(getSingleProduct.pending , state => {
+            state.getSingleProductStatus = STATUS.FETCHING
+        })
+        builder.addCase(getSingleProduct.fulfilled , (state , actions) => {
+            state.getSingleProductStatus = STATUS.SUCCESS
+            state.dataSingleProduct = actions.payload
+        })
+        builder.addCase(getSingleProduct.rejected , (state , actions) => {
+            state.getSingleProductStatus = STATUS.FAILED
+            state.dataSingleProduct = []
         })
     }
 })
