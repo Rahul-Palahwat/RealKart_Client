@@ -83,16 +83,27 @@ const Product: React.FC<Props> = (props) => {
                         <Flex justifyContent={"space-between"} textAlign="center" mt={2}>{desc.length > 0 ? `Description : ${desc}` : ""}</Flex>
                         <Flex justifyContent={"space-between"} mt={3}>Min Stock : {minStock}</Flex>
                         <Flex justifyContent={"space-between"} mt={3}>Total Stock : {stock}</Flex>
-                        <Flex id="cart" width="80%" height={"100%"} alignItems={"center"} mt={"auto"} justifyContent="space-around">
+                        <Flex id="cart" width="80%" height={"100%"} alignItems={"center"} mt={1} justifyContent="space-around">
                             <Flex mb={4} justifyContent={"center"} alignItems="center">
-                                {/* <Flex width={"80%"}><Button className='items' width="80%" color={"white"} bgColor={"#47B5FF"} fontSize="0.8rem" height={"1.8rem"}>Add to Cart</Button></Flex> */}
-                                <Flex><IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn && dispatch(addToCart(id)), console.log(items))} icon={<BsCartPlus />} /></Flex>
+                                <Flex>
+                                <Tooltip label='Add to Cart' hasArrow arrowSize={10}>
+                                    <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn && dispatch(addToCart(id)), console.log(items))} icon={<BsCartPlus />} />
+                                    </Tooltip>
+                                    </Flex>
                             </Flex>
                             <Flex mb={4} justifyContent={"center"} alignItems="center">
-                                <Flex><IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<BsBagCheck />} /></Flex>
+                                <Flex>
+                                <Tooltip label='Buy Now' hasArrow arrowSize={10}>
+                                    <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" icon={<BsBagCheck />} />
+                                    </Tooltip>
+                                    </Flex>
                             </Flex>
                             <Flex mb={4} justifyContent={"center"} alignItems="center">
-                                <Flex><IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" onClick={() => setInfo(true)} icon={<SmallCloseIcon />} /></Flex>
+                                <Flex>
+                                    <Tooltip label='Less Info' hasArrow arrowSize={10}>
+                                        <IconButton aria-label='Search database' variant={"ghost"} colorScheme="cyan" onClick={() => setInfo(true)} icon={<SmallCloseIcon />} />
+                                    </Tooltip>
+                                </Flex>
                             </Flex>
                         </Flex>
                     </Flex>
