@@ -3,12 +3,20 @@ import React from 'react'
 import CartItem from '../CartItem/CartItem'
 import PriceDetails from '../PriceDetails/PriceDetails'
 
+// for redux 
+import { useAppSelector, useAppDispatch } from '../../redux'
+
 import './Cart.css'
 
 const Cart: React.FC = () => {
+
+    const it = '625677a0c6ea9be331f5a5b3';
+    const { items } = useAppSelector((state) => state.cartItem)
+
+    console.log("Cart wala", items)
     return (
         <>
-            <Flex border={"1px solid red"} height="100vh" justifyContent={"center"} mt={"2.2rem"}>
+            <Flex border={"1px solid red"} height="auto" justifyContent={"center"} mt={"2.2rem"}>
 
                 <Flex border="1px solid green" width={"60%"} direction="column">
 
@@ -34,10 +42,20 @@ const Cart: React.FC = () => {
                     </Flex>
 
                     {/* CartItem component  */}
-                    <Flex border={"2px solid yellow"} height="100%">
-                        <Flex height={"30vh"} width="100%" m="1rem">
-                            <CartItem />
+                    <Flex border={"2px solid yellow"} height="100%" direction={"column"}>
+                        {/* {items.map((id) => 
+                             (
+                                <Flex height={"30vh"} width="auto" m="1rem">
+                                    <CartItem />
+                                </Flex>
+                            )
+                        )} */}
+
+                        <Flex height={"30vh"} width="auto" m="1rem">
+                            <CartItem id={it}/>
                         </Flex>
+
+
                     </Flex>
 
                 </Flex>
