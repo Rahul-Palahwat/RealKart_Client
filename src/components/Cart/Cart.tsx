@@ -18,7 +18,7 @@ const Cart: React.FC = () => {
         <>
             <Flex border={"1px solid red"} height="auto" justifyContent={"center"} mt={"2.2rem"}>
 
-                <Flex border="1px solid green" width={"60%"} direction="column">
+                <Flex border="1px solid green" width={"60%"} direction="column" className="cartComponents">
 
                     {/* address component  */}
                     <Flex border={"1px solid red"} height="15vh" justifyContent={"center"} alignItems='flex-end'>
@@ -61,7 +61,7 @@ const Cart: React.FC = () => {
                 </Flex>
 
                 {/* Price Details component  */}
-                <Flex border={"1px solid blue"} width="30%" ml={"2rem"} height="auto">
+                <Flex border={"1px solid blue"} width="30%" ml={"2rem"} height="auto" className="cartComponents">
                     <PriceDetails />
                 </Flex>
 
