@@ -1,8 +1,11 @@
 import { Button, Flex } from '@chakra-ui/react'
 import React from 'react'
+// for redux 
+import { useAppSelector } from '../../redux'
 import './PriceDetails.css'
 
 const PriceDetails:React.FC = () => {
+    const {sum , noOfItems} = useAppSelector((state) => state.cartItem);
   return (
     <>
     <Flex border={"1px solid black"} width="100%" direction={"column"} height="65vh">
@@ -11,13 +14,13 @@ const PriceDetails:React.FC = () => {
         <hr style={{"width":"100%"}}/>
 
         <Flex m="1.5rem" mb={0} justifyContent={"space-between"}>
-            <Flex>Price(4 Items)</Flex>
-            <Flex>&#x20B9;1000</Flex>
+            <Flex>Price({noOfItems} Items)</Flex>
+            <Flex>&#x20B9;{sum}</Flex>
         </Flex>
 
         <Flex m="1.5rem" mb={0} justifyContent={"space-between"}>
             <Flex>Discount</Flex>
-            <Flex color={"#398F3C"}>-&#x20B9;1000</Flex>
+            <Flex color={"#398F3C"}>-&#x20B9;{sum>1000?"1000":"0"}</Flex>
         </Flex>
 
         <Flex m="1.5rem" mb={0} justifyContent={"space-between"}>
@@ -31,7 +34,7 @@ const PriceDetails:React.FC = () => {
 
         <Flex m="1.5rem" mb={0} justifyContent={"space-between"}>
             <Flex fontWeight={"bold"}>Total Amount</Flex>
-            <Flex fontWeight={'bold'}>&#x20B9;2000</Flex>
+            <Flex fontWeight={'bold'}>&#x20B9;{sum>1000? sum-1000: sum}</Flex>
         </Flex>
 
         <Flex m="1.5rem" mb={0} justifyContent={"space-between"}>
@@ -39,7 +42,7 @@ const PriceDetails:React.FC = () => {
         </Flex>
 
         <Flex m="1.5rem" mb={"1rem"} mt="1rem">
-            <Flex color={"#398F3C"}>You will save &#x20B9;1000 on this order</Flex>
+            <Flex color={"#398F3C"}>You will save &#x20B9;{sum>1000?1000:0} on this order</Flex>
         </Flex>
 
         <hr style={{"width":"100%"}}/>
