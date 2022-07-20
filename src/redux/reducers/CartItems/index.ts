@@ -37,6 +37,7 @@ export const addToCart = createAsyncThunk('cartItem/addToCart' , async(payload:a
 })
 
 export const removeOneItemFromCart = createAsyncThunk('cartItem/removeOneItemFromCart' , async(payload: any) => {
+    
     let data = {
         id: payload.id,
         price: payload.price,
@@ -45,6 +46,7 @@ export const removeOneItemFromCart = createAsyncThunk('cartItem/removeOneItemFro
 })
 
 export const removeAllItemFromCart = createAsyncThunk('cartItem/removeAllItemFromCart', async(payload: any) => {
+    console.log("remove all items",payload)
     let data = {
         id: payload.id,
         price: payload.price,
@@ -65,6 +67,7 @@ const cartItemSlice = createSlice({
             state.addToCartStatus = STATUS.SUCCESS
             let index = _.findIndex(state.items , {id: actions.payload.id})
             state.noOfItems++;
+            // console.log("index in add to cart",index)
             // logic to increase the count or not 
             if(index === -1){
                 const obj={
@@ -99,7 +102,7 @@ const cartItemSlice = createSlice({
                 state.sum -= actions.payload.price
                 // remove will return an array of items that does not satisfy the function 
                 state.items = _.remove(state.items, function(item) {
-                    return item.id === actions.payload.id;
+                    return item.id !== actions.payload.id;
                   });
             }
         })
@@ -115,17 +118,20 @@ const cartItemSlice = createSlice({
             state.removeFromCartStatus = STATUS.SUCCESS
             // logic to remove all occurence of item 
             let index = _.findIndex(state.items , {id: actions.payload.id})
+            console.log("index",index)
+            // console.log("item at that index", state.items[index])
+            // console.log("item at that index", state.items)
             if(state.items[index].count>1){
                 state.noOfItems -= state.items[index].count;
                 state.sum -= state.items[index].count*actions.payload.price;
                 state.items = _.remove(state.items , function(item) {
-                    return item.id === actions.payload.id;
+                    return item.id !== actions.payload.id;
                 })
             }else{
                 state.noOfItems--;
                 state.sum -= actions.payload.price;
                 state.items = _.remove(state.items , function(item) {
-                    return item.id === actions.payload.id;
+                    return item.id !== actions.payload.id;
                 })
             }
 

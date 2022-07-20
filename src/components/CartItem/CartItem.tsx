@@ -4,7 +4,10 @@ import './CartItem.css'
 // for redux
 import { useAppDispatch, useAppSelector } from '../../redux'
 import { getSingleProduct } from '../../redux/reducers/items'
+import {removeOneItemFromCart, removeAllItemFromCart , addToCart} from '../../redux/reducers/CartItems'
+
 import { CloseIcon } from '@chakra-ui/icons'
+
 
 interface Props {
     item: any
@@ -50,11 +53,11 @@ const CartItem: React.FC<Props> = ({item}) => {
                     </Flex>
                     <Flex mt={"0.5rem"}>Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
                     <Tooltip label='Remove' hasArrow arrowSize={10}>
-                        <Badge cursor={"pointer"} colorScheme='green' >-</Badge>
+                        <Badge cursor={"pointer"} colorScheme='green' onClick={() => dispatch(removeOneItemFromCart({id: itemData._id , price: itemData.sellingPrice}))} >-</Badge>
                         </Tooltip>
                         <Badge cursor={"pointer"} colorScheme='green'>{item.count}</Badge>
                         <Tooltip label='Add' hasArrow arrowSize={10}>
-                        <Badge cursor={"pointer"} colorScheme='green' >+</Badge>
+                        <Badge cursor={"pointer"} colorScheme='green' onClick={() => dispatch(addToCart({id: itemData._id , price: itemData.sellingPrice}))} >+</Badge>
                         </Tooltip>
                         </Flex></Flex>
                     <Flex mt={"0.5rem"}><Flex color={"#388F3D"}>Delivery by: </Flex><Flex fontWeight={"bold"}>27 July 2022</Flex></Flex>
@@ -62,7 +65,7 @@ const CartItem: React.FC<Props> = ({item}) => {
 
                 <Flex width={"10%"} border="1px solid green" justifyContent={"flex-end"} m={"0.2rem"}>
                 <Tooltip label='Remove Item' hasArrow arrowSize={10}>
-                    <IconButton aria-label='Call Segun' size='lg' icon={<CloseIcon />} />
+                    <IconButton onClick={() => dispatch(removeAllItemFromCart({id:itemData._id , price:itemData.sellingPrice}))} aria-label='Call Segun' size='lg' icon={<CloseIcon />} />
                     </Tooltip>
                     </Flex>
             </Flex>
