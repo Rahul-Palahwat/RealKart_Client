@@ -39,11 +39,11 @@ const CartItem: React.FC<Props> = ({item}) => {
         <>
             <Flex border={"2px solid pink"} height="100%" width={"100%"}>
 
-                <Flex width={"25%"} border='1px solid green' alignItems={"center"} justifyContent="center">
+                <Flex width={"25%"} alignItems={"center"} justifyContent="center">
                     <Image borderRadius={"1.2rem"} boxSize='11rem' objectFit='cover' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
                 </Flex>
 
-                <Flex width={"65%"} border="1px solid red" direction={"column"}>
+                <Flex width={"65%"} direction={"column"}>
                     <Flex mt={"0.5rem"} fontWeight="bold">{itemData.name}</Flex>
                     <Flex color={"gray"} mt="0.5rem">Desc: {itemData.shortDescription}</Flex>
                     <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {itemData.company}</Flex>
@@ -63,7 +63,7 @@ const CartItem: React.FC<Props> = ({item}) => {
                     <Flex mt={"0.5rem"}><Flex color={"#388F3D"}>Delivery by: </Flex><Flex fontWeight={"bold"}>27 July 2022</Flex></Flex>
                 </Flex>
 
-                <Flex width={"10%"} border="1px solid green" justifyContent={"flex-end"} m={"0.2rem"}>
+                <Flex width={"10%"} justifyContent={"flex-end"} m={"0.2rem"}>
                 <Tooltip label='Remove Item' hasArrow arrowSize={10}>
                     <IconButton onClick={() => dispatch(removeAllItemFromCart({id:itemData._id , price:itemData.sellingPrice}))} aria-label='Call Segun' size='lg' icon={<CloseIcon />} />
                     </Tooltip>

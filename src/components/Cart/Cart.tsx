@@ -10,20 +10,20 @@ import './Cart.css'
 
 const Cart: React.FC = () => {
 
-    const { items } = useAppSelector((state) => state.cartItem)
+    const { items , noOfItems} = useAppSelector((state) => state.cartItem)
 
     // console.log("Cart wala", items)
     return (
         <>
-            <Flex border={"1px solid red"} height="auto" justifyContent={"center"} mt={"2.2rem"} wrap='wrap'>
+            <Flex height="auto" justifyContent={"center"} mt={"2.2rem"} wrap='wrap'>
 
-                <Flex border="1px solid green" width={"60%"} direction="column" className="cartComponents">
+                <Flex width={"60%"} direction="column" className="cartComponents">
 
                     {/* address component  */}
-                    <Flex border={"1px solid red"} height="15vh" justifyContent={"center"} alignItems='flex-end'>
-                        <Flex p={2} border={"1px solid grey"} width="20%" alignItems={'center'} fontSize='1.3rem' height={"100%"} fontWeight="bold">MyCart(4)</Flex>
+                    <Flex height="15vh" justifyContent={"center"} alignItems='flex-end'>
+                        <Flex p={2} width="20%" alignItems={'center'} fontSize='1.3rem' height={"100%"} fontWeight="bold">MyCart({noOfItems})</Flex>
 
-                        <Flex border={"1px solid blue"} width="73%" ml="2rem" height={"95%"} justifyContent="space-between">
+                        <Flex border={"1px solid grey"} width="73%" ml="2rem" height={"95%"} justifyContent="space-between">
 
                             {/* Address  */}
                             <Flex direction={"column"} justifyContent="center">
@@ -41,7 +41,7 @@ const Cart: React.FC = () => {
                     </Flex>
 
                     {/* CartItem component  */}
-                    <Flex border={"2px solid yellow"} height="100%" direction={"column"}>
+                    <Flex height="100%" direction={"column"}>
                         {items.map((item, key) => {
                             // console.log({item})
                             return (
@@ -61,7 +61,7 @@ const Cart: React.FC = () => {
                 </Flex>
 
                 {/* Price Details component  */}
-                <Flex border={"1px solid blue"} width="30%" ml={"2rem"} height="auto" className="cartComponents">
+                <Flex width="30%" ml={"2rem"} height="auto">
                     <PriceDetails />
                 </Flex>
 
