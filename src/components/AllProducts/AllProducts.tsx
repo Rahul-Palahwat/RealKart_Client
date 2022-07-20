@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../redux'
 import { getTotalItems } from '../../redux/reducers/items'
 // Css files 
 import '../../index.css'
+import { useNavigate } from 'react-router-dom'
 
 const AllProducts: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -16,6 +17,7 @@ const AllProducts: React.FC = () => {
     const itemsInSlider = useBreakpointValue({ base: 2, md: 4, lg: 5, xl: 7 })
     const [itemsPerPage, setItemsPerPage] = useState<number>(7);
     const [pageNumber, setPageNumber] = useState<number>(1);
+    const navigate = useNavigate();
     useEffect(() => {
         dispatch(getTotalItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
     }, [pageNumber])
@@ -37,7 +39,7 @@ const AllProducts: React.FC = () => {
                     All Products
                 </Flex>
                 <Flex pr={5} pt={"2.5rem"}>
-                    <a className='viewAll' href='/all'><Flex fontSize={"1.1rem"}>View All</Flex></a>
+                    <Flex className='viewAll' cursor={"pointer"}><Flex onClick={() => navigate('/all')} fontSize={"1.1rem"}>View All</Flex></Flex>
                 </Flex>
             </Flex>
             <Flex height={"auto"} alignItems="center">

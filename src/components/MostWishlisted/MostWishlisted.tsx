@@ -7,6 +7,7 @@ import { useBreakpointValue } from '@chakra-ui/react'
 import { useAppDispatch, useAppSelector } from '../../redux'
 import { getMostWishlistedItems } from '../../redux/reducers/items'
 import './MostWishlisted.css'
+import { useNavigate } from 'react-router-dom'
 const MostWishlisted:React.FC = () => {
     const dispatch = useAppDispatch();
     const {dataMostWishlistedProducts , getMostWishlistedProductsStatus} = useAppSelector((state) => state.items)
@@ -14,6 +15,7 @@ const MostWishlisted:React.FC = () => {
     const itemsInSlider = useBreakpointValue({ base: 2, md: 4, lg: 5, xl: 7 })
     const [itemsPerPage, setItemsPerPage] = useState<number>(7);
     const [pageNumber, setPageNumber] = useState<number>(1);
+    const navigate = useNavigate();
     useEffect(() => {
         dispatch(getMostWishlistedItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
     }, [pageNumber])
@@ -35,7 +37,7 @@ const MostWishlisted:React.FC = () => {
                     Most Wishlisted
                 </Flex>
                 <Flex pr={5} pt={"2.5rem"}>
-                    <a className='viewAll' href='/AllMostWishlisted'><Flex fontSize={"1.1rem"}>View All</Flex></a>
+                    <Flex className='viewAll' cursor={"pointer"}><Flex onClick={() => navigate('/AllMostWishlisted')} fontSize={"1.1rem"}>View All</Flex></Flex>
                 </Flex>
             </Flex>
             <Flex height={"auto"} alignItems="center">

@@ -1,6 +1,7 @@
 import { Badge, Button, Flex, IconButton, Tooltip, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { BsCartPlus, BsPerson } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom';
 // this is to import redux store 
 import { useAppSelector, useAppDispatch } from '../../redux'
 import { logIn } from '../../redux/reducers/Login/index';
@@ -12,15 +13,16 @@ const MainNav: React.FC = () => {
 	const {items} = useAppSelector((state) => state.cartItem)
 	const dispatch = useAppDispatch();
 	const { isOpen, onOpen, onClose } = useDisclosure()
+	const navigate = useNavigate();
 	return (<>
 		<Flex height={"12vh"} className='footer' justifyContent='space-between' width={'100%'}>
 			<Flex cursor={"pointer"} flex='2' fontSize="3xl" alignItems="center" fontWeight={"bold"} justifyContent='center'>
-				<a href="/">Rajeev Kirana Store</a> 
+				<Flex onClick={() => navigate('/')} >Rajeev Kirana Store</Flex> 
 			</Flex>
 			<Flex flex='3' justifyContent='space-around' alignItems="center">
-				<a href="/">Home</a> 
-				<a href="\about">About Us</a>
-				<a href="\location">Location</a>
+				<Flex cursor={"pointer"} onClick={() => navigate('/')}>Home</Flex> 
+				<Flex cursor={"pointer"} onClick={() => navigate('/about')}>About Us</Flex>
+				<Flex cursor={"pointer"} onClick={() => navigate('/location')}>Location</Flex>
 			</Flex>
 			<Flex flex='2' justifyContent='space-around' width={"100%"}>
 				{!isLogIn ?
@@ -34,9 +36,9 @@ const MainNav: React.FC = () => {
 							<Flex mr={2} fontSize={"3xl"}>
 								<Flex >
 								<Tooltip label='Go to Cart' hasArrow arrowSize={10}>
-									<a href="/cart">
+									<Flex onClick={() => navigate('/cart')}>
 									<IconButton aria-label='Search database' icon={<BsCartPlus />} />
-									</a>
+									</Flex>
 									</Tooltip>
 								</Flex>
 								<Flex justifyContent={"center"}>

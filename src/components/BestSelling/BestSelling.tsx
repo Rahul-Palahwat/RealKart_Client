@@ -6,6 +6,7 @@ import { useBreakpointValue } from '@chakra-ui/react'
 // for reducer 
 import { useAppDispatch, useAppSelector } from '../../redux'
 import { getBestSellingItems } from '../../redux/reducers/items'
+import { useNavigate } from 'react-router-dom'
 // import './BestSelling.css'
 const BestSelling:React.FC = () => {
     const dispatch = useAppDispatch();
@@ -14,6 +15,7 @@ const BestSelling:React.FC = () => {
     const itemsInSlider = useBreakpointValue({ base: 2, md: 4, lg: 5, xl: 7 })
     const [itemsPerPage, setItemsPerPage] = useState<number>(7);
     const [pageNumber, setPageNumber] = useState<number>(1);
+    const navigate = useNavigate()
     useEffect(() => {
         dispatch(getBestSellingItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
     }, [pageNumber])
@@ -35,7 +37,7 @@ const BestSelling:React.FC = () => {
                     Best Selling
                 </Flex>
                 <Flex pr={5} pt={"2.5rem"}>
-                    <a className='viewAll' href='/AllBestSelling'><Flex fontSize={"1.1rem"}>View All</Flex></a>
+                    <Flex cursor={"pointer"} className='viewAll'><Flex onClick={() => {navigate('/AllBestSelling')}} fontSize={"1.1rem"}>View All</Flex></Flex>
                 </Flex>
             </Flex>
             <Flex height={"auto"} alignItems="center">
