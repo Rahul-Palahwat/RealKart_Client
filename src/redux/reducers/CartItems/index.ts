@@ -44,6 +44,13 @@ export const removeOneItemFromCart = createAsyncThunk('cartItem/removeOneItemFro
     return data
 })
 
+export const removeAllItemFromCart = createAsyncThunk('cartItem/removeAllItemFromCart', async(payload: any) => {
+    let data = {
+        id: payload.id,
+        price: payload.price,
+    }
+    return data
+})
 
 const cartItemSlice = createSlice({
     name: "cartItem",
@@ -76,7 +83,7 @@ const cartItemSlice = createSlice({
             state.addToCartStatus = STATUS.FAILED
             state.error = actions.error.message || "Item not added to cart"
         })
-        // to remove item from cart
+        // to remove single item from cart
         builders.addCase(removeOneItemFromCart.pending , state => {
             state.removeFromCartStatus = STATUS.FETCHING
         })
@@ -84,18 +91,50 @@ const cartItemSlice = createSlice({
             state.removeFromCartStatus = STATUS.SUCCESS
             let index = _.findIndex(state.items , {id: actions.payload.id})
             state.noOfItems--;
-            // logic to increase the count or not 
+            // logic to decrease the count or not 
             if(state.items[index].count > 1){
                 state.items[index].count--;
                 state.sum -= actions.payload.price
             }else{
                 state.sum -= actions.payload.price
-                // _.remove(state.items , {'_id' === actions.payload.id})
+                // remove will return an array of items that does not satisfy the function 
                 state.items = _.remove(state.items, function(item) {
-                    return item.id !== actions.payload.id;
+                    return item.id === actions.payload.id;
                   });
             }
         })
+        builders.addCase(removeOneItemFromCart.rejected , (state , actions) => {
+            state.removeFromCartStatus = STATUS.FAILED
+            state.error = actions.error.message || "Item not removed from cart"
+        })
+        // to remove all items from the cart 
+        builders.addCase(removeAllItemFromCart.pending , state => {
+            state.removeFromCartStatus = STATUS.FETCHING
+        })
+        builders.addCase(removeAllItemFromCart.fulfilled , (state , actions) => {
+            state.removeFromCartStatus = STATUS.SUCCESS
+            // logic to remove all occurence of item 
+            let index = _.findIndex(state.items , {id: actions.payload.id})
+            if(state.items[index].count>1){
+                state.noOfItems -= state.items[index].count;
+                state.sum -= state.items[index].count*actions.payload.price;
+                state.items = _.remove(state.items , function(item) {
+                    return item.id === actions.payload.id;
+                })
+            }else{
+                state.noOfItems--;
+                state.sum -= actions.payload.price;
+                state.items = _.remove(state.items , function(item) {
+                    return item.id === actions.payload.id;
+                })
+            }
+
+        })
+        builders.addCase(removeAllItemFromCart.rejected , (state , actions) => {
+            state.removeFromCartStatus = STATUS.FAILED
+            state.error = actions.error.message || "Item not removed from cart"
+        })
+
     }
 })
 
