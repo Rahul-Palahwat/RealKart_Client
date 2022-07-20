@@ -23,6 +23,7 @@ const initialState:InitialState = {
 }
 
 export const getSingleProduct = createAsyncThunk('get/singleProduct' , async(payload: {}, thunkAPI) => {
+    console.log({payload})
     const response = await api_item.get('/products' , payload)
     let {ok , data , problem} = response
     if(ok){
@@ -106,6 +107,7 @@ const itemsSlice = createSlice({
             state.getSingleProductStatus = STATUS.FETCHING
         })
         builder.addCase(getSingleProduct.fulfilled , (state , actions) => {
+            // console.log(({actions}))
             state.getSingleProductStatus = STATUS.SUCCESS
             state.dataSingleProduct = actions.payload
         })

@@ -7,24 +7,28 @@ import { getSingleProduct } from '../../redux/reducers/items'
 import { CloseIcon } from '@chakra-ui/icons'
 
 interface Props {
-    id: string,
+    item: any
 }
 
-const CartItem: React.FC<Props> = ({ id }) => {
+const CartItem: React.FC<Props> = ({item}) => {
+
+    // const {id , count} = props.item;
+    // console.log(props. )
 
 
-    const [count, setCount] = useState<number>(0);
+    // const [count, setCount] = useState<number>(0);
 
     const { getSingleProductStatus, dataSingleProduct } = useAppSelector((state) => state.items)
     const dispatch = useAppDispatch()
-    const [item, setItem] = useState<any>([])
+    const [itemData, setItemData] = useState<any>(item)
 
     useEffect(() => {
-        dispatch(getSingleProduct({ 'store': '6232a2a4cd65fb954ebd83a5', 'id': id }))
-    }, [])
+        dispatch(getSingleProduct({ 'store': '6232a2a4cd65fb954ebd83a5', 'id': item.id }))
+    }, [item])
     useEffect(() => {
         if (getSingleProductStatus === "SUCCESS") {
-            setItem(dataSingleProduct)
+            console.log({dataSingleProduct})
+            setItemData(dataSingleProduct)
         }
     }, [getSingleProductStatus])
 
@@ -37,20 +41,20 @@ const CartItem: React.FC<Props> = ({ id }) => {
                 </Flex>
 
                 <Flex width={"65%"} border="1px solid red" direction={"column"}>
-                    <Flex mt={"0.5rem"} fontWeight="bold">{item.name}</Flex>
-                    <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex>
-                    <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex>
+                    <Flex mt={"0.5rem"} fontWeight="bold">{itemData.name}</Flex>
+                    <Flex color={"gray"} mt="0.5rem">Desc: {itemData.shortDescription}</Flex>
+                    <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {itemData.company}</Flex>
                     <Flex mt={"0.5rem"}>
-                        <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.sellingPrice}</Flex>
-                        <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.sellingPrice}</Flex>
+                        <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{itemData.sellingPrice}</Flex>
+                        <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{itemData.sellingPrice}</Flex>
                     </Flex>
                     <Flex mt={"0.5rem"}>Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
                     <Tooltip label='Remove' hasArrow arrowSize={10}>
-                        <Badge cursor={"pointer"} colorScheme='green' onClick={() => (count > 0 ? setCount(count - 1) : "")}>-</Badge>
+                        <Badge cursor={"pointer"} colorScheme='green' >-</Badge>
                         </Tooltip>
-                        <Badge cursor={"pointer"} colorScheme='green'>{count}</Badge>
+                        <Badge cursor={"pointer"} colorScheme='green'>{item.count}</Badge>
                         <Tooltip label='Add' hasArrow arrowSize={10}>
-                        <Badge cursor={"pointer"} colorScheme='green' onClick={() => setCount(count + 1)}>+</Badge>
+                        <Badge cursor={"pointer"} colorScheme='green' >+</Badge>
                         </Tooltip>
                         </Flex></Flex>
                     <Flex mt={"0.5rem"}><Flex color={"#388F3D"}>Delivery by: </Flex><Flex fontWeight={"bold"}>27 July 2022</Flex></Flex>
