@@ -1,37 +1,30 @@
 import { Badge, Flex, IconButton, Image, Tooltip } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './CartItem.css'
 // for redux
 import { useAppDispatch, useAppSelector } from '../../redux'
 import { removeItemCart } from '../../redux/reducers/items'
 import {removeOneItemFromCart, removeAllItemFromCart , addToCart} from '../../redux/reducers/CartItems'
-
 import { CloseIcon } from '@chakra-ui/icons'
 import _ from 'lodash'
-
-
 interface Props {
     item: any
 }
-
 const CartItem: React.FC<Props> = ({item}) => {
     const dispatch = useAppDispatch()
     const {items} = useAppSelector((state) => state.cartItem);
-    const {dataAllCartProducts} = useAppSelector((state) => state.items);
+    // const {dataAllCartProducts} = useAppSelector((state) => state.items);
     const countOfItems = () => {
         let index = _.findIndex(items , function(o) { return o.id === item._id});
         if(index !== -1){
             return items[index].count;
         }
-        return 0;
-        
+        return 0; 
     }
-
     const removeAll = (id:string,sellingPrice:number) => {
         dispatch(removeItemCart(id));
         dispatch(removeAllItemFromCart({id:id , price:sellingPrice}))
-        console.log("dataAllCartProducts",dataAllCartProducts)
-       
+        // console.log("dataAllCartProducts",dataAllCartProducts)
     }
     const removeOne = (id: string, price: number) => {
         let index = _.findIndex(items , function(o) { return o.id === id})
@@ -74,5 +67,4 @@ const CartItem: React.FC<Props> = ({item}) => {
         </>
     )
 }
-
 export default CartItem

@@ -22,7 +22,7 @@ interface Props {
 }
 const Product: React.FC<Props> = (props) => {
     const dispatch = useAppDispatch();
-    const { addToCartStatus, items , sum , noOfItems} = useAppSelector((state) => state.cartItem)
+    const { addToCartStatus, items} = useAppSelector((state) => state.cartItem)
     const { isLogIn } = useAppSelector((state) => state.login)
     const [info, setInfo] = useState<boolean>(true);
     const { title, image, price, company, desc, minStock, stock, id } = props;
@@ -31,7 +31,7 @@ const Product: React.FC<Props> = (props) => {
     const location = useLocation();
     // console.log(info)
     // for modal 
-    console.log(items , sum , noOfItems);
+    // console.log(items , sum , noOfItems);
     const { isOpen, onOpen, onClose } = useDisclosure()
 
 

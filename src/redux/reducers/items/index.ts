@@ -26,7 +26,7 @@ const initialState:InitialState = {
 }
 
 export const getSingleProduct = createAsyncThunk('get/singleProduct' , async(payload: {}, thunkAPI) => {
-    console.log({payload})
+    // console.log({payload})
     const response = await api_item.get('/products' , payload)
     let {ok , data , problem} = response
     if(ok){
@@ -126,7 +126,7 @@ const itemsSlice = createSlice({
             state.getSingleProductStatus = STATUS.SUCCESS
             state.dataSingleProduct = actions.payload
             let index:number = _.findIndex(state.dataAllCartProducts , function(o:any) {return o._id === state.dataSingleProduct._id})
-            if(index==-1){
+            if(index === -1){
                 state.dataAllCartProducts.push(actions.payload)
             }
             

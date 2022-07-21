@@ -1,14 +1,11 @@
 import { createSlice , createAsyncThunk } from '@reduxjs/toolkit'
 // lodash import 
 import _ from 'lodash';
-
 import { STATUS } from '../../../utils/constants'
-
 interface Obj{
     id : string,
     count: number,
 }
-
 interface InitialState{
     addToCartStatus: string,
     removeFromCartStatus: string,
@@ -17,7 +14,6 @@ interface InitialState{
     noOfItems: number,
     error: string,
 }
-
 const initialState:InitialState = {
     addToCartStatus : STATUS.NOT_STARTED,
     removeFromCartStatus: STATUS.NOT_STARTED,
@@ -26,7 +22,6 @@ const initialState:InitialState = {
     noOfItems: 0,
     error: '',
 }
-
 export const addToCart = createAsyncThunk('cartItem/addToCart' , async(payload:any) => {
     let data={
         id: payload.id,
@@ -34,16 +29,13 @@ export const addToCart = createAsyncThunk('cartItem/addToCart' , async(payload:a
     }
     return data
 })
-
-export const removeOneItemFromCart = createAsyncThunk('cartItem/removeOneItemFromCart' , async(payload: any) => {
-    
+export const removeOneItemFromCart = createAsyncThunk('cartItem/removeOneItemFromCart' , async(payload: any) => { 
     let data = {
         id: payload.id,
         price: payload.price,
     }
     return data
 })
-
 export const removeAllItemFromCart = createAsyncThunk('cartItem/removeAllItemFromCart', async(payload: any) => {
     console.log("remove all items",payload)
     let data = {
@@ -52,15 +44,11 @@ export const removeAllItemFromCart = createAsyncThunk('cartItem/removeAllItemFro
     }
     return data
 })
-
-
-
 const cartItemSlice = createSlice({
     name: "cartItem",
     initialState,
     reducers: {},
     extraReducers: (builders) => {
-        
         // to add item to cart 
         builders.addCase(addToCart.pending , state => {
             state.addToCartStatus = STATUS.FETCHING
