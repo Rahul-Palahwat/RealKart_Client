@@ -17,6 +17,7 @@ interface Props {
 const CartItem: React.FC<Props> = ({item}) => {
     const dispatch = useAppDispatch()
     const {items} = useAppSelector((state) => state.cartItem);
+    const {dataAllCartProducts} = useAppSelector((state) => state.items);
     const countOfItems = () => {
         let index = _.findIndex(items , function(o) { return o.id === item._id});
         if(index !== -1){
@@ -29,6 +30,7 @@ const CartItem: React.FC<Props> = ({item}) => {
     const removeAll = (id:string,sellingPrice:number) => {
         dispatch(removeItemCart(id));
         dispatch(removeAllItemFromCart({id:id , price:sellingPrice}))
+        console.log("dataAllCartProducts",dataAllCartProducts)
        
     }
     return (

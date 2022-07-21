@@ -15,14 +15,13 @@ const Cart: React.FC = () => {
     const { items , noOfItems} = useAppSelector((state) => state.cartItem)
     // const dispatch = useAppDispatch();
     const { dataAllCartProducts} = useAppSelector((state) => state.items)
+    
 
     console.log("Cart wala", dataAllCartProducts)
     return (
         <>
             <Flex height="auto" justifyContent={"center"} mt={"2.2rem"} wrap='wrap' mb={"2rem"}>
-
                 <Flex width={"60%"} direction="column" className="cartComponents">
-
                     {/* address component  */}
                     <Flex height="15vh" justifyContent={"center"} alignItems='flex-end'>
                         <Flex p={2} width="20%" alignItems={'center'} fontSize='1.3rem' height={"100%"} fontWeight="bold">MyCart({noOfItems})</Flex>
@@ -43,7 +42,6 @@ const Cart: React.FC = () => {
                         </Flex>
 
                     </Flex>
-
                     {/* CartItem component  */}
                     <Flex height="100%" direction={"column"}>
                         {dataAllCartProducts.map((data:any,index:number) => {
@@ -54,16 +52,8 @@ const Cart: React.FC = () => {
                                 </Flex>
                             )
                         })}
-
-                        {/* <Flex height={"30vh"} width="auto" m="1rem">
-                            <CartItem id={it}/>
-                        </Flex> */}
-
-
                     </Flex>
-
                 </Flex>
-
                 {/* Price Details component  */}
                 <Flex width="30%" ml={"2rem"} height="auto">
                     <PriceDetails />
