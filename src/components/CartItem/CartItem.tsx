@@ -33,6 +33,13 @@ const CartItem: React.FC<Props> = ({item}) => {
         console.log("dataAllCartProducts",dataAllCartProducts)
        
     }
+    const removeOne = (id: string, price: number) => {
+        let index = _.findIndex(items , function(o) { return o.id === id})
+        if(items[index].count === 1){
+            dispatch(removeItemCart(id));
+        }
+        dispatch(removeOneItemFromCart({id: id , price: price}))
+    }
     return (
         <>
             <Flex border={"2px solid pink"} height="100%" width={"100%"}>
@@ -49,7 +56,7 @@ const CartItem: React.FC<Props> = ({item}) => {
                     </Flex>
                     <Flex mt={"0.5rem"}>Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
                     <Tooltip label='Remove' hasArrow arrowSize={10}>
-                        <Badge cursor={"pointer"} colorScheme='green' onClick={() => dispatch(removeOneItemFromCart({id: item._id , price: item.sellingPrice}))} >-</Badge>
+                        <Badge cursor={"pointer"} colorScheme='green' onClick={() => removeOne(item._id , item.sellingPrice)} >-</Badge>
                         </Tooltip>
                         <Badge cursor={"pointer"} colorScheme='green'>{countOfItems()}</Badge>
                         <Tooltip label='Add' hasArrow arrowSize={10}>
