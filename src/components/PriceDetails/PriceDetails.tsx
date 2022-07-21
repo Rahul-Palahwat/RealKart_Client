@@ -8,7 +8,7 @@ const PriceDetails:React.FC = () => {
     const {sum , noOfItems} = useAppSelector((state) => state.cartItem);
   return (
     <>
-    <Flex className="cartComponents" width="100%" direction={"column"} height="65vh">
+    <Flex className="cartComponents" width="100%" direction={"column"} height="auto">
 
         <Flex height={"8vh"} alignItems='center' ml="1.5rem" color={"grey"} fontSize="1.2rem">PRICE DETAILS</Flex>
         <hr style={{"width":"100%"}}/>

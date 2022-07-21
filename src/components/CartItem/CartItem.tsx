@@ -37,12 +37,12 @@ const CartItem: React.FC<Props> = ({item}) => {
         <>
             <Flex border={"2px solid pink"} height="100%" width={"100%"}>
                 <Flex width={"25%"} alignItems={"center"} justifyContent="center">
-                    <Image borderRadius={"1.2rem"} boxSize='11rem' objectFit='cover' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+                    <Image borderRadius={"1.2rem"} boxSize='8rem' objectFit='cover' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
                 </Flex>
                 <Flex width={"65%"} direction={"column"}>
                     <Flex mt={"0.5rem"} fontWeight="bold">{item.name}</Flex>
-                    <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex>
-                    <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex>
+                    {/* <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex> */}
+                    {/* <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex> */}
                     <Flex mt={"0.5rem"}>
                         <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.sellingPrice}</Flex>
                         <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.sellingPrice}</Flex>
@@ -56,7 +56,7 @@ const CartItem: React.FC<Props> = ({item}) => {
                         <Badge cursor={"pointer"} colorScheme='green' onClick={() => dispatch(addToCart({id: item._id , price: item.sellingPrice}))} >+</Badge>
                         </Tooltip>
                         </Flex></Flex>
-                    <Flex mt={"0.5rem"}><Flex color={"#388F3D"}>Delivery by: </Flex><Flex fontWeight={"bold"}>27 July 2022</Flex></Flex>
+                    <Flex mt={"0.5rem"} mb={"0.5rem"}><Flex color={"#388F3D"}>Delivery by: </Flex><Flex fontWeight={"bold"}>27 July 2022</Flex></Flex>
                 </Flex>
                 <Flex width={"10%"} justifyContent={"flex-end"} m={"0.2rem"}>
                 <Tooltip label='Remove Item' hasArrow arrowSize={10}>

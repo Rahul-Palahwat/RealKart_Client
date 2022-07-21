@@ -34,7 +34,7 @@ const Cart: React.FC = () => {
                         {dataAllCartProducts.map((data:any,index:number) => {
                             // console.log({item})
                             return (
-                                <Flex key={index} height={"30vh"} width="auto" m="1rem">
+                                <Flex key={index} height={"auto"} width="auto" m="1rem">
                                     <CartItem item={data}/>
                                 </Flex>
                             )
