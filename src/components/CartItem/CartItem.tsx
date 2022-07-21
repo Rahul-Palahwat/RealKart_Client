@@ -5,7 +5,7 @@ import './CartItem.css'
 import { useAppDispatch, useAppSelector } from '../../redux'
 import { removeItemCart } from '../../redux/reducers/items'
 import {removeOneItemFromCart, removeAllItemFromCart , addToCart} from '../../redux/reducers/CartItems'
-import { CloseIcon } from '@chakra-ui/icons'
+import { CloseIcon, WarningIcon } from '@chakra-ui/icons'
 import _ from 'lodash'
 interface Props {
     item: any
@@ -35,19 +35,24 @@ const CartItem: React.FC<Props> = ({item}) => {
     }
     return (
         <>
-            <Flex border={"2px solid pink"} height="100%" width={"100%"}>
-                <Flex width={"25%"} alignItems={"center"} justifyContent="center">
-                    <Image borderRadius={"0.5rem"} boxSize='8rem' objectFit='cover' src='https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp' alt='Dan Abramov' />
+            <Flex height="100%" width={"100%"}>
+                <Flex width={"20%"} alignItems={"center"} justifyContent="center">
+                    <Image borderRadius={"0.5rem"} boxSize='6rem' objectFit='cover' src='https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp' alt='Dan Abramov' />
                 </Flex>
-                <Flex width={"65%"} direction={"column"}>
+                <Flex width={"70%"} direction={"column"}>
                     <Flex mt={"0.5rem"} fontWeight="bold">{item.name}</Flex>
                     {/* <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex> */}
                     {/* <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex> */}
                     <Flex mt={"0.5rem"}>
                         <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.sellingPrice}</Flex>
                         <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.sellingPrice}</Flex>
+                        
                     </Flex>
-                    <Flex mt={"0.5rem"}>Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
+                    
+                    <Flex mt={"0.5rem"} mb={"0.5rem"}>
+                        <Flex color={"#388F3D"}>Delivery by :</Flex>
+                    <Flex fontWeight={"bold"} ml={1}>27 July</Flex>
+                    <Flex ml={2} fontWeight="bold">Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
                     <Tooltip label='Remove' hasArrow arrowSize={10}>
                         <Badge cursor={"pointer"} colorScheme='green' onClick={() => removeOne(item._id , item.sellingPrice)} >-</Badge>
                         </Tooltip>
@@ -56,11 +61,14 @@ const CartItem: React.FC<Props> = ({item}) => {
                         <Badge cursor={"pointer"} colorScheme='green' onClick={() => dispatch(addToCart({id: item._id , price: item.sellingPrice}))} >+</Badge>
                         </Tooltip>
                         </Flex></Flex>
-                    <Flex mt={"0.5rem"} mb={"0.5rem"}><Flex color={"#388F3D"}>Delivery by :</Flex><Flex fontWeight={"bold"} ml={1}>27 July</Flex></Flex>
+                     </Flex>
                 </Flex>
                 <Flex width={"10%"} justifyContent={"flex-end"} m={"0.2rem"}>
                 <Tooltip label='Remove Item' hasArrow arrowSize={10}>
-                    <IconButton onClick={() => removeAll(item._id , item.sellingPrice)} aria-label='Call Segun' size='sm' icon={<CloseIcon />} />
+                    <IconButton onClick={() => removeAll(item._id , item.sellingPrice)} aria-label='Call Segun' size={"xs"} fontSize={"0.8rem"} icon={<WarningIcon />} />
+                    </Tooltip>
+                <Tooltip label='Remove Item' hasArrow arrowSize={10}>
+                    <IconButton ml={3} onClick={() => removeAll(item._id , item.sellingPrice)} aria-label='Call Segun' size='xs' fontSize={"0.5rem"} icon={<CloseIcon />} />
                     </Tooltip>
                     </Flex>
             </Flex>

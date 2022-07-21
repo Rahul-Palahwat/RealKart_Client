@@ -56,9 +56,10 @@ const PriceDetails:React.FC = () => {
 
         {/* address component  */}
         <Flex height="auto" justifyContent={"center"} alignItems='flex-end' mb={"1rem"}>
-                        <Flex p={2} border={"1px solid grey"} width="90%" height={"100%"} justifyContent="space-between" direction={"column"}>
+                        <Flex className="cartComponents" p={2} width="90%" height={"100%"} justifyContent="space-between" direction={"column"}>
                             {/* Address  */}
                             <Flex direction={"column"} justifyContent="center" mb={2}>
+                                <Flex  m="0.2rem" ml="1rem" fontWeight={"bold"} fontSize={"1.2rem"}>Shipping Address</Flex>
                                 <Flex m="0.2rem" ml="1rem">Deliver to: <Flex fontWeight={"bold"}>Rahul kumar, 204213</Flex></Flex>
                                 <Flex m="0.2rem" ml="1rem" color={"grey"}>Village- Nagla Anta, Post- Kota, Uttar Pradesh</Flex>
                             </Flex>
@@ -69,10 +70,6 @@ const PriceDetails:React.FC = () => {
                             </Flex>
                         </Flex>
                     </Flex>
-
-
-
-
         <></>
     </Flex>
     </>
