@@ -1,4 +1,4 @@
-import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice , createAsyncThunk, current } from "@reduxjs/toolkit";
 import { api_item } from "../../../utils/api";
 import { STATUS } from "../../../utils/constants";
 import _ from 'lodash'
@@ -37,6 +37,7 @@ export const getSingleProduct = createAsyncThunk('get/singleProduct' , async(pay
 })
 
 export const removeItemCart = createAsyncThunk('get/removeItemCart' , async(payload: any) => {
+    // console.log("payload in remove",payload)
     return payload;
 })
 
@@ -137,10 +138,14 @@ const itemsSlice = createSlice({
         // for removing item from cart 
         builder.addCase(removeItemCart.pending , state => {
             state.getAllProductsStatus = STATUS.FETCHING
+            console.log("dataAllCartProducts in reducer pending",current(state).dataAllCartProducts)
         })
         builder.addCase(removeItemCart.fulfilled , (state , actions) => {
             state.getAllProductsStatus = STATUS.SUCCESS
-            _.filter(state.dataAllCartProducts , function(o) { return o._id !== actions.payload})
+            // console.log("dataAllCartProducts in reducer 1",current(state).dataAllCartProducts)
+            // console.log("payload in fulfilled" , actions.payload)
+            state.dataAllCartProducts = _.filter(state.dataAllCartProducts , function(o) { return o._id !== actions.payload})
+            // console.log("dataAllCartProducts in reducer 2",current(state).dataAllCartProducts)
         })
         builder.addCase(removeItemCart.rejected , (state , actions) => {
             state.getSingleProductStatus = STATUS.FAILED
