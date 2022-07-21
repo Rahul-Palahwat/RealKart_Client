@@ -37,7 +37,7 @@ const CartItem: React.FC<Props> = ({item}) => {
         <>
             <Flex border={"2px solid pink"} height="100%" width={"100%"}>
                 <Flex width={"25%"} alignItems={"center"} justifyContent="center">
-                    <Image borderRadius={"1.2rem"} boxSize='8rem' objectFit='cover' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+                    <Image borderRadius={"0.5rem"} boxSize='8rem' objectFit='cover' src='https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp' alt='Dan Abramov' />
                 </Flex>
                 <Flex width={"65%"} direction={"column"}>
                     <Flex mt={"0.5rem"} fontWeight="bold">{item.name}</Flex>
@@ -56,11 +56,11 @@ const CartItem: React.FC<Props> = ({item}) => {
                         <Badge cursor={"pointer"} colorScheme='green' onClick={() => dispatch(addToCart({id: item._id , price: item.sellingPrice}))} >+</Badge>
                         </Tooltip>
                         </Flex></Flex>
-                    <Flex mt={"0.5rem"} mb={"0.5rem"}><Flex color={"#388F3D"}>Delivery by: </Flex><Flex fontWeight={"bold"}>27 July 2022</Flex></Flex>
+                    <Flex mt={"0.5rem"} mb={"0.5rem"}><Flex color={"#388F3D"}>Delivery by :</Flex><Flex fontWeight={"bold"} ml={1}>27 July</Flex></Flex>
                 </Flex>
                 <Flex width={"10%"} justifyContent={"flex-end"} m={"0.2rem"}>
                 <Tooltip label='Remove Item' hasArrow arrowSize={10}>
-                    <IconButton onClick={() => removeAll(item._id , item.sellingPrice)} aria-label='Call Segun' size='lg' icon={<CloseIcon />} />
+                    <IconButton onClick={() => removeAll(item._id , item.sellingPrice)} aria-label='Call Segun' size='sm' icon={<CloseIcon />} />
                     </Tooltip>
                     </Flex>
             </Flex>
