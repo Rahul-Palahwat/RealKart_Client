@@ -40,7 +40,7 @@ const CartItem: React.FC<Props> = ({item}) => {
                     <Image borderRadius={"0.5rem"} boxSize='6rem' objectFit='cover' src='https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp' alt='Dan Abramov' />
                 </Flex>
                 <Flex width={"70%"} direction={"column"}>
-                    <Flex mt={"0.5rem"} fontWeight="bold">{item.name}</Flex>
+                    <Flex mt={"0.5rem"} fontSize={"1.3rem"}>{item.name}</Flex>
                     {/* <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex> */}
                     {/* <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex> */}
                     <Flex mt={"0.5rem"}>
@@ -51,8 +51,8 @@ const CartItem: React.FC<Props> = ({item}) => {
                     
                     <Flex mt={"0.5rem"} mb={"0.5rem"}>
                         <Flex color={"#388F3D"}>Delivery by :</Flex>
-                    <Flex fontWeight={"bold"} ml={1}>27 July</Flex>
-                    <Flex ml={2} fontWeight="bold">Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
+                    <Flex ml={1} fontSize="0.8rem" alignItems={"center"}>27 July</Flex>
+                    <Flex ml={"1rem"}>Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
                     <Tooltip label='Remove' hasArrow arrowSize={10}>
                         <Badge cursor={"pointer"} colorScheme='green' onClick={() => removeOne(item._id , item.sellingPrice)} >-</Badge>
                         </Tooltip>

@@ -15,7 +15,7 @@ const Cart: React.FC = () => {
                 <Flex width={"60%"} direction="column" className="cartComponents">
                     {/* address component  */}
                     <Flex height="15vh" alignItems='flex-end'>
-                        <Flex ml={"2rem"} width="20%" alignItems={'center'} fontSize='1.3rem' height={"100%"} fontWeight="bold">MyCart({noOfItems})</Flex>
+                        <Flex ml={"2rem"} width="20%" alignItems={'center'} fontSize='1.2rem' height={"100%"} fontWeight="bold">MyCart({noOfItems})</Flex>
                     </Flex>
                     {/* CartItem component  */}
                     <Flex height="100%" direction={"column"}>

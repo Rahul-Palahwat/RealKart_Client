@@ -1,0 +1,6 @@
+.sticky{
+    position: sticky;
+    /* top: 10rem; */
+    /* bottom: 2rem; */
+    top: 0;
+}
