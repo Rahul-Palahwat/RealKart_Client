@@ -1,12 +1,13 @@
 import { InfoIcon, SmallCloseIcon } from '@chakra-ui/icons'
 import { Flex, IconButton, Spinner, Tooltip, useDisclosure } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsBagCheck, BsCartPlus } from 'react-icons/bs'
 import { useLocation } from 'react-router-dom'
 import './Product.css'
 // for redux 
 import { useAppSelector, useAppDispatch } from '../../redux'
 import { addToCart } from '../../redux/reducers/CartItems'
+import { getSingleProduct } from '../../redux/reducers/items'
 // modal for signup when not logged in and trying to add item to cart 
 import ModalSignUp from '../ModalSignUp/ModalSignUp';
 interface Props {
@@ -32,6 +33,17 @@ const Product: React.FC<Props> = (props) => {
     // for modal 
     console.log(items , sum , noOfItems);
     const { isOpen, onOpen, onClose } = useDisclosure()
+
+
+    const dispatchtwo = (id:string , price: number) => {
+        dispatch(addToCart({id, price}))
+        dispatch(getSingleProduct({ 'store': '6232a2a4cd65fb954ebd83a5', 'id': id }))
+    }
+    useEffect(() => {
+        
+    },[items])
+
+
     return (
         <Flex className='total' m={location.pathname === '/' ? "0.5rem 0.5rem" : ""} borderRadius={"1.2rem"}>
             {info ?
@@ -49,7 +61,7 @@ const Product: React.FC<Props> = (props) => {
                                     {addToCartStatus === 'FETCHING'
                                         ? <Spinner />
                                         : <Tooltip label='Add to Cart' hasArrow arrowSize={10}>
-                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? (dispatch(addToCart({id, price}))) : (onOpen()))} icon={<BsCartPlus />} />
+                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? dispatchtwo(id,price) : (onOpen()))} icon={<BsCartPlus />} />
                                         </Tooltip>
                                     }
                                 </Flex>
@@ -86,7 +98,7 @@ const Product: React.FC<Props> = (props) => {
                                     {addToCartStatus === 'FETCHING'
                                         ? <Spinner />
                                         : <Tooltip label='Add to Cart' hasArrow arrowSize={10}>
-                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? (dispatch(addToCart({id,price}))) : (onOpen()))} icon={<BsCartPlus />} />
+                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? dispatchtwo(id,price) : (onOpen()))} icon={<BsCartPlus />} />
                                         </Tooltip>
                                     }
                                 </Flex>

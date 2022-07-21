@@ -1,21 +1,25 @@
 import { Button, Flex } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CartItem from '../CartItem/CartItem'
 import PriceDetails from '../PriceDetails/PriceDetails'
 
 // for redux 
 import { useAppSelector, useAppDispatch } from '../../redux'
+import { getSingleProduct } from '../../redux/reducers/items'
 
 import './Cart.css'
+import _ from 'lodash'
 
 const Cart: React.FC = () => {
 
     const { items , noOfItems} = useAppSelector((state) => state.cartItem)
+    // const dispatch = useAppDispatch();
+    const { dataAllCartProducts} = useAppSelector((state) => state.items)
 
-    // console.log("Cart wala", items)
+    console.log("Cart wala", dataAllCartProducts)
     return (
         <>
-            <Flex height="auto" justifyContent={"center"} mt={"2.2rem"} wrap='wrap'>
+            <Flex height="auto" justifyContent={"center"} mt={"2.2rem"} wrap='wrap' mb={"2rem"}>
 
                 <Flex width={"60%"} direction="column" className="cartComponents">
 
@@ -42,11 +46,11 @@ const Cart: React.FC = () => {
 
                     {/* CartItem component  */}
                     <Flex height="100%" direction={"column"}>
-                        {items.map((item, key) => {
+                        {dataAllCartProducts.map((data:any,index:number) => {
                             // console.log({item})
                             return (
-                                <Flex key={key} height={"30vh"} width="auto" m="1rem">
-                                    <CartItem item={item}/>
+                                <Flex key={index} height={"30vh"} width="auto" m="1rem">
+                                    <CartItem item={data}/>
                                 </Flex>
                             )
                         })}

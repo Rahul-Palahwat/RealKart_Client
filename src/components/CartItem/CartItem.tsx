@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react'
 import './CartItem.css'
 // for redux
 import { useAppDispatch, useAppSelector } from '../../redux'
-import { getSingleProduct } from '../../redux/reducers/items'
+import { removeItemCart } from '../../redux/reducers/items'
 import {removeOneItemFromCart, removeAllItemFromCart , addToCart} from '../../redux/reducers/CartItems'
 
 import { CloseIcon } from '@chakra-ui/icons'
+import _ from 'lodash'
 
 
 interface Props {
@@ -14,58 +15,50 @@ interface Props {
 }
 
 const CartItem: React.FC<Props> = ({item}) => {
-
-    // const {id , count} = props.item;
-    // console.log(props. )
-
-
-    // const [count, setCount] = useState<number>(0);
-
-    const { getSingleProductStatus, dataSingleProduct } = useAppSelector((state) => state.items)
     const dispatch = useAppDispatch()
-    const [itemData, setItemData] = useState<any>(item)
-
-    useEffect(() => {
-        dispatch(getSingleProduct({ 'store': '6232a2a4cd65fb954ebd83a5', 'id': item.id }))
-    }, [item])
-    useEffect(() => {
-        if (getSingleProductStatus === "SUCCESS") {
-            console.log({dataSingleProduct})
-            setItemData(dataSingleProduct)
+    const {items} = useAppSelector((state) => state.cartItem);
+    const countOfItems = () => {
+        let index = _.findIndex(items , function(o) { return o.id === item._id});
+        if(index !== -1){
+            return items[index].count;
         }
-    }, [getSingleProductStatus])
+        return 0;
+        
+    }
 
+    const removeAll = (id:string,sellingPrice:number) => {
+        dispatch(removeItemCart(id));
+        dispatch(removeAllItemFromCart({id:id , price:sellingPrice}))
+       
+    }
     return (
         <>
             <Flex border={"2px solid pink"} height="100%" width={"100%"}>
-
                 <Flex width={"25%"} alignItems={"center"} justifyContent="center">
                     <Image borderRadius={"1.2rem"} boxSize='11rem' objectFit='cover' src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
                 </Flex>
-
                 <Flex width={"65%"} direction={"column"}>
-                    <Flex mt={"0.5rem"} fontWeight="bold">{itemData.name}</Flex>
-                    <Flex color={"gray"} mt="0.5rem">Desc: {itemData.shortDescription}</Flex>
-                    <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {itemData.company}</Flex>
+                    <Flex mt={"0.5rem"} fontWeight="bold">{item.name}</Flex>
+                    <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex>
+                    <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex>
                     <Flex mt={"0.5rem"}>
-                        <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{itemData.sellingPrice}</Flex>
-                        <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{itemData.sellingPrice}</Flex>
+                        <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.sellingPrice}</Flex>
+                        <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.sellingPrice}</Flex>
                     </Flex>
                     <Flex mt={"0.5rem"}>Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
                     <Tooltip label='Remove' hasArrow arrowSize={10}>
-                        <Badge cursor={"pointer"} colorScheme='green' onClick={() => dispatch(removeOneItemFromCart({id: itemData._id , price: itemData.sellingPrice}))} >-</Badge>
+                        <Badge cursor={"pointer"} colorScheme='green' onClick={() => dispatch(removeOneItemFromCart({id: item._id , price: item.sellingPrice}))} >-</Badge>
                         </Tooltip>
-                        <Badge cursor={"pointer"} colorScheme='green'>{item.count}</Badge>
+                        <Badge cursor={"pointer"} colorScheme='green'>{countOfItems()}</Badge>
                         <Tooltip label='Add' hasArrow arrowSize={10}>
-                        <Badge cursor={"pointer"} colorScheme='green' onClick={() => dispatch(addToCart({id: itemData._id , price: itemData.sellingPrice}))} >+</Badge>
+                        <Badge cursor={"pointer"} colorScheme='green' onClick={() => dispatch(addToCart({id: item._id , price: item.sellingPrice}))} >+</Badge>
                         </Tooltip>
                         </Flex></Flex>
                     <Flex mt={"0.5rem"}><Flex color={"#388F3D"}>Delivery by: </Flex><Flex fontWeight={"bold"}>27 July 2022</Flex></Flex>
                 </Flex>
-
                 <Flex width={"10%"} justifyContent={"flex-end"} m={"0.2rem"}>
                 <Tooltip label='Remove Item' hasArrow arrowSize={10}>
-                    <IconButton onClick={() => dispatch(removeAllItemFromCart({id:itemData._id , price:itemData.sellingPrice}))} aria-label='Call Segun' size='lg' icon={<CloseIcon />} />
+                    <IconButton onClick={() => removeAll(item._id , item.sellingPrice)} aria-label='Call Segun' size='lg' icon={<CloseIcon />} />
                     </Tooltip>
                     </Flex>
             </Flex>

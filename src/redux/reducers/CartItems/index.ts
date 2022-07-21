@@ -16,7 +16,6 @@ interface InitialState{
     sum: number,
     noOfItems: number,
     error: string,
-
 }
 
 const initialState:InitialState = {
@@ -54,11 +53,14 @@ export const removeAllItemFromCart = createAsyncThunk('cartItem/removeAllItemFro
     return data
 })
 
+
+
 const cartItemSlice = createSlice({
     name: "cartItem",
     initialState,
     reducers: {},
     extraReducers: (builders) => {
+        
         // to add item to cart 
         builders.addCase(addToCart.pending , state => {
             state.addToCartStatus = STATUS.FETCHING
@@ -121,6 +123,7 @@ const cartItemSlice = createSlice({
             console.log("index",index)
             // console.log("item at that index", state.items[index])
             // console.log("item at that index", state.items)
+
             if(state.items[index].count>1){
                 state.noOfItems -= state.items[index].count;
                 state.sum -= state.items[index].count*actions.payload.price;

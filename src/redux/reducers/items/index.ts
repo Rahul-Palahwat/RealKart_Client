@@ -1,6 +1,7 @@
 import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
 import { api_item } from "../../../utils/api";
 import { STATUS } from "../../../utils/constants";
+import _ from 'lodash'
 interface InitialState{
     getAllProductsStatus: string
     getBestSellingProductsStatus: string
@@ -10,6 +11,7 @@ interface InitialState{
     dataBestSellingProducts : any
     dataMostWishlistedProducts : any
     dataSingleProduct: any
+    dataAllCartProducts: any
 }
 const initialState:InitialState = {
     getAllProductsStatus: STATUS.NOT_STARTED,
@@ -20,6 +22,7 @@ const initialState:InitialState = {
     dataBestSellingProducts: [],
     dataMostWishlistedProducts: [],
     dataSingleProduct:[],
+    dataAllCartProducts: [],
 }
 
 export const getSingleProduct = createAsyncThunk('get/singleProduct' , async(payload: {}, thunkAPI) => {
@@ -32,6 +35,18 @@ export const getSingleProduct = createAsyncThunk('get/singleProduct' , async(pay
         return thunkAPI.rejectWithValue(problem)
     }
 })
+
+export const removeItemCart = createAsyncThunk('get/removeItemCart' , async(payload: any) => {
+    return payload;
+})
+
+// export const addToCart = createAsyncThunk('cartItem/addToCart' , async(payload:any) => {
+//     let data={
+//         id: payload.id,
+//         price: payload.price,
+//     }
+//     return data
+// })
 
 export const getTotalItems = createAsyncThunk ( 'get/allProducts' , async(payload: {} , thunkAPI) => {
     const response = await api_item.get('/products/all' , payload)
@@ -60,6 +75,8 @@ export const getMostWishlistedItems = createAsyncThunk ('get/allMostWishlistedPr
         return thunkAPI.rejectWithValue(problem)
     }
 })
+
+
 const itemsSlice = createSlice({
     name: "get",
     initialState: initialState,
@@ -76,7 +93,6 @@ const itemsSlice = createSlice({
         })
         builder.addCase(getTotalItems.rejected , (state , actions) => {
             state.getAllProductsStatus = STATUS.FAILED
-            state.dataAllProducts = []
         })
         // For Best Selling 
         builder.addCase(getBestSellingItems.pending , state => {
@@ -88,7 +104,6 @@ const itemsSlice = createSlice({
         })
         builder.addCase(getBestSellingItems.rejected , (state , actions) => {
             state.getBestSellingProductsStatus = STATUS.FAILED
-            state.dataBestSellingProducts = []
         })
         // For Most Wishlisted 
         builder.addCase(getMostWishlistedItems.pending , state => {
@@ -100,7 +115,6 @@ const itemsSlice = createSlice({
         })
         builder.addCase(getMostWishlistedItems.rejected , (state , actions) => {
             state.getMostWishlistedProductsStatus = STATUS.FAILED
-            state.dataMostWishlistedProducts = []
         })
         //for single product
         builder.addCase(getSingleProduct.pending , state => {
@@ -110,10 +124,26 @@ const itemsSlice = createSlice({
             // console.log(({actions}))
             state.getSingleProductStatus = STATUS.SUCCESS
             state.dataSingleProduct = actions.payload
+            let index:number = _.findIndex(state.dataAllCartProducts , function(o:any) {return o._id === state.dataSingleProduct._id})
+            if(index==-1){
+                state.dataAllCartProducts.push(actions.payload)
+            }
+            
         })
         builder.addCase(getSingleProduct.rejected , (state , actions) => {
             state.getSingleProductStatus = STATUS.FAILED
-            state.dataSingleProduct = []
+        })
+
+        // for removing item from cart 
+        builder.addCase(removeItemCart.pending , state => {
+            state.getAllProductsStatus = STATUS.FETCHING
+        })
+        builder.addCase(removeItemCart.fulfilled , (state , actions) => {
+            state.getAllProductsStatus = STATUS.SUCCESS
+            _.filter(state.dataAllCartProducts , function(o) { return o._id !== actions.payload})
+        })
+        builder.addCase(removeItemCart.rejected , (state , actions) => {
+            state.getSingleProductStatus = STATUS.FAILED
         })
     }
 })
