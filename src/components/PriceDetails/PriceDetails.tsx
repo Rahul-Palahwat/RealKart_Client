@@ -38,19 +38,19 @@ const PriceDetails: React.FC = () => {
 
                 <Flex justifyContent={"center"}><Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"} width="70%">
                     <Flex>Price({noOfItems} Items)</Flex>
-                    <Flex width={"20%"}>&#x20B9;{sum.toLocaleString("en-IN")}</Flex>
+                    <Flex width={"20%"}>&#x20B9; {sum.toLocaleString("en-IN")}</Flex>
                 </Flex>
                 </Flex>
 
                 <Flex justifyContent={"center"}><Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"} width="70%">
                     <Flex>Discount</Flex>
-                    <Flex width={"20%"} color={"#398F3C"}>-&#x20B9;{sum > 1000 ? "1,000" : "0"}</Flex>
+                    <Flex width={"20%"} color={"#398F3C"}>&#x20B9; {sum > 1000 ? "1,000" : "0"}</Flex>
                 </Flex>
                 </Flex>
 
                 <Flex justifyContent={"center"}><Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"} width="70%">
                     <Flex>Delivery Charges</Flex>
-                    <Flex width={"20%"} color={"#398F3C"}>FREE</Flex>
+                    <Flex width={"15%"} color={"#398F3C"}>FREE</Flex>
                 </Flex>
                 </Flex>
 
@@ -59,7 +59,7 @@ const PriceDetails: React.FC = () => {
                 <Flex width={"100%"} justifyContent="center">
                     <Flex width={"80%"} height={"8vh"} alignItems='center' color={"grey"} fontSize="1.2rem" justifyContent={"space-between"}>
                     <Flex fontWeight={"bold"}>Total Amount</Flex>
-                    <Flex width={"24%"} fontWeight={'bold'}>&#x20B9;{sum > 1000 ? (sum - 1000).toLocaleString("en-IN") : sum.toLocaleString("en-IN")}</Flex>
+                    <Flex width={"24%"} fontWeight={'bold'}>&#x20B9; {sum > 1000 ? (sum - 1000).toLocaleString("en-IN") : sum.toLocaleString("en-IN")}</Flex>
                     </Flex>
                     </Flex>
 
@@ -67,8 +67,8 @@ const PriceDetails: React.FC = () => {
 
 
                 <Flex width={"100%"} justifyContent="center">
-                    <Flex width={"80%"} alignItems='center' mb={"0.5rem"} mt="1rem" color={"grey"} justifyContent={"space-between"}>
-                    <Flex color={"#398F3C"} ml="1.3rem">You will save &#x20B9;{sum > 1000 ? `1,000` : 0} on this order</Flex>
+                    <Flex width={"80%"} alignItems='center' mb={"0.5rem"} mt="1rem" color={"grey"} justifyContent={"center"}>
+                    <Flex color={"#398F3C"}>You will save &#x20B9;{sum > 1000 ? `1,000` : 0} on this order</Flex>
                     </Flex>
                     </Flex>
 

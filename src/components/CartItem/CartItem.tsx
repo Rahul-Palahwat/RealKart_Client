@@ -43,13 +43,13 @@ const CartItem: React.FC<Props> = ({ item }) => {
                     <Flex fontSize={"1.3rem"}>{item.name}</Flex>
                     {/* <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex> */}
                     {/* <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex> */}
-                    <Flex mt={"0.5rem"}>
+                    <Flex mt={"0.5rem"} ml="0.5rem">
                         <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.sellingPrice}</Flex>
                         <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.sellingPrice}</Flex>
 
                     </Flex>
 
-                    <Flex mt={"0.5rem"}>
+                    <Flex mt={"0.5rem"} ml={"0.5rem"}>
                         <Flex color={"#388F3D"} alignItems="center">Delivery by :</Flex>
                         <Flex ml={1} fontSize="0.8rem" alignItems={"center"} mt={"0.2rem"}>27 July</Flex>
                         <Flex ml={"1rem"} alignItems="center">Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">

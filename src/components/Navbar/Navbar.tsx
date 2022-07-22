@@ -11,9 +11,9 @@ const Navbar: React.FC = () => {
     return (
         <Flex direction={"column"} height={location.pathname !== '/cart' ? "26vh" : "12vh"} className="Navbar">
             <MainNav />
-            {location.pathname !== '/cart'? <Flex height={"14vh"} wrap={"wrap"} bgColor="white">
+            {location.pathname !== '/cart'? location.pathname !== '/profile' ? <Flex height={"14vh"} wrap={"wrap"} bgColor="white">
                 <Searchbar />
-            </Flex> : ""}
+            </Flex>: "" :  ""}
         </Flex>
     )
 }

@@ -14,7 +14,7 @@ const Cart: React.FC = () => {
     return (
         <>
             <Flex height="auto" justifyContent={"center"} wrap='wrap' mb={"2rem"} direction="column">
-                <Flex height="12vh" alignItems='center' justifyContent={"center"} fontSize={"1.2rem"}>
+                <Flex height="8vh" alignItems='flex-end' justifyContent={"center"} fontSize={"1.2rem"}>
                 <Flex fontWeight={'bold'}>My Cart&nbsp;</Flex>
                     ({noOfItems<=9 ? noOfItems === 0 ? 0 : `0${noOfItems}` : noOfItems})
                     

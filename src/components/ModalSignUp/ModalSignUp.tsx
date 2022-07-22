@@ -72,10 +72,15 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
               })
             return console.log("Password does not match")
         }
+        let fullName:string = formState.firstName;
+        // console.log("fullname",fullName);
+        fullName = fullName.concat(' ',formState.lastName);
+        // console.log({a:fullName.concat(formState.lastName)});
+        console.log("fullname",fullName);
         //logic to save user to the database
         const data = await dispatch(create_customer({
             'store' : '6232a2a4cd65fb954ebd83a5',
-            'name' : formState.firstName,
+            'name' : fullName,
             'contact' : formState.contactNo,
             'password' : formState.password,
         }))
