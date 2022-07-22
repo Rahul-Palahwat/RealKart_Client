@@ -10,7 +10,7 @@ const PriceDetails: React.FC = () => {
         <>
             <Flex className="cartComponents sticky" width="100%" direction={"column"} height="80vh" >
 
-                <Flex height={"8vh"} alignItems='center' ml="1.5rem" color={"grey"} fontSize="1.2rem">PRICE DETAILS</Flex>
+                <Flex height={"8vh"} alignItems='center' ml="1.5rem" color={"grey"} fontSize="1.2rem">Price Details</Flex>
                 <hr style={{ "width": "100%" }} />
 
                 <Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"}>
@@ -67,8 +67,8 @@ const PriceDetails: React.FC = () => {
                                     </Button>
                                 </Flex>
                             </Flex>
-                            <Flex m="0.2rem" ml="1rem">Deliver to: <Flex fontWeight={"bold"}>Rahul kumar, 204213</Flex></Flex>
-                            <Flex m="0.2rem" ml="1rem" color={"grey"}>Village- Nagla Anta, Post- Kota, Uttar Pradesh</Flex>
+                            <Flex m="0.2rem" ml="1rem">Rahul kumar</Flex>
+                            <Flex m="0.2rem" ml="1rem" color={"grey"}>Village- Nagla Anta, Post- Kota, Uttar Pradesh, PinCode 204213</Flex>
                         </Flex>
 
                     </Flex>

@@ -54,18 +54,18 @@ const CartItem: React.FC<Props> = ({ item }) => {
                         <Flex ml={1} fontSize="0.8rem" alignItems={"center"}>27 July</Flex>
                         <Flex ml={"1rem"} alignItems="center">Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
                             <Tooltip label='Remove' hasArrow arrowSize={10}>
-                                <Flex ml={"1rem"} cursor={"pointer"} alignItems="center" mb="0.2rem" justifyContent={"center"} color="red" fontSize={"2rem"} onClick={() => removeOne(item._id, item.sellingPrice)} >-</Flex>
+                                <Flex cursor={"pointer"} alignItems="center" mb="0.35rem" justifyContent={"center"} color="red" fontSize={"2rem"} onClick={() => removeOne(item._id, item.sellingPrice)} >-</Flex>
                             </Tooltip>
-                            <Badge cursor={"pointer"} ml="0.3rem" variant="outline" alignItems={"center"} >{countOfItems()}</Badge>
+                            <Badge cursor={"pointer"} ml="0.3rem" variant="outline" alignItems={"center"} fontSize="0.8rem" >{countOfItems()<=9? `0${countOfItems()}`: countOfItems()}</Badge>
                             <Tooltip label='Add' hasArrow arrowSize={10}>
-                                <Flex cursor={"pointer"} alignItems="center" mb="0.2rem" justifyContent={"center"} color="green" fontSize={"1.5rem"} ml={"0.3rem"} onClick={() => dispatch(addToCart({ id: item._id, price: item.sellingPrice }))} >+</Flex>
+                                <Flex cursor={"pointer"} alignItems="center" mb="0.35rem" justifyContent={"center"} color="green" fontSize={"1.5rem"} ml={"0.3rem"} onClick={() => dispatch(addToCart({ id: item._id, price: item.sellingPrice }))} >+</Flex>
                             </Tooltip>
                         </Flex></Flex>
                     </Flex>
                 </Flex>
                 <Flex width={"10%"} justifyContent={"flex-end"} m={"0.2rem"}>
-                    <Tooltip label='Remove Item' hasArrow arrowSize={10}>
-                        <IconButton onClick={() => removeAll(item._id, item.sellingPrice)} aria-label='Call Segun' size={"xs"} fontSize={"0.8rem"} icon={<WarningIcon />} />
+                    <Tooltip label='Info of Item' hasArrow arrowSize={10}>
+                        <IconButton aria-label='Call Segun' size={"xs"} fontSize={"0.8rem"} icon={<WarningIcon />} />
                     </Tooltip>
                     <Tooltip label='Remove Item' hasArrow arrowSize={10}>
                         <IconButton ml={3} onClick={() => removeAll(item._id, item.sellingPrice)} aria-label='Call Segun' size='xs' fontSize={"0.5rem"} icon={<CloseIcon />} />
