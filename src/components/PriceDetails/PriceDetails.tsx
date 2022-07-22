@@ -9,53 +9,8 @@ const PriceDetails: React.FC = () => {
     return (
         <>
             <Flex className="cartComponents sticky" width="100%" direction={"column"} height="80vh" >
-
-                <Flex height={"8vh"} alignItems='center' ml="1.5rem" color={"grey"} fontSize="1.2rem">Price Details</Flex>
-                <hr style={{ "width": "100%" }} />
-
-                <Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"}>
-                    <Flex>Price({noOfItems} Items)</Flex>
-                    <Flex>&#x20B9;{sum}</Flex>
-                </Flex>
-
-                <Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"}>
-                    <Flex>Discount</Flex>
-                    <Flex color={"#398F3C"}>-&#x20B9;{sum > 1000 ? "1000" : "0"}</Flex>
-                </Flex>
-
-                <Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"}>
-                    <Flex>Delivery Charges</Flex>
-                    <Flex color={"#398F3C"}>FREE</Flex>
-                </Flex>
-
-                <Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"}>
-                    <hr />
-                </Flex>
-
-                <Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"}>
-                    <Flex fontWeight={"bold"}>Total Amount</Flex>
-                    <Flex fontWeight={'bold'}>&#x20B9;{sum > 1000 ? sum - 1000 : sum}</Flex>
-                </Flex>
-
-                <Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"}>
-                    <hr />
-                </Flex>
-
-                <Flex m="1.5rem" mb={"1rem"} mt="1rem">
-                    <Flex color={"#398F3C"}>You will save &#x20B9;{sum > 1000 ? 1000 : 0} on this order</Flex>
-                </Flex>
-
-                <hr style={{ "width": "100%" }} />
-
-                <Flex m="1.5rem" mt={"1rem"} justifyContent={"center"} alignItems="center">
-                    <Button width={"80%"} colorScheme='orange' fontSize={"1.3rem"} size="lg">Place Order</Button>
-                </Flex>
-
-
-
-
                 {/* address component  */}
-                <Flex height="auto" justifyContent={"center"} alignItems='flex-end' mb={"1rem"}>
+                <Flex height="auto" justifyContent={"center"} alignItems='center' mb={"1rem"}>
                     <Flex className="cartComponents" p={2} width="90%" height={"100%"} justifyContent="space-between" direction={"column"}>
                         {/* Address  */}
                         <Flex direction={"column"} justifyContent="center" mb={2}>
@@ -73,6 +28,59 @@ const PriceDetails: React.FC = () => {
 
                     </Flex>
                 </Flex>
+
+                <Flex width={"100%"} justifyContent="center"><Flex width={"80%"} height={"8vh"} alignItems='center' color={"grey"} fontSize="1.2rem">Price Details</Flex></Flex>
+                
+                <Flex justifyContent={"center"}><hr style={{ "width": "80%" }} /></Flex>
+
+
+                <Flex justifyContent={"center"}><Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"} width="70%">
+                    <Flex>Price({noOfItems} Items)</Flex>
+                    <Flex>&#x20B9;{sum}</Flex>
+                </Flex>
+                </Flex>
+
+                <Flex justifyContent={"center"}><Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"} width="70%">
+                    <Flex>Discount</Flex>
+                    <Flex color={"#398F3C"}>-&#x20B9;{sum > 1000 ? "1000" : "0"}</Flex>
+                </Flex>
+                </Flex>
+
+                <Flex justifyContent={"center"}><Flex m="1.5rem" mt={"1rem"} mb={0} justifyContent={"space-between"} width="70%">
+                    <Flex>Delivery Charges</Flex>
+                    <Flex color={"#398F3C"}>FREE</Flex>
+                </Flex>
+                </Flex>
+
+                <Flex justifyContent={"center"} mt="1rem"><hr style={{ "width": "80%" }} /></Flex>
+
+                <Flex width={"100%"} justifyContent="center">
+                    <Flex width={"80%"} height={"8vh"} alignItems='center' color={"grey"} fontSize="1.2rem" justifyContent={"space-between"}>
+                    <Flex fontWeight={"bold"}>Total Amount</Flex>
+                    <Flex fontWeight={'bold'}>&#x20B9;{sum > 1000 ? sum - 1000 : sum}</Flex>
+                    </Flex>
+                    </Flex>
+
+                <Flex justifyContent={"center"}><hr style={{ "width": "80%" }} /></Flex>
+
+
+                <Flex width={"100%"} justifyContent="center">
+                    <Flex width={"80%"} alignItems='center' mb={"1rem"} mt="1rem" color={"grey"} justifyContent={"space-between"}>
+                    <Flex color={"#398F3C"}>You will save &#x20B9;{sum > 1000 ? 1000 : 0} on this order</Flex>
+                    </Flex>
+                    </Flex>
+
+
+                <Flex justifyContent={"center"} mt="1rem"><hr style={{ "width": "80%" }} /></Flex>
+
+                <Flex m="1.5rem" mt={"1rem"} justifyContent={"center"} alignItems="center">
+                    <Button width={"80%"} colorScheme='orange' fontSize={"1.3rem"} size="lg">Place Order</Button>
+                </Flex>
+
+
+
+
+                
                 <></>
             </Flex>
         </>

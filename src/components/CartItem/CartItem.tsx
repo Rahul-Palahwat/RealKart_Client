@@ -40,7 +40,7 @@ const CartItem: React.FC<Props> = ({ item }) => {
                     <Image borderRadius={"0.5rem"} boxSize='6rem' objectFit='cover' src='https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp' alt='Dan Abramov' />
                 </Flex>
                 <Flex width={"70%"} direction={"column"}>
-                    <Flex mt={"0.5rem"} fontSize={"1.3rem"}>{item.name}</Flex>
+                    <Flex fontSize={"1.3rem"}>{item.name}</Flex>
                     {/* <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex> */}
                     {/* <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex> */}
                     <Flex mt={"0.5rem"}>
@@ -51,14 +51,14 @@ const CartItem: React.FC<Props> = ({ item }) => {
 
                     <Flex mt={"0.5rem"}>
                         <Flex color={"#388F3D"} alignItems="center">Delivery by :</Flex>
-                        <Flex ml={1} fontSize="0.8rem" alignItems={"center"}>27 July</Flex>
+                        <Flex ml={1} fontSize="0.8rem" alignItems={"center"} mt={"0.2rem"}>27 July</Flex>
                         <Flex ml={"1rem"} alignItems="center">Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
                             <Tooltip label='Remove' hasArrow arrowSize={10}>
-                                <Flex cursor={"pointer"} alignItems="center" mb="0.35rem" justifyContent={"center"} color="red" fontSize={"2rem"} onClick={() => removeOne(item._id, item.sellingPrice)} >-</Flex>
+                                <Flex cursor={"pointer"} fontWeight="bold" fontSize={"1.2rem"} alignItems="center" justifyContent={"center"} color="red" onClick={() => removeOne(item._id, item.sellingPrice)} >-</Flex>
                             </Tooltip>
-                            <Badge cursor={"pointer"} ml="0.3rem" variant="outline" alignItems={"center"} fontSize="0.8rem" >{countOfItems()<=9? `0${countOfItems()}`: countOfItems()}</Badge>
+                            <Badge cursor={"pointer"} ml="0.3rem" variant="outline" alignItems={"center"} fontSize="0.8rem" p={"0.3rem"} >{countOfItems() <= 9 ? `0${countOfItems()}` : countOfItems()}</Badge>
                             <Tooltip label='Add' hasArrow arrowSize={10}>
-                                <Flex cursor={"pointer"} alignItems="center" mb="0.35rem" justifyContent={"center"} color="green" fontSize={"1.5rem"} ml={"0.3rem"} onClick={() => dispatch(addToCart({ id: item._id, price: item.sellingPrice }))} >+</Flex>
+                                <Flex cursor={"pointer"} alignItems="center" fontSize={"1.2rem"} justifyContent={"center"} color="green" ml={"0.3rem"} onClick={() => dispatch(addToCart({ id: item._id, price: item.sellingPrice }))} >+</Flex>
                             </Tooltip>
                         </Flex></Flex>
                     </Flex>
