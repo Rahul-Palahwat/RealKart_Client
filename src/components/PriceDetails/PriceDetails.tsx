@@ -76,11 +76,6 @@ const PriceDetails: React.FC = () => {
                 <Flex m="1.5rem" mt={"1rem"} justifyContent={"center"} alignItems="center">
                     <Button width={"80%"} colorScheme='orange' fontSize={"1.3rem"} size="lg">Place Order</Button>
                 </Flex>
-
-
-
-
-                
                 <></>
             </Flex>
         </>

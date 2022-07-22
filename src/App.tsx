@@ -8,6 +8,7 @@ import AllMostWishlisted from './components/AllMostWishlisted/AllMostWishlisted'
 
 import Home from './components/Home/Home';
 import Cart from './components/Cart/Cart';
+import Profile from './components/Profile/Profile';
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />}></Route>
 				<Route path="/cart" element={<Cart/>}></Route>
+				<Route path="/profile" element={<Profile/>}></Route>
 				<Route path="/all" element={<TotalProducts/>}></Route>
 				<Route path="/AllBestSelling" element={<AllBestSelling/>}></Route>
 				<Route path="/AllMostWishlisted" element={<AllMostWishlisted/>}></Route>

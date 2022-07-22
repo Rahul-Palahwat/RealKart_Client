@@ -45,7 +45,7 @@ const MainNav: React.FC = () => {
 									<Badge colorScheme='orange' zIndex={1} mt={"0.3rem"} ml={"-2.4rem"} backgroundColor={"orange.300"} borderRadius="5px 5px 20px 20px" height={"3"} width="3" display={isLogIn ? "" : "none"} fontSize="0.6rem">{noOfItems}</Badge>
 								</Flex>
 							</Flex>
-							<Flex alignItems={'center'} mr={2} fontSize={"3xl"}>
+							<Flex alignItems={'center'} mr={2} fontSize={"3xl"} onClick={() => navigate('/profile')}>
 							<Tooltip label='Profile' hasArrow arrowSize={10}>
 								<IconButton aria-label='Search database' icon={<BsPerson />} />
 								</Tooltip>
