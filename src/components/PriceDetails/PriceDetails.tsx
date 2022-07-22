@@ -1,19 +1,21 @@
 import { Button, Flex } from '@chakra-ui/react'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 // for redux 
 import { useAppSelector } from '../../redux'
 import './PriceDetails.css'
 
 const PriceDetails: React.FC = () => {
     const { sum, noOfItems } = useAppSelector((state) => state.cartItem);
+    const navigate = useNavigate();
     return (
         <>
             <Flex className="cartComponents sticky" width="100%" direction={"column"} height="80vh" >
                 {/* address component  */}
-                <Flex height="auto" justifyContent={"center"} alignItems='center' mb={"1rem"}>
+                <Flex height="auto" justifyContent={"center"} alignItems='center' mb={"0.5rem"}>
                     <Flex className="cartComponents" p={2} width="90%" height={"100%"} justifyContent="space-between" direction={"column"}>
                         {/* Address  */}
-                        <Flex direction={"column"} justifyContent="center" mb={2}>
+                        <Flex direction={"column"} justifyContent="center">
                             <Flex m="0.2rem" ml="1rem" fontWeight={"bold"} fontSize={"1.2rem"}>
                                 <Flex width={"60%"}>Shipping Address</Flex>
                                 <Flex alignItems={"center"} mr="1rem" width={"40%"} justifyContent="flex-end">
@@ -29,7 +31,7 @@ const PriceDetails: React.FC = () => {
                     </Flex>
                 </Flex>
 
-                <Flex width={"100%"} justifyContent="center"><Flex width={"80%"} height={"8vh"} alignItems='center' color={"grey"} fontSize="1.2rem">Price Details</Flex></Flex>
+                <Flex width={"100%"} justifyContent="center"><Flex width={"80%"} height={"6vh"} alignItems='center' color={"grey"} fontSize="1.2rem">Price Details</Flex></Flex>
                 
                 <Flex justifyContent={"center"}><hr style={{ "width": "80%" }} /></Flex>
 
@@ -65,16 +67,16 @@ const PriceDetails: React.FC = () => {
 
 
                 <Flex width={"100%"} justifyContent="center">
-                    <Flex width={"80%"} alignItems='center' mb={"1rem"} mt="1rem" color={"grey"} justifyContent={"space-between"}>
-                    <Flex color={"#398F3C"} ml="2.5rem">You will save &#x20B9;{sum > 1000 ? `1,000` : 0} on this order</Flex>
+                    <Flex width={"80%"} alignItems='center' mb={"0.5rem"} mt="1rem" color={"grey"} justifyContent={"space-between"}>
+                    <Flex color={"#398F3C"} ml="1.3rem">You will save &#x20B9;{sum > 1000 ? `1,000` : 0} on this order</Flex>
                     </Flex>
                     </Flex>
 
 
-                <Flex justifyContent={"center"} mt="1rem"><hr style={{ "width": "80%" }} /></Flex>
+                <Flex justifyContent={"center"} mt="0.5rem"><hr style={{ "width": "80%" }} /></Flex>
 
                 <Flex m="1.5rem" mt={"1rem"} justifyContent={"center"} alignItems="center">
-                    <Button width={"80%"} colorScheme='orange' fontSize={"1.3rem"} size="lg">Place Order</Button>
+                    <Button width={"80%"} colorScheme='orange' fontSize={"1.3rem"} size="lg">{noOfItems === 0 ? <Flex width={"100%"} justifyContent="center" onClick={() => navigate('/')}>Add Items</Flex> : "Place Order"}</Button>
                 </Flex>
                 <></>
             </Flex>
