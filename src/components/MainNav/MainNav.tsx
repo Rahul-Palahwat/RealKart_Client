@@ -42,7 +42,7 @@ const MainNav: React.FC = () => {
 									</Tooltip>
 								</Flex>
 								<Flex justifyContent={"center"}>
-									<Badge colorScheme='orange' zIndex={1} mt={"0.3rem"} ml={"-2.4rem"} backgroundColor={"orange.300"} borderRadius="5px 5px 20px 20px" height={"3"} width="3" display={isLogIn ? "" : "none"} fontSize="0.6rem">{noOfItems}</Badge>
+									<Badge colorScheme='orange' zIndex={1} ml={"-2.4rem"} backgroundColor={"orange.300"} borderRadius="5px 5px 20px 20px" height={"0.9rem"} width={noOfItems === 0 ? "1rem" :"1.3rem"} display={isLogIn ? "" : "none"} fontSize="0.6rem">{noOfItems<=9 ? noOfItems === 0 ? `0` : `0${noOfItems}` :noOfItems}</Badge>
 								</Flex>
 							</Flex>
 							<Flex alignItems={'center'} mr={2} fontSize={"3xl"} onClick={() => navigate('/profile')}>

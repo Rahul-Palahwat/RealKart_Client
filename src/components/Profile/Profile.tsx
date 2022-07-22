@@ -7,9 +7,9 @@ import ProfileNav from '../ProfileNav/ProfileNav'
 const Profile:React.FC = () => {
   return (
     <>
-    <Flex border={"2px solid red"} height={"100vh"} justifyContent="center" mt="2rem">
+    <Flex height={"auto"} justifyContent="center" mt="2rem" mb={"2rem"}>
         {/* Greet and Nav Flex  */}
-        <Flex width={"25%"} border="1px solid blue" direction={"column"}>
+        <Flex width={"25%"} direction={"column"}>
             {/* Greet flex  */}
             <Flex>
                 <ProfileGreet/>
@@ -21,7 +21,7 @@ const Profile:React.FC = () => {
         </Flex>
 
         {/* Profile Details flex  */}
-        <Flex width={"60%"} border="1px solid green" ml="3rem">
+        <Flex width={"60%"} ml="3rem" height={"auto"} className="total">
             <ProfileDetails/>
         </Flex>
     </Flex>
