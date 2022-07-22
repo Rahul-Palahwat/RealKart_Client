@@ -12,64 +12,45 @@ const ProfileDetails: React.FC = () => {
 
                 <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"} mt="2rem">
                     <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
-                        <Flex>Full Name</Flex>
-                        <Flex>Rahul Kumar</Flex>
+                        <Flex>Name</Flex>
+                        <Flex width={"35%"} justifyContent="flex-start">Rahul Kumar</Flex>
                     </Flex>
                 </Flex>
-
-                <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
-                    <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
-                        <Flex>Mobile Number</Flex>
-                        <Flex>8877665544</Flex>
-                    </Flex>
-                </Flex>
-
-                <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
-                    <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
-                        <Flex>Email I'd</Flex>
-                        <Flex>rahul@gmail.com</Flex>
-                    </Flex>
-                </Flex>
-
                 <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
                     <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
                         <Flex>Gender</Flex>
-                        <Flex>Male</Flex>
+                        <Flex width={"35%"} justifyContent="flex-start">Male</Flex>
                     </Flex>
                 </Flex>
-
                 <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
                     <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
-                        <Flex>Date of Birth</Flex>
-                        <Flex>8877665544</Flex>
+                        <Flex>Email I'd</Flex>
+                        <Flex width={"35%"} justifyContent="flex-start">rahul@gmail.com</Flex>
+                    </Flex>
+                </Flex>
+                <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
+                    <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
+                        <Flex>Contact 1</Flex>
+                        <Flex width={"35%"} justifyContent="flex-start">8877665544</Flex>
+                    </Flex>
+                </Flex>
+                <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
+                    <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
+                        <Flex>Contact 2</Flex>
+                        <Flex width={"35%"} justifyContent="flex-start">8877660044</Flex>
+                    </Flex>
+                </Flex>
+                <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
+                    <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
+                        <Flex>DOB</Flex>
+                        <Flex width={"35%"} justifyContent="flex-start">16th-Oct-2002</Flex>
                     </Flex>
                 </Flex>
 
                 <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
                     <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
                         <Flex>Aadhar</Flex>
-                        <Flex>8877665544</Flex>
-                    </Flex>
-                </Flex>
-
-                <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
-                    <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
-                        <Flex>Role</Flex>
-                        <Flex>Customer</Flex>
-                    </Flex>
-                </Flex>
-
-                <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
-                    <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
-                        <Flex>Location</Flex>
-                        <Flex>Suncity Jaipur</Flex>
-                    </Flex>
-                </Flex>
-
-                <Flex width={"90%"} justifyContent="center" ml="2rem" fontSize={"1.2rem"}>
-                    <Flex width={"50%"} justifyContent="space-between" mt="0.8rem">
-                        <Flex>Alternate Mobile Number</Flex>
-                        <Flex>8877665544</Flex>
+                        <Flex width={"35%"} justifyContent="flex-start">8877665544</Flex>
                     </Flex>
                 </Flex>
 
