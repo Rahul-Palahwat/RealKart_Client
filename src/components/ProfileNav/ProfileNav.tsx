@@ -31,23 +31,26 @@ const ProfileNav: React.FC = () => {
                     </AccordionItem>
                 </Accordion>
 
-                {/* Account setting  */}
+                {/* My Stuffs  */}
                 <Accordion allowMultiple>
                     <AccordionItem>
                         <h2>
                             <AccordionButton>
                                 <Flex alignItems={"center"} width="90%" justifyContent={"space-between"}>
-                                    <Flex fontSize={"1.3rem"} color="gray" fontWeight={"bold"} cursor="pointer">Account Setting</Flex>
+                                    <Flex fontSize={"1.3rem"} color="gray" fontWeight={"bold"} cursor="pointer">My Stuffs</Flex>
                                 </Flex>
                                 <AccordionIcon />
                             </AccordionButton>
                         </h2>
                         <AccordionPanel pb={4}>
                             <Flex width={"100%"} mt="1rem" justifyContent={"center"}>
-                                <Flex fontSize={"1.1rem"} width={"70%"} justifyContent="flex-start" cursor={"pointer"} className='Link'>Profile Information</Flex>
+                                <Flex fontSize={"1.1rem"} width={"70%"} justifyContent="flex-start" cursor={"pointer"} className='Link'>Coupons and Offers</Flex>
                             </Flex>
                             <Flex width={"100%"} mt="1rem" justifyContent={"center"}>
-                                <Flex fontSize={"1.1rem"} width={"70%"} justifyContent="flex-start" cursor={"pointer"} className='Link'>Manage Address</Flex>
+                                <Flex fontSize={"1.1rem"} width={"70%"} justifyContent="flex-start" cursor={"pointer"} className='Link'>Reviews and Ratings</Flex>
+                            </Flex>
+                            <Flex width={"100%"} mt="1rem" justifyContent={"center"}>
+                                <Flex fontSize={"1.1rem"} width={"70%"} justifyContent="flex-start" cursor={"pointer"} className='Link'>Wishlisted Items</Flex>
                             </Flex>
                         </AccordionPanel>
                     </AccordionItem>
@@ -75,26 +78,24 @@ const ProfileNav: React.FC = () => {
                     </AccordionItem>
                 </Accordion>
                 
-                {/* My Stuffs  */}
+                
+                {/* Account setting  */}
                 <Accordion allowMultiple>
                     <AccordionItem>
                         <h2>
                             <AccordionButton>
                                 <Flex alignItems={"center"} width="90%" justifyContent={"space-between"}>
-                                    <Flex fontSize={"1.3rem"} color="gray" fontWeight={"bold"} cursor="pointer">My Stuffs</Flex>
+                                    <Flex fontSize={"1.3rem"} color="gray" fontWeight={"bold"} cursor="pointer">Account Setting</Flex>
                                 </Flex>
                                 <AccordionIcon />
                             </AccordionButton>
                         </h2>
                         <AccordionPanel pb={4}>
                             <Flex width={"100%"} mt="1rem" justifyContent={"center"}>
-                                <Flex fontSize={"1.1rem"} width={"70%"} justifyContent="flex-start" cursor={"pointer"} className='Link'>Coupons and Offers</Flex>
+                                <Flex fontSize={"1.1rem"} width={"70%"} justifyContent="flex-start" cursor={"pointer"} className='Link'>Profile Information</Flex>
                             </Flex>
                             <Flex width={"100%"} mt="1rem" justifyContent={"center"}>
-                                <Flex fontSize={"1.1rem"} width={"70%"} justifyContent="flex-start" cursor={"pointer"} className='Link'>Reviews and Ratings</Flex>
-                            </Flex>
-                            <Flex width={"100%"} mt="1rem" justifyContent={"center"}>
-                                <Flex fontSize={"1.1rem"} width={"70%"} justifyContent="flex-start" cursor={"pointer"} className='Link'>Wishlisted Items</Flex>
+                                <Flex fontSize={"1.1rem"} width={"70%"} justifyContent="flex-start" cursor={"pointer"} className='Link'>Manage Address</Flex>
                             </Flex>
                         </AccordionPanel>
                     </AccordionItem>
