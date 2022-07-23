@@ -36,7 +36,7 @@ const ProfileNav: React.FC = () => {
                     <AccordionItem>
                         <h2>
                             <AccordionButton>
-                                <Flex alignItems={"center"} width="90%" justifyContent={"space-between"}>
+                                <Flex alignItems={"center"} width="90%">
                                     <Flex fontSize={"1.3rem"} color="gray" fontWeight={"bold"} cursor="pointer">My Stuffs</Flex>
                                 </Flex>
                                 <AccordionIcon />

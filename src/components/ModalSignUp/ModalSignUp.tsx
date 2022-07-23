@@ -1,13 +1,13 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useReducer } from 'react'
 import {
     Button, Flex,
     FormControl,
-    Input, Modal, ModalBody, ModalCloseButton,
+    Input, Modal, ModalBody,
     ModalContent, ModalFooter, ModalHeader,
     ModalOverlay, useToast
 } from '@chakra-ui/react'
 // for reducer 
-import { useAppDispatch, useAppSelector } from '../../redux'
+import { useAppDispatch } from '../../redux'
 import { logIn } from '../../redux/reducers/Login/index';
 // import google png from assets folder 
 import Google from '../../assets/google.png'
@@ -61,7 +61,7 @@ const ModalSignUp: React.FC<ModalSignUpProps> = ({ isOpen, onClose, onOpen }) =>
         //logic for id already exists
         //logic for phone no already exists
         //logic for password match
-        if (formState.password != formState.confirmPassword) {
+        if (formState.password !== formState.confirmPassword) {
             toast({
                 position: 'top',
                 title: 'Account not created.',
@@ -139,7 +139,6 @@ scrollbars=no, resizable=no, copyhistory=no`
                 <ModalContent pl="2rem" pr={"2rem"}>
                     <Flex direction={"column"}>
                         <ModalHeader ><Flex justifyContent="center">Create your account</Flex></ModalHeader>
-                        <ModalCloseButton />
                         <ModalBody pb={0}>
                             <Flex width={"100%"} direction="column" alignItems={"center"} justifyContent="center" >
                                 {/* Left flex  */}
