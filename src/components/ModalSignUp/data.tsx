@@ -15,14 +15,6 @@ export const formFields = [
         // value: formState.lastName,
         name: 'lastName',
     },
-    // {
-    //     label: 'E-mail',
-    //     required: true,
-    //     type: 'email',
-    //     placeholder: 'E-mail Id',
-    //     // value: formState.email,
-    //     name: 'email',
-    // },
     {
         label: 'Contact No.',
         required: true,

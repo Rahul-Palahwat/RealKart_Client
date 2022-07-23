@@ -31,8 +31,8 @@ const MainNav: React.FC = () => {
 			<Flex flex='2' justifyContent='space-around' width={"100%"}>
 				{!isLogIn ?
 					<Flex alignItems={'center'}>
-						<Button onClick={onOpen} color={"white"} bgColor={"#47B5FF"} fontSize="1.1rem" cursor={"pointer"} className="mainBtn">Sign Up</Button>
-						{/* <PopSignUp/> */}
+						{/* <Button onClick={onOpen} color={"white"} bgColor={"#47B5FF"} fontSize="1.1rem" cursor={"pointer"} className="mainBtn">Sign Up</Button> */}
+						<PopSignUp/>
 						<PopLogin />
 						{/* <Button onClick={onOpen1} color={"white"} bgColor={"#47B5FF"} className="mainBtn" fontSize="1.1rem" cursor={"pointer"}>Log In</Button> */}
 						{/* <Button onClick={() => { dispatch(logIn(true)) }} color={"white"} bgColor={"#47B5FF"} className="mainBtn" fontSize="1.1rem" cursor={"pointer"}>Log In</Button> */}
