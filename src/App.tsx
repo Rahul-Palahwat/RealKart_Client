@@ -9,6 +9,7 @@ import AllMostWishlisted from './components/AllMostWishlisted/AllMostWishlisted'
 import Home from './components/Home/Home';
 import Cart from './components/Cart/Cart';
 import Profile from './components/Profile/Profile';
+import Warning from './components/Warning/Warning';
 
 function App() {
 	return (

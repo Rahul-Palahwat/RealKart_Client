@@ -40,15 +40,15 @@ const MainNav: React.FC = () => {
 						{/* when no item in cart then nocart if then cart  */}
 						{noOfItems>0
 						?<>
-							<Flex >
+							<Flex ml={"1rem"}>
 									<Tooltip label='Go to Cart' hasArrow arrowSize={10}>
 										<Flex onClick={() => navigate('/cart')}>
-											<IconButton aria-label='Search database' icon={<BsCartPlus />} />
+											<Flex aria-label='Search database' color="white" fontSize={"1.2rem"}><BsCartPlus /></Flex>
 										</Flex>
 									</Tooltip>
 								</Flex>
 								<Flex justifyContent={"center"}>
-									<Badge colorScheme='orange' zIndex={1} mt={"-1.3rem"} ml={"-2.4rem"} backgroundColor={"orange.300"} borderRadius="5px 5px 20px 20px" height={"0.9rem"} width={noOfItems === 0 ? "1rem" : "1.3rem"} fontSize="0.6rem">{noOfItems <= 9 ? noOfItems === 0 ? `0` : `0${noOfItems}` : noOfItems}</Badge>
+									<Badge colorScheme='orange' zIndex={1} mt={"-1.3rem"} ml={"-1.2rem"} backgroundColor={"orange.300"} borderRadius="5px 5px 20px 20px" height={"0.9rem"} width={noOfItems === 0 ? "1rem" : "1.3rem"} fontSize="0.6rem">{noOfItems <= 9 ? noOfItems === 0 ? `0` : `0${noOfItems}` : noOfItems}</Badge>
 								</Flex>
 						</>
 						:
@@ -56,23 +56,23 @@ const MainNav: React.FC = () => {
 						}
 					</Flex>
 					: <Flex justifyContent='flex-end' alignItems={'center'}>
-						<Button color={"white"} bgColor={"#47B5FF"} height={"6vh"} mr={5} className="mainBtn" onClick={() => { dispatch(logIn(false)); navigate('/'); localStorage.removeItem('user') }}>Log Out</Button>
+						<Flex cursor={"pointer"} fontWeight="bold" fontSize={"1.1rem"} alignItems={"center"} color={"white"} bgColor={"#47B5FF"} height={"6vh"} mr={"2rem"} onClick={() => { dispatch(logIn(false)); navigate('/'); localStorage.removeItem('user') }}>Log Out</Flex>
 						<Flex alignItems={'center'}>
 							<Flex mr={2} fontSize={"3xl"}>
 								<Flex >
 									<Tooltip label='Go to Cart' hasArrow arrowSize={10}>
 										<Flex onClick={() => navigate('/cart')}>
-											<IconButton aria-label='Search database' icon={<BsCartPlus />} />
+										<Flex aria-label='Search database' color="white" fontSize={"1.2rem"}><BsCartPlus /></Flex>
 										</Flex>
 									</Tooltip>
 								</Flex>
 								<Flex justifyContent={"center"}>
-									<Badge colorScheme='orange' zIndex={1} ml={"-2.4rem"} backgroundColor={"orange.300"} borderRadius="5px 5px 20px 20px" height={"0.9rem"} width={noOfItems === 0 ? "1rem" : "1.3rem"} display={isLogIn ? "" : "none"} fontSize="0.6rem">{noOfItems <= 9 ? noOfItems === 0 ? `0` : `0${noOfItems}` : noOfItems}</Badge>
+									<Badge colorScheme='orange' zIndex={1} mt={"-0.75rem"} ml={"-1.2rem"} backgroundColor={"orange.300"} borderRadius="5px 5px 20px 20px" height={"0.9rem"} width={noOfItems === 0 ? "1rem" : "1.3rem"} display={isLogIn ? "" : "none"} fontSize="0.6rem">{noOfItems <= 9 ? noOfItems === 0 ? `0` : `0${noOfItems}` : noOfItems}</Badge>
 								</Flex>
 							</Flex>
-							<Flex alignItems={'center'} mr={2} fontSize={"3xl"} onClick={() => navigate('/profile')}>
+							<Flex alignItems={'center'} ml={"1.5rem"} fontSize={"3xl"} onClick={() => navigate('/profile')}>
 								<Tooltip label='Profile' hasArrow arrowSize={10}>
-									<IconButton aria-label='Search database' icon={<BsPerson />} />
+								<Flex aria-label='Search database' color="white" fontSize={"1.2rem"}><BsPerson /></Flex>
 								</Tooltip>
 							</Flex>
 						</Flex>

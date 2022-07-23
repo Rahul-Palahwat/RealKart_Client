@@ -6,8 +6,10 @@ import { useAppSelector } from '../../redux'
 import './Cart.css'
 
 import emptyCart from '../../assets/emptyCart.png'
+import Warning from '../Warning/Warning'
 const Cart: React.FC = () => {
     const { noOfItems } = useAppSelector((state) => state.cartItem)
+    const {isLogIn} = useAppSelector((state) => state.login)
     // const dispatch = useAppDispatch();
     const { dataAllCartProducts } = useAppSelector((state) => state.items)
     // console.log("Cart wala", dataAllCartProducts)
@@ -16,7 +18,7 @@ const Cart: React.FC = () => {
             <Flex height="auto" justifyContent={"center"} wrap='wrap' mb={"2rem"} direction="column">
                 <Flex height="8vh" alignItems='flex-end' justifyContent={"center"} fontSize={"1.2rem"}>
                 <Flex fontWeight={'bold'}>My Cart&nbsp;</Flex>
-                    {noOfItems<=9 ? noOfItems === 0 ? "" : `(0${noOfItems})` : (noOfItems)}
+                    {noOfItems<=9 ? noOfItems === 0 ? "" : `(0${noOfItems})` : (`(${noOfItems})`)}
                     
                     {/* <Flex ml={"2rem"} width="100%" alignItems={'center'} fontSize='1.2rem' height={"100%"} fontWeight="bold">MyCart({noOfItems})</Flex> */}
                 </Flex>
@@ -30,6 +32,7 @@ const Cart: React.FC = () => {
                 </Flex>
                 :
                 <Flex width={"60%"} direction="column">
+                    {isLogIn? "" : <Warning/> }
                     {/* CartItem component  */}
                     <Flex height="100%" direction={"column"}>
                         {dataAllCartProducts.map((data: any, index: number) => {

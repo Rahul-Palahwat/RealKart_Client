@@ -39,7 +39,7 @@ const PopLogin: React.FC = () => {
                     arrowSize={30}
                 >
                     <PopoverTrigger>
-                        <Button color={"white"} bgColor={"#47B5FF"} className="mainBtn" fontSize="1.1rem" cursor={"pointer"}>Log In</Button>
+                        <Flex mr="1rem" cursor={"pointer"} fontWeight="bold" fontSize={"1.1rem"} alignItems={"center"} color={"white"} bgColor={"#47B5FF"}>Log In</Flex>
                     </PopoverTrigger>
                     <PopoverContent style={{marginTop:'15px'}} >
                         <Flex fontSize={"1.5rem"} pt={4} fontWeight='bold' border='0' justifyContent={"center"} mb={"1rem"}>

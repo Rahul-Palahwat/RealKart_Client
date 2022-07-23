@@ -22,5 +22,6 @@ hr{
 }
 
 .mainBtn:hover{
-    color: #47B5FF;
+    color: white;
+    background-color: #47B5FF;
 }

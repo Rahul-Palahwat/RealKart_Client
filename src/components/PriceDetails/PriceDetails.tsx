@@ -7,6 +7,7 @@ import './PriceDetails.css'
 
 const PriceDetails: React.FC = () => {
     const { sum, noOfItems } = useAppSelector((state) => state.cartItem);
+    const {isLogIn} = useAppSelector((state) => state.login);
     const navigate = useNavigate();
     return (
         <>
@@ -76,7 +77,7 @@ const PriceDetails: React.FC = () => {
                 <Flex justifyContent={"center"} mt="0.5rem"><hr style={{ "width": "80%" }} /></Flex>
 
                 <Flex m="1.5rem" mt={"1rem"} justifyContent={"center"} alignItems="center">
-                    <Button width={"80%"} colorScheme='orange' fontSize={"1.3rem"} size="lg">{noOfItems === 0 ? <Flex width={"100%"} justifyContent="center" onClick={() => navigate('/')}>Add Items</Flex> : "Place Order"}</Button>
+                    <Button width={"80%"} colorScheme='orange' fontSize={"1.3rem"} size="lg">{noOfItems === 0 ? <Flex width={"100%"} justifyContent="center" onClick={() => navigate('/')}>Add Items</Flex> : !isLogIn ? <Flex width={"100%"} justifyContent="center" onClick={() => navigate('/')}>Login To Continue</Flex> : "Place Order"}</Button>
                 </Flex>
                 <></>
             </Flex>
