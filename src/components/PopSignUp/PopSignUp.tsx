@@ -82,12 +82,23 @@ const PopSignUp: React.FC = () => {
         //logic to save user to the database
         const data = await dispatch(create_customer({
             'store' : '6232a2a4cd65fb954ebd83a5',
-            'name' : fullName,
+            'name' : fullName.toLowerCase(),
             'contact' : formState.contactNo,
             'password' : formState.password,
         }))
-        if(data.payload !== 'SERVER_ERROR'){
-            console.log("data in modal", data.payload);
+        if(data.payload === 'SERVER_ERROR' || data.payload === 'CLIENT_ERROR'){
+            console.log("error in modal")
+            dispatch(logIn(false));
+            toast({
+                position: 'top',
+                title: 'Account not created.',
+                description: "Please Provide correct Credentails",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+              })
+        }else{
+              console.log("data in modal", data.payload);
             // for toast 
             toast({
                 position: 'top',
@@ -99,16 +110,6 @@ const PopSignUp: React.FC = () => {
               })
             dispatch(logIn(true));
             onClose();
-        }else{
-            console.log("error in modal")
-            toast({
-                position: 'top',
-                title: 'Account not created.',
-                description: "Please Provide correct Credentails",
-                status: 'error',
-                duration: 9000,
-                isClosable: true,
-              })
         }
     }
     // console.log({ formState })
