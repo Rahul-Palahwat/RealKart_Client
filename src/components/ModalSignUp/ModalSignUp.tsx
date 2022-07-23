@@ -130,29 +130,63 @@ scrollbars=no, resizable=no, copyhistory=no`
     // }, [])
     return (
         <>
-            <Modal size={"2xl"}
+            <Modal size={'md'}
                 initialFocusRef={initialRef}
                 isOpen={isOpen}
                 onClose={onClose}
             >
                 <ModalOverlay />
-                <ModalContent pl="2rem" pr={"2rem"}>
-                    <Flex direction={"column"}>
+                <ModalContent >
+                    <Flex direction={"column"} p={0}>
                         <ModalHeader ><Flex justifyContent="center">Create your account</Flex></ModalHeader>
-                        <ModalBody pb={0}>
+                        <ModalBody p={0}>
                             <Flex width={"100%"} direction="column" alignItems={"center"} justifyContent="center" >
+                                {/* right flex  */}
+                                <Flex direction={"column"} alignItems="center" justifyContent={"center"} width={"100%"}>
+                                    {/* <Flex color={"green"} mb={'1.5rem'}>Why  an Account?</Flex> */}
+                                    <Flex justifyContent={"space-around"} width={"62%"} mb={"0.5rem"}>
+                                    <Flex className="googleButton facebook" justifyContent={'center'}>
+                                        <img src={facebook} alt="" className='icon' />
+                                        Facebook
+                                    </Flex>
+                                    <Flex className="googleButton google" onClick={googleLogin} justifyContent="center">
+                                        <img src={Google} alt="" className='icon' />
+                                        Google
+                                    </Flex>
+                                    {/* <Flex className="googleButton email" onClick={googleLogin} justifyContent="center">
+                                        <img src={Email} alt="" className='icon' style={{"filter":"invert(100%)"}}/>
+                                        Email
+                                    </Flex> */}
+                                    </Flex>
+                                </Flex>
                                 {/* Left flex  */}
-                                <Flex direction={"column"} width="90%">
+                                <Flex direction={"column"} width="100%">
                                     <form id='customer_form' onSubmit={(e) => { e.preventDefault(); handleSubmit() }}>
 
-                                        <Flex justifyContent={"center"} width="100%">
-                                            <Flex justifyContent={"space-between"} width={"50%"}>
+                                        {/* email phone field  */}
+                                        <Flex direction="column" width="100%" alignItems={"center"}>
+                                            {formFields.map((formField, idx) => {
+                                                if (idx === 2) {
+                                                    return (
+                                                        <Flex width={"65%"} key={formField.placeholder}>
+                                                            <Flex alignItems="center" direction="column" width="100%">
+                                                                {/* <FormLabel mt="0.8rem" mb={idx === formFields.length-1 ? "0rem" :"0.8rem"}>{formField.label}</FormLabel> */}
+                                                                <Input className='phone'  fontSize={"0.7rem"} mb="0.8rem" type={formField.type} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
+                                                            </Flex>
+                                                        </Flex>
+                                                    )
+                                                }
+                                            })}
+                                        </Flex>
+
+                                        {/* name field  */}
+                                        <Flex justifyContent={"center"} width="100%" mb={"0.8rem"}>
+                                            <Flex justifyContent={"space-between"} width={"65%"}>
                                                 {formFields.map((formField, idx) => {
                                                     if (idx < 2) {
                                                         return (
                                                             <Flex width={"48%"} key={formField.placeholder}>
                                                                 <FormControl>
-                                                                    {/* <FormLabel mt="0.8rem" mb="0.8rem">{formField.label}</FormLabel> */}
                                                                     <Input width={"100%"} fontSize={"0.8rem"} required={formField.required} placeholder={formField.placeholder} type={formField.type} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
                                                                 </FormControl>
                                                             </Flex>
@@ -161,22 +195,10 @@ scrollbars=no, resizable=no, copyhistory=no`
                                                 })}
                                             </Flex>
                                         </Flex>
-                                        <Flex direction="column" width="100%" alignItems={"center"}>
-                                            {formFields.map((formField, idx) => {
-                                                if (idx === 2) {
-                                                    return (
-                                                        <Flex width={"60%"} key={formField.placeholder}>
-                                                            <Flex alignItems="center" direction="column" width="100%">
-                                                                {/* <FormLabel mt="0.8rem" mb={idx === formFields.length-1 ? "0rem" :"0.8rem"}>{formField.label}</FormLabel> */}
-                                                                <Input className='phone'  fontSize={"0.7rem"} mt="0.8rem" mb="0.8rem" type={formField.type} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
-                                                            </Flex>
-                                                        </Flex>
-                                                    )
-                                                }
-                                            })}
-                                        </Flex>
+
+                                        {/* password and confirmPassword field  */}
                                         <Flex justifyContent={"center"} width="100%">
-                                            <Flex justifyContent={"space-between"} width={"70%"}>
+                                            <Flex justifyContent={"space-between"} width={"65%"}>
                                                 {formFields.map((formField, idx) => {
                                                     if (idx > 2) {
                                                         return (
@@ -195,31 +217,13 @@ scrollbars=no, resizable=no, copyhistory=no`
                                     </form>
                                 </Flex>
                                 {/* middle line  */}
-                                <Flex className="center" width={"90%"} height={"6vh"} justifyContent="center" alignItems={"center"} mt="1rem">
+                                {/* <Flex className="center" width={"90%"} height={"6vh"} justifyContent="center" alignItems={"center"} mt="1rem">
                                     <Flex className="line" />
-                                    {/* <Flex className="or">OR</Flex> */}
-                                </Flex>
-                                {/* right flex  */}
-                                <Flex direction={"column"} alignItems="center" justifyContent={"center"} width={"100%"} mt="1rem">
-                                    {/* <Flex color={"green"} mb={'1.5rem'}>Why  an Account?</Flex> */}
-                                    <Flex justifyContent={"space-around"} width={"65%"}>
-                                    <Flex className="googleButton google" onClick={googleLogin} justifyContent="center">
-                                        <img src={Google} alt="" className='icon' />
-                                        Google
-                                    </Flex>
-                                    <Flex className="googleButton facebook" justifyContent={'center'}>
-                                        <img src={facebook} alt="" className='icon' />
-                                        Facebook
-                                    </Flex>
-                                    <Flex className="googleButton email" onClick={googleLogin} justifyContent="center">
-                                        <img src={Email} alt="" className='icon' style={{"filter":"invert(100%)"}}/>
-                                        Email
-                                    </Flex>
-                                    </Flex>
-                                </Flex>
+                                </Flex> */}
+                                
                             </Flex>
                         </ModalBody>
-                        <Flex pb={2} pt={3} width={"98%"} justifyContent="flex-end">
+                        <Flex pb={2} pt={3} width={"83%"} justifyContent="flex-end" mt={"0.5rem"} mb={"0.3rem"}>
                             <ModalFooter p={0}>
                                 <Button type='submit' size={'sm'} form='customer_form' colorScheme='blue' mr={2}>
                                     Submit

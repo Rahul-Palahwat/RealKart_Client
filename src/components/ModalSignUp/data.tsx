@@ -27,7 +27,7 @@ export const formFields = [
         label: 'Contact No.',
         required: true,
         type: 'text',
-        placeholder: 'Phone Number',
+        placeholder: 'Phone Number / Email',
         // value: formState.contactNo,
         name: 'contactNo',
     },
