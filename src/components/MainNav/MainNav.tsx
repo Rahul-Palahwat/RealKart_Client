@@ -9,6 +9,7 @@ import ModalSignUp from '../ModalSignUp/ModalSignUp';
 import ModalLogin from '../ModalLogin/ModalLogin';
 import './MainNav.css'
 import PopLogin from '../PopLogin/PopLogin';
+import PopSignUp from '../PopSignUp/PopSignUp';
 
 const MainNav: React.FC = () => {
 	const { isLogIn } = useAppSelector((state) => state.login)
@@ -31,6 +32,7 @@ const MainNav: React.FC = () => {
 				{!isLogIn ?
 					<Flex alignItems={'center'}>
 						<Button onClick={onOpen} color={"white"} bgColor={"#47B5FF"} fontSize="1.1rem" cursor={"pointer"} className="mainBtn">Sign Up</Button>
+						{/* <PopSignUp/> */}
 						<PopLogin />
 						{/* <Button onClick={onOpen1} color={"white"} bgColor={"#47B5FF"} className="mainBtn" fontSize="1.1rem" cursor={"pointer"}>Log In</Button> */}
 						{/* <Button onClick={() => { dispatch(logIn(true)) }} color={"white"} bgColor={"#47B5FF"} className="mainBtn" fontSize="1.1rem" cursor={"pointer"}>Log In</Button> */}
