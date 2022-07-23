@@ -36,6 +36,24 @@ const MainNav: React.FC = () => {
 						<PopLogin />
 						{/* <Button onClick={onOpen1} color={"white"} bgColor={"#47B5FF"} className="mainBtn" fontSize="1.1rem" cursor={"pointer"}>Log In</Button> */}
 						{/* <Button onClick={() => { dispatch(logIn(true)) }} color={"white"} bgColor={"#47B5FF"} className="mainBtn" fontSize="1.1rem" cursor={"pointer"}>Log In</Button> */}
+
+						{/* when no item in cart then nocart if then cart  */}
+						{noOfItems>0
+						?<>
+							<Flex >
+									<Tooltip label='Go to Cart' hasArrow arrowSize={10}>
+										<Flex onClick={() => navigate('/cart')}>
+											<IconButton aria-label='Search database' icon={<BsCartPlus />} />
+										</Flex>
+									</Tooltip>
+								</Flex>
+								<Flex justifyContent={"center"}>
+									<Badge colorScheme='orange' zIndex={1} mt={"-1.3rem"} ml={"-2.4rem"} backgroundColor={"orange.300"} borderRadius="5px 5px 20px 20px" height={"0.9rem"} width={noOfItems === 0 ? "1rem" : "1.3rem"} fontSize="0.6rem">{noOfItems <= 9 ? noOfItems === 0 ? `0` : `0${noOfItems}` : noOfItems}</Badge>
+								</Flex>
+						</>
+						:
+						""
+						}
 					</Flex>
 					: <Flex justifyContent='flex-end' alignItems={'center'}>
 						<Button color={"white"} bgColor={"#47B5FF"} height={"6vh"} mr={5} className="mainBtn" onClick={() => { dispatch(logIn(false)); navigate('/'); localStorage.removeItem('user') }}>Log Out</Button>

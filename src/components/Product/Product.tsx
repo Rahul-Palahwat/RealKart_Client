@@ -61,7 +61,7 @@ const Product: React.FC<Props> = (props) => {
                                     {addToCartStatus === 'FETCHING'
                                         ? <Spinner />
                                         : <Tooltip label='Add to Cart' hasArrow arrowSize={10}>
-                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() => (isLogIn ? dispatchtwo(id,price) : (onOpen()))} icon={<BsCartPlus />} />
+                                            <IconButton aria-label='Search database' variant={"ghost"} colorScheme='cyan' onClick={() =>  dispatchtwo(id,price)} icon={<BsCartPlus />} />
                                         </Tooltip>
                                     }
                                 </Flex>
