@@ -38,7 +38,7 @@ const MainNav: React.FC = () => {
 						{/* <Button onClick={() => { dispatch(logIn(true)) }} color={"white"} bgColor={"#47B5FF"} className="mainBtn" fontSize="1.1rem" cursor={"pointer"}>Log In</Button> */}
 					</Flex>
 					: <Flex justifyContent='flex-end' alignItems={'center'}>
-						<Button color={"white"} bgColor={"#47B5FF"} height={"6vh"} mr={5} className="mainBtn" onClick={() => { dispatch(logIn(false)) }}>Log Out</Button>
+						<Button color={"white"} bgColor={"#47B5FF"} height={"6vh"} mr={5} className="mainBtn" onClick={() => { dispatch(logIn(false)); navigate('/'); localStorage.removeItem('user') }}>Log Out</Button>
 						<Flex alignItems={'center'}>
 							<Flex mr={2} fontSize={"3xl"}>
 								<Flex >

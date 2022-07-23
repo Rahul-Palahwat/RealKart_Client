@@ -1,10 +1,17 @@
 import { Flex , Image } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import maleDark80 from '../../assets/maleDark80.png'
 import maleLight80 from '../../assets/maleLight80.png'
 
-const ProfileGreet:React.FC = () => {
+interface Props{
+  user : any
+}
+
+const ProfileGreet:React.FC<Props> = ({user}) => {
+  useEffect(() => {
+    console.log('Hello useeffect')
+  } ,[])
   return (
     <>
         <Flex height={"12vh"} width={"100%"} className="total">
@@ -15,7 +22,7 @@ const ProfileGreet:React.FC = () => {
 
             <Flex direction={"column"} justifyContent="center" ml="0.5rem">
                 <Flex fontSize={"1.2rem"}>Hello,</Flex>
-                <Flex fontSize={"1.2rem"} fontWeight={"bold"}>Rahul Kumar</Flex>
+                <Flex fontSize={"1.2rem"} fontWeight={"bold"}>{user.user.name || "-No User-"}</Flex>
             </Flex>
         </Flex>
     </>

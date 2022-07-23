@@ -99,6 +99,8 @@ const PopSignUp: React.FC = () => {
               })
         }else{
               console.log("data in modal", data.payload);
+              localStorage.setItem( "user" , JSON.stringify(data.payload))
+              console.log("data in local storage" , JSON.parse(localStorage.getItem("user") || ""))
             // for toast 
             toast({
                 position: 'top',
