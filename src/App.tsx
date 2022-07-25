@@ -10,6 +10,7 @@ import Home from './components/Home/Home';
 import Cart from './components/Cart/Cart';
 import Profile from './components/Profile/Profile';
 import Warning from './components/Warning/Warning';
+import ItemDetails from './components/ItemDetails/ItemDetails';
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 				<Route path="/all" element={<TotalProducts/>}></Route>
 				<Route path="/AllBestSelling" element={<AllBestSelling/>}></Route>
 				<Route path="/AllMostWishlisted" element={<AllMostWishlisted/>}></Route>
+				<Route path="/item" element={<ItemDetails/>}></Route>
 			</Routes>
 		</Wrapper>
   	);
