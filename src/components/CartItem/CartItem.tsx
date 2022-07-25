@@ -1,5 +1,5 @@
 import { Badge, Flex, IconButton, Image, Tooltip } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
 import './CartItem.css'
 // for redux
 import { useAppDispatch, useAppSelector } from '../../redux'
@@ -11,6 +11,10 @@ interface Props {
     item: any
 }
 const CartItem: React.FC<Props> = ({ item }) => {
+
+    // for info of the item 
+    const [info , setInfo] = useState<boolean>(false)
+
     const dispatch = useAppDispatch()
     const { items } = useAppSelector((state) => state.cartItem);
     // const {dataAllCartProducts} = useAppSelector((state) => state.items);
@@ -39,7 +43,9 @@ const CartItem: React.FC<Props> = ({ item }) => {
                 <Flex width={"20%"} alignItems={"center"} justifyContent="center">
                     <Image borderRadius={"0.5rem"} boxSize='6rem' objectFit='cover' src='https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp' alt='Dan Abramov' />
                 </Flex>
-                <Flex width={"70%"} direction={"column"}>
+
+
+                { !info ?<Flex width={"70%"} direction={"column"}>
                     <Flex fontSize={"1.3rem"}>{item.name}</Flex>
                     {/* <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex> */}
                     {/* <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex> */}
@@ -63,10 +69,32 @@ const CartItem: React.FC<Props> = ({ item }) => {
                         </Flex></Flex>
                     </Flex>
                 </Flex>
+                : 
+                <Flex width={"70%"} direction={"column"}>
+                    <Flex fontSize={"1.3rem"}>{item.name}</Flex>
+                    <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex>
+                    <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex>
+                    <Flex mt={"0.5rem"} ml="0.5rem">
+                        <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.sellingPrice}</Flex>
+                        <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.sellingPrice}</Flex>
+                        {item.totalWeight ? <Flex ml={"0.5rem"} color={"gray"}>Weight: {item.totalWeight}</Flex> : ""}
+                    <Flex ml="0.5rem" color={"gray"}>Unit: {item.unit}</Flex>
+
+                    </Flex>
+                </Flex>
+
+                }
+
+
                 <Flex width={"10%"} justifyContent={"flex-end"} m={"0.2rem"}>
-                    <Tooltip label='Info of Item' hasArrow arrowSize={10}>
-                        <IconButton aria-label='Call Segun' size={"xs"} fontSize={"0.8rem"} icon={<WarningIcon />} />
+                    {!info ? <Tooltip label='Info of Item' hasArrow arrowSize={10}>
+                        <IconButton aria-label='Call Segun' size={"xs"} fontSize={"0.8rem"} onClick={() => setInfo(true)} icon={<WarningIcon />} />
                     </Tooltip>
+                    :
+                    <Tooltip label='Show less' hasArrow arrowSize={10}>
+                        <IconButton aria-label='Call Segun' size={"xs"} fontSize={"0.8rem"} onClick={() => setInfo(false)} icon={<WarningIcon />} />
+                    </Tooltip>
+                    }
                     <Tooltip label='Remove Item' hasArrow arrowSize={10}>
                         <IconButton ml={3} onClick={() => removeAll(item._id, item.sellingPrice)} aria-label='Call Segun' size='xs' fontSize={"0.5rem"} icon={<CloseIcon />} />
                     </Tooltip>

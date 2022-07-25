@@ -129,30 +129,6 @@ const PopSignUp: React.FC = () => {
                 isClosable: true,
               })
         }
-
-
-    //     if(contactNo.length != 10){
-            
-    //     }
-    //     else if(contactNo[0] === '9' || contactNo[0] === '8' || contactNo[0] === '7' || contactNo[0] === '6'){
-
-        
-
-            
-    //     }
-    //     else{
-    //         console.log("error in modal")
-    //         dispatch(logIn(false));
-    //         toast({
-    //             position: 'top',
-    //             title: 'Account not created.',
-    //             description: "Please Provide correct ContactNo",
-    //             status: 'error',
-    //             duration: 9000,
-    //             isClosable: true,
-    //           })
-        
-    // }
     }
     // console.log({ formState })
     const initialRef = React.useRef(null)
