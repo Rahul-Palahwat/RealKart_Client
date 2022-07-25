@@ -4,7 +4,7 @@ import { useReducer } from 'react'
 import {
     Button, Flex,
     FormControl,
-    Input , useToast ,Popover, PopoverArrow, PopoverCloseButton, PopoverContent, PopoverFooter, PopoverTrigger, useDisclosure
+    Input , useToast ,Popover, PopoverArrow, PopoverCloseButton, PopoverContent, PopoverFooter, PopoverTrigger, useDisclosure, Badge
 } from '@chakra-ui/react'
 // for reducer 
 import { useAppDispatch } from '../../redux'
@@ -205,9 +205,9 @@ scrollbars=no, resizable=no, copyhistory=no`
                                                 if (idx === 2) {
                                                     return (
                                                         <Flex width={"56%"} key={formField.placeholder}>
-                                                            <Flex alignItems="center" direction="column" width="100%">
-                                                                {/* <FormLabel mt="0.8rem" mb={idx === formFields.length-1 ? "0rem" :"0.8rem"}>{formField.label}</FormLabel> */}
+                                                            <Flex alignItems="center" width="100%">
                                                                 <Input className='phone'  fontSize={"0.7rem"} mb="0.8rem" type={formField.type} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
+                                                                <Flex ml="0.5rem" mb="0.8rem" alignItems={"center"} justifyContent="center" height={"100%"}>{formState.contactNo.includes('@') || formState.contactNo.length ===0 ? "" :<Badge fontSize={"1.1rem"} borderRadius={"1rem"} colorScheme='green'>{formState.contactNo.length}</Badge>}</Flex>
                                                             </Flex>
                                                         </Flex>
                                                     )
