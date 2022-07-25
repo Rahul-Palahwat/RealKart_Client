@@ -7,10 +7,13 @@ import { removeItemCart } from '../../redux/reducers/items'
 import { removeOneItemFromCart, removeAllItemFromCart, addToCart } from '../../redux/reducers/CartItems'
 import { CloseIcon, WarningIcon } from '@chakra-ui/icons'
 import _ from 'lodash'
+import { useNavigate } from 'react-router-dom'
 interface Props {
     item: any
 }
 const CartItem: React.FC<Props> = ({ item }) => {
+    // for navigation 
+    const navigate = useNavigate();
 
     // for info of the item 
     const [info , setInfo] = useState<boolean>(false)
@@ -40,15 +43,13 @@ const CartItem: React.FC<Props> = ({ item }) => {
     return (
         <>
             <Flex height="100%" width={"100%"}>
-                <Flex width={"20%"} alignItems={"center"} justifyContent="center">
-                    <Image borderRadius={"0.5rem"} boxSize='6rem' objectFit='cover' src='https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp' alt='Dan Abramov' />
+                <Flex width={"20%"} alignItems={"center"} justifyContent="center" cursor="pointer">
+                    <Image onClick={() => navigate('/item')} borderRadius={"0.5rem"} boxSize='6rem' objectFit='cover' src='https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp' alt='Dan Abramov' />
                 </Flex>
 
 
                 { !info ?<Flex width={"70%"} direction={"column"}>
-                    <Flex fontSize={"1.3rem"}>{item.name}</Flex>
-                    {/* <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex> */}
-                    {/* <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex> */}
+                    <Flex fontSize={"1.3rem"} onClick={() => navigate('/item')} cursor="pointer">{item.name}</Flex>
                     <Flex mt={"0.5rem"} ml="0.5rem">
                         <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.sellingPrice}</Flex>
                         <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.sellingPrice}</Flex>

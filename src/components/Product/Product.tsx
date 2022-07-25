@@ -2,7 +2,7 @@ import { InfoIcon, SmallCloseIcon } from '@chakra-ui/icons'
 import { Flex, IconButton, Spinner, Tooltip, useDisclosure } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { BsBagCheck, BsCartPlus } from 'react-icons/bs'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './Product.css'
 // for redux 
 import { useAppSelector, useAppDispatch } from '../../redux'
@@ -34,6 +34,9 @@ const Product: React.FC<Props> = (props) => {
     // console.log(items , sum , noOfItems);
     const { isOpen, onOpen, onClose } = useDisclosure()
 
+    // for navigation 
+    const navigate = useNavigate();
+
 
     const dispatchtwo = (id:string , price: number) => {
         dispatch(addToCart({id, price}))
@@ -49,8 +52,8 @@ const Product: React.FC<Props> = (props) => {
             {info ?
                 <Flex alignItems={"center"} justifyContent="center" width={"100%"} height="100%" wrap={"wrap"} p={2}>
                     <Flex direction={"column"} alignItems="center" className='add' height="100%" width="100%">
-                        <Flex mt={1}>{newtitle}</Flex>
-                        <Flex mt={3}><img src={image[0]} alt="Hello" style={{ "height": "20vh", "borderRadius": "0.5rem" }} /></Flex>
+                        <Flex mt={1} cursor="pointer" onClick={() => navigate('/item')}>{newtitle}</Flex>
+                        <Flex mt={3} cursor="pointer"><img onClick={() => navigate('/item')} src={image[0]} alt="Hello" style={{ "height": "20vh", "borderRadius": "0.5rem" }} /></Flex>
                         <Flex justifyContent={"space-between"} mt={2}>
                             <Flex mt={2} color="#4167B2" fontWeight={"bold"}>&#x20B9;{price.toLocaleString("en-IN")}</Flex>
                             <Flex mt={2} ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{price}</Flex>
