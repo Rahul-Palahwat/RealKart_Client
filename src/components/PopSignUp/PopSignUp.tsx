@@ -79,7 +79,22 @@ const PopSignUp: React.FC = () => {
         fullName = fullName.concat(' ',formState.lastName);
         // console.log({a:fullName.concat(formState.lastName)});
         console.log("fullname",fullName);
-        //logic to save user to the database
+        let contactNo = formState.contactNo;
+        if(contactNo.length != 10){
+            console.log("error in modal")
+            dispatch(logIn(false));
+            toast({
+                position: 'top',
+                title: 'Account not created.',
+                description: "Please Provide correct ContactNo",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+              })
+        }
+        else if(contactNo[0] === '9' || contactNo[0] === '8' || contactNo[0] === '7' || contactNo[0] === '6'){
+
+            //logic to save user to the database
         const data = await dispatch(create_customer({
             'store' : '6232a2a4cd65fb954ebd83a5',
             'name' : fullName.toLowerCase(),
@@ -113,6 +128,22 @@ const PopSignUp: React.FC = () => {
             dispatch(logIn(true));
             onClose();
         }
+
+            
+        }
+        else{
+            console.log("error in modal")
+            dispatch(logIn(false));
+            toast({
+                position: 'top',
+                title: 'Account not created.',
+                description: "Please Provide correct ContactNo",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+              })
+        
+    }
     }
     // console.log({ formState })
     const initialRef = React.useRef(null)
