@@ -80,21 +80,9 @@ const PopSignUp: React.FC = () => {
         // console.log({a:fullName.concat(formState.lastName)});
         console.log("fullname",fullName);
         let contactNo = formState.contactNo;
-        if(contactNo.length != 10){
-            console.log("error in modal")
-            dispatch(logIn(false));
-            toast({
-                position: 'top',
-                title: 'Account not created.',
-                description: "Please Provide correct ContactNo",
-                status: 'error',
-                duration: 9000,
-                isClosable: true,
-              })
-        }
-        else if(contactNo[0] === '9' || contactNo[0] === '8' || contactNo[0] === '7' || contactNo[0] === '6'){
-
-            //logic to save user to the database
+        // if(contactNo.match("[6-9][0-9]{9}") || contactNo.match("^(.+)@(\\S+)$")){
+        if( (contactNo.match("[6-9][0-9]{9}") && contactNo.length === 10 ) || contactNo.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+                //logic to save user to the database
         const data = await dispatch(create_customer({
             'store' : '6232a2a4cd65fb954ebd83a5',
             'name' : fullName.toLowerCase(),
@@ -128,22 +116,43 @@ const PopSignUp: React.FC = () => {
             dispatch(logIn(true));
             onClose();
         }
-
             
-        }
-        else{
+        }else{
             console.log("error in modal")
             dispatch(logIn(false));
             toast({
                 position: 'top',
                 title: 'Account not created.',
-                description: "Please Provide correct ContactNo",
+                description: "Please Provide correct ContactNo / Email",
                 status: 'error',
                 duration: 9000,
                 isClosable: true,
               })
+        }
+
+
+    //     if(contactNo.length != 10){
+            
+    //     }
+    //     else if(contactNo[0] === '9' || contactNo[0] === '8' || contactNo[0] === '7' || contactNo[0] === '6'){
+
         
-    }
+
+            
+    //     }
+    //     else{
+    //         console.log("error in modal")
+    //         dispatch(logIn(false));
+    //         toast({
+    //             position: 'top',
+    //             title: 'Account not created.',
+    //             description: "Please Provide correct ContactNo",
+    //             status: 'error',
+    //             duration: 9000,
+    //             isClosable: true,
+    //           })
+        
+    // }
     }
     // console.log({ formState })
     const initialRef = React.useRef(null)
@@ -207,7 +216,7 @@ scrollbars=no, resizable=no, copyhistory=no`
                                                         <Flex width={"56%"} key={formField.placeholder}>
                                                             <Flex alignItems="center" width="100%">
                                                                 <Input className='phone'  fontSize={"0.7rem"} mb="0.8rem" type={formField.type} required={formField.required} placeholder={formField.placeholder} name={formField.name} onChange={(e) => { console.log('in field ', { type: formField.name, value: e.target.value }); _changeInInput(formField.name, e.target.value) }} />
-                                                                <Flex ml="0.5rem" mb="0.8rem" alignItems={"center"} justifyContent="center" height={"100%"}>{formState.contactNo.includes('@') || formState.contactNo.length ===0 ? "" :<Badge fontSize={"1.1rem"} borderRadius={"1rem"} colorScheme='green'>{formState.contactNo.length}</Badge>}</Flex>
+                                                                <Flex ml="0.5rem" mb="0.8rem" alignItems={"center"} justifyContent="center" height={"100%"}>{formState.contactNo.includes('@') || formState.contactNo.length ===0 ? "" :<Badge fontSize={"1.1rem"} borderRadius={"1rem"}>{formState.contactNo.length <= 9 ? `0${formState.contactNo.length}` : formState.contactNo.length}</Badge>}</Flex>
                                                             </Flex>
                                                         </Flex>
                                                     )
