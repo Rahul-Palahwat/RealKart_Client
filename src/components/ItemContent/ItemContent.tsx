@@ -19,7 +19,7 @@ const ItemContent:React.FC = () => {
         </Flex>
         <Flex fontSize="1.1rem" mt={"1rem"}>Weight : 4kg</Flex>
         <Flex fontSize="1.1rem" mt={"0.2rem"}>Unit : PCS/BAG</Flex>
-        <Flex fontSize="1.3rem" mt={"1rem"}>Description</Flex>
+        <Flex fontSize="1.3rem" mt={"1rem"}>Description :</Flex>
         <Flex fontSize="1rem" ml="1rem" mt={"1rem"}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus a iure quasi magnam facilis totam aperiam voluptatum, saepe labore nesciunt voluptates nemo veniam non error ipsum placeat voluptatibus expedita odit?</Flex>
 
         

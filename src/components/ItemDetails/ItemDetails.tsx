@@ -13,7 +13,7 @@ const ItemDetails:React.FC = () => {
             {/* item details flex  */}
             <Flex border={"2px solid blue"} width={"100%"} height={"76vh"} alignItems="center" justifyContent={"center"}>
                 {/* image component  */}
-                <Flex border={"1px solid green"} width={"30%"} height={"50vh"}>
+                <Flex border={"1px solid green"} width={"24%"} height={"50vh"}>
                     <ItemImage/>
                 </Flex>
                 {/* details component  */}
