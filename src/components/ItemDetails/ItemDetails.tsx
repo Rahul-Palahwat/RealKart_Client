@@ -7,9 +7,9 @@ const ItemDetails:React.FC = () => {
   return (
     <>
     {/* main flex  */}
-        <Flex direction={"column"} border={"1px solid red"} height={"72vh"} width={"100%"}>
+        <Flex direction={"column"} border={"1px solid red"} height={"88vh"} width={"100%"}>
             {/* item details flex  */}
-            <Flex border={"2px solid blue"} width={"100%"} height={"60vh"} alignItems="center" justifyContent={"center"}>
+            <Flex border={"2px solid blue"} width={"100%"} height={"76vh"} alignItems="center" justifyContent={"center"}>
                 {/* image component  */}
                 <Flex border={"1px solid green"} width={"30%"} height={"50vh"}>Image</Flex>
                 {/* details component  */}

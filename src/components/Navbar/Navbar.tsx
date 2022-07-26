@@ -9,11 +9,11 @@ const Navbar: React.FC = () => {
     const location = useLocation();
     console.log("location",location)
     return (
-        <Flex direction={"column"} height={location.pathname !== '/cart' ? location.pathname !== '/profile' ? "26vh" : "12vh" : "12vh"} className="Navbar">
+        <Flex direction={"column"} height={location.pathname !== '/cart' ? location.pathname !== '/profile' ? location.pathname !== '/item' ? "26vh" : "12vh" : "12vh" : "12vh"} className="Navbar">
             <MainNav />
-            {location.pathname !== '/cart'? location.pathname !== '/profile' ? <Flex height={"14vh"} wrap={"wrap"} bgColor="white">
+            {location.pathname !== '/cart'? location.pathname !== '/profile' ? location.pathname !== '/item' ? <Flex height={"14vh"} wrap={"wrap"} bgColor="white">
                 <Searchbar />
-            </Flex>: "" :  ""}
+            </Flex> :"" : "" :  ""}
         </Flex>
     )
 }
