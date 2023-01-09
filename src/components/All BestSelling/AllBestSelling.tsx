@@ -16,7 +16,7 @@ const AllBestSelling: React.FC = () => {
     const [itemsPerPage, setItemsPerPage] = useState<number>(20);
     const [pageNumber, setPageNumber] = useState<number>(1);
     useEffect(() => {
-        dispatch(getTotalItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
+        dispatch(getTotalItems({}));
     }, [pageNumber])
     useEffect(() => {
         if (getAllProductsStatus === "SUCCESS") {
@@ -27,7 +27,7 @@ const AllBestSelling: React.FC = () => {
     }, [getAllProductsStatus])
     useEffect(() => {
         // console.log("I am in")
-        dispatch(getTotalItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
+        dispatch(getTotalItems({}));
     }, [itemsPerPage])
     console.log(items)
     return (<>

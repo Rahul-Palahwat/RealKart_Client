@@ -17,11 +17,12 @@ const MostWishlisted:React.FC = () => {
     const [pageNumber, setPageNumber] = useState<number>(1);
     const navigate = useNavigate();
     useEffect(() => {
-        dispatch(getMostWishlistedItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
+        dispatch(getMostWishlistedItems({  }));
+        // dispatch(getMostWishlistedItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
     }, [pageNumber])
     useEffect(() => {
         if (getMostWishlistedProductsStatus === "SUCCESS") {
-            setItems(dataMostWishlistedProducts.docs)
+            setItems(dataMostWishlistedProducts.slice(1,8))
         }
     }, [getMostWishlistedProductsStatus])
     useEffect(() => {
@@ -45,8 +46,8 @@ const MostWishlisted:React.FC = () => {
                     <Flex width={"0%"} height={"100%"} display={pageNumber > 1 ? "" : "none"} fontSize="4xl">
                         <MdArrowBackIosNew className='pos_left' onClick={() => setPageNumber(pageNumber - 1)} />
                     </Flex>
-                    {items.map((dat: any) => (<Product id={dat._id}  desc = {dat.shortDescription || ""} minStock={dat.minStock || ""} stock = {dat.stock || ""} title={dat.name || ""} company={dat.company || ""} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.sellingPrice || ""} key={dat._id} />))}
-                    <Flex width={"0%"} height={"100"} display={pageNumber >= (dataMostWishlistedProducts.total.length / itemsPerPage) ? "none" : ""} fontSize={"4xl"}>
+                    {items.map((dat: any) => (<Product id={dat._id}  desc = {dat.shortDescription || ""} minStock={dat.minStock || ""} stock = {dat.stock || ""} title={dat.name || ""} company={dat.company || ""} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.price || ""} key={dat._id} />))}
+                    <Flex width={"0%"} height={"100"} display={pageNumber >= (1) ? "none" : ""} fontSize={"4xl"}>
                         <MdArrowForwardIos className="pos_right" onClick={() => setPageNumber(pageNumber + 1)} />
                     </Flex></>}
             </Flex>

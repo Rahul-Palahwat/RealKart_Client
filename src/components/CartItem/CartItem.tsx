@@ -49,10 +49,10 @@ const CartItem: React.FC<Props> = ({ item }) => {
 
 
                 { !info ?<Flex width={"70%"} direction={"column"}>
-                    <Flex fontSize={"1.3rem"} onClick={() => navigate('/item')} cursor="pointer">{item.name}</Flex>
+                    <Flex fontSize={"1.3rem"} onClick={() => navigate('/item')} cursor="pointer">{item.title}</Flex>
                     <Flex mt={"0.5rem"} ml="0.5rem">
-                        <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.sellingPrice}</Flex>
-                        <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.sellingPrice}</Flex>
+                        <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.price}</Flex>
+                        <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.price}</Flex>
 
                     </Flex>
 
@@ -61,25 +61,25 @@ const CartItem: React.FC<Props> = ({ item }) => {
                         <Flex ml={1} fontSize="0.8rem" alignItems={"center"} mt={"0.2rem"}>27 July</Flex>
                         <Flex ml={"1rem"} alignItems="center">Qty:<Flex ml={"0.5rem"} alignItems={"center"} justifyContent="center">
                             <Tooltip label='Remove' hasArrow arrowSize={10}>
-                                <Flex cursor={"pointer"} fontWeight="bold" fontSize={"1.2rem"} alignItems="center" justifyContent={"center"} color="red" onClick={() => removeOne(item._id, item.sellingPrice)} >-</Flex>
+                                <Flex cursor={"pointer"} fontWeight="bold" fontSize={"1.2rem"} alignItems="center" justifyContent={"center"} color="red" onClick={() => removeOne(item._id, item.price)} >-</Flex>
                             </Tooltip>
                             <Badge cursor={"pointer"} ml="0.3rem" variant="outline" alignItems={"center"} fontSize="0.8rem" p={"0.3rem"} >{countOfItems() <= 9 ? `0${countOfItems()}` : countOfItems()}</Badge>
                             <Tooltip label='Add' hasArrow arrowSize={10}>
-                                <Flex cursor={"pointer"} alignItems="center" fontSize={"1.2rem"} justifyContent={"center"} color="green" ml={"0.3rem"} onClick={() => dispatch(addToCart({ id: item._id, price: item.sellingPrice }))} >+</Flex>
+                                <Flex cursor={"pointer"} alignItems="center" fontSize={"1.2rem"} justifyContent={"center"} color="green" ml={"0.3rem"} onClick={() => dispatch(addToCart({ id: item._id, price: item.price }))} >+</Flex>
                             </Tooltip>
                         </Flex></Flex>
                     </Flex>
                 </Flex>
                 : 
                 <Flex width={"70%"} direction={"column"}>
-                    <Flex fontSize={"1.3rem"}>{item.name}</Flex>
-                    <Flex color={"gray"} mt="0.5rem">Desc: {item.shortDescription}</Flex>
+                    <Flex fontSize={"1.3rem"}>{item.title}</Flex>
+                    <Flex color={"gray"} mt="0.5rem">Desc: {item.desc}</Flex>
                     <Flex color={"gray"} mt={"0.5rem"}>Manufacturer: {item.company}</Flex>
                     <Flex mt={"0.5rem"} ml="0.5rem">
-                        <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.sellingPrice}</Flex>
-                        <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.sellingPrice}</Flex>
+                        <Flex color="#4167B2" fontWeight={"bold"}>&#x20B9;{item.price}</Flex>
+                        <Flex ml={2} textDecoration="line-through" fontSize={"0.8rem"} alignItems="center">&#x20B9;{item.price}</Flex>
                         {item.totalWeight ? <Flex ml={"0.5rem"} color={"gray"}>Weight: {item.totalWeight}</Flex> : ""}
-                    <Flex ml="0.5rem" color={"gray"}>Unit: {item.unit}</Flex>
+                    <Flex ml="0.5rem" color={"gray"}>Unit: {item.minStock}</Flex>
 
                     </Flex>
                 </Flex>
@@ -97,7 +97,7 @@ const CartItem: React.FC<Props> = ({ item }) => {
                     </Tooltip>
                     }
                     <Tooltip label='Remove Item' hasArrow arrowSize={10}>
-                        <IconButton ml={3} onClick={() => removeAll(item._id, item.sellingPrice)} aria-label='Call Segun' size='xs' fontSize={"0.5rem"} icon={<CloseIcon />} />
+                        <IconButton ml={3} onClick={() => removeAll(item._id, item.price)} aria-label='Call Segun' size='xs' fontSize={"0.5rem"} icon={<CloseIcon />} />
                     </Tooltip>
                 </Flex>
             </Flex>

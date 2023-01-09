@@ -41,25 +41,26 @@ export const removeItemCart = createAsyncThunk('get/removeItemCart' , async(payl
     return payload;
 })
 
-// export const addToCart = createAsyncThunk('cartItem/addToCart' , async(payload:any) => {
-//     let data={
-//         id: payload.id,
-//         price: payload.price,
-//     }
-//     return data
-// })
+export const addToCart = createAsyncThunk('cartItem/addToCart' , async(payload:any) => {
+    let data={
+        id: payload.id,
+        price: payload.price,
+    }
+    return data
+})
 
 export const getTotalItems = createAsyncThunk ( 'get/allProducts' , async(payload: {} , thunkAPI) => {
-    const response = await api_item.get('/products/all' , payload)
+    const response = await api_item.get('/all' , payload)
     let {ok , data , problem} = response
     if(ok) {
+        console.log(data,"Data from localhost")
         return data
     } else {
         return thunkAPI.rejectWithValue(problem)
     }
 } )
 export const getBestSellingItems = createAsyncThunk ('get/allBestSellingProducts', async(payload: {}, thunkAPI) => {
-    const response = await api_item.get('/products/all' , payload)
+    const response = await api_item.get('/all' , payload)
     let {ok , data , problem} = response
     if(ok) {
         return data
@@ -68,7 +69,7 @@ export const getBestSellingItems = createAsyncThunk ('get/allBestSellingProducts
     }
 })
 export const getMostWishlistedItems = createAsyncThunk ('get/allMostWishlistedProducts', async(payload: {}, thunkAPI) => {
-    const response = await api_item.get('/products/all' , payload)
+    const response = await api_item.get('/all' , payload)
     let {ok, data , problem} = response
     if(ok) {
         return data

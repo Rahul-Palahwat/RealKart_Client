@@ -40,7 +40,8 @@ const Product: React.FC<Props> = (props) => {
 
     const dispatchtwo = (id:string , price: number) => {
         dispatch(addToCart({id, price}))
-        dispatch(getSingleProduct({ 'store': '6232a2a4cd65fb954ebd83a5', 'id': id }))
+        dispatch(getSingleProduct({ '_id': id }))
+        // dispatch(getSingleProduct({ 'store': '6232a2a4cd65fb954ebd83a5', 'id': id }))
     }
     useEffect(() => {
         
