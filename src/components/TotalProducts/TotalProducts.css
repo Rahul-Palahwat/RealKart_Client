@@ -1,0 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Baloo+Bhai+2&family=Fira+Sans:wght@500&family=Neucha&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400&family=Source+Code+Pro:wght@300&family=Ubuntu:wght@300&display=swap');
+
+.AllProducts{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: white;
+}
+.left-right:hover{
+    background-color: antiquewhite;
+}
+
+.viewAll{
+    color: #4167B2;
+    font-size: large;
+    font-weight: 900;
+}

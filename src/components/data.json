@@ -1,0 +1,689 @@
+[
+    {
+        "itemCode": 1,
+        "category": "Electronic",
+        "imgLink":[ "https://rukminim2.flixcart.com/image/832/832/ky0g58w0/mobile/c/a/v/-original-imagabvq2zhfb2fk.jpeg?q=70",
+           " https://www.reliancedigital.in/medias/Vivo-V23-Smartphones-492574740-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w3NTA4MXxpbWFnZS9qcGVnfGltYWdlcy9oMDAvaDhlLzk3NjkwNDczNTk1MTguanBnfGFlZDE5ZWQzMDNiY2MzMGZjN2FmM2U2OGJiNjlkNzdkNDk3NDAzNDlmY2I1NDUyMzc1ZTI3MmFlNzI2M2JkOTk",
+           "https://www.reliancedigital.in/medias/Vivo-V23-Smart-Phone-492574740-i-4-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w0Mjg5NXxpbWFnZS9qcGVnfGltYWdlcy9oMTgvaDM3Lzk3NTA2NDE4Njg4MzAuanBnfGJkNDBkNmZiZWQzYjFiOTM2NWE5NmNhMDA0NGI0NzQ0NGZjYzE5NzM4ZDcwYTkzMTc2NjRiNGZlYWFiMjliMDM"
+  ],
+        "title": "vivo V23 5G (Sunshine Gold,128 GB) (8 GB RAM)",
+        "location":"Jabalpur,Madhya Pradesh",
+        "owner":"Rachit Garg",
+        "used":"2 years",
+        "newprice":8000,
+        "description":
+              { "Ram": "8 GB RAM | 128 GB ROM",
+               "Display": "16.36 cm (6.44 inch) Full HD+ Display",
+               "Camera": "64MP + 8MP + 2MP | 50MP + 8MP Dual Front Camera",
+               "Battery": "4200 mAh Lithium Battery",
+                "Proccessor":"Mediatek Dimensity 920 Processor"}
+    },
+    {
+        "itemCode": 2,
+        "category": "Electronic",
+        "imgLink":[ "https://apollo-singapore.akamaized.net/v1/files/4t20y0c24yq13-IN/image;s=780x0;q=60",
+        "https://apollo-singapore.akamaized.net/v1/files/s8cda5dneu2l3-IN/image;s=780x0;q=60",
+        "https://apollo-singapore.akamaized.net/v1/files/wi13s3s2w50b3-IN/image;s=780x0;q=60"
+        ],
+        "title": "realme Narzo 50A (Oxygen Green, 64 GB)  (4 GB RAM)",
+        "location":"Noida, Uttar Pradesh",
+        "owner":"Prashant Garg",
+        "used":"1 year",
+        "newprice": 12000,
+       
+        "description":
+            { "Ram": "4 GB RAM | 64 GB ROM | Expandable Upto 256 GB",
+             "Display":"16.51 cm (6.5 inch) HD+ Display",
+             "Camera":  "50MP + 2MP + 2MP | 8MP Front Camera",
+             "Battery":  "6000 mAh Battery",
+              "Proccessor":"MediaTek Helio G85 Processor"}
+    },
+    {
+        
+            "itemCode": 3,
+            "category": "Vehicles",
+            "imgLink": ["https://apollo-singapore.akamaized.net/v1/files/bm2ziytakw4i-IN/image;s=1080x1080","https://apollo-singapore.akamaized.net/v1/files/r7zp2i9n9vpe1-IN/image;s=780x0;q=60"],
+            "title": "honda city (2015)",
+            "location":"Raj Nagar RDC, Ghaziabad",
+            "owner":"Yogesh",
+            "used":"3 years",
+            "newprice":120000,            
+            "description": {
+                "Accidental":"No",
+                "Adjustable External Mirror": "Manual",
+                "Air Conditioning": "With Heater",
+                "Number of Airbags": "2",
+                "Alloy Wheels": "Yes",
+                "Aux Compatibility": "Yes",
+                "Battery Condition": "Old",
+                "Bluetooth": "Yes"
+                
+            }
+               
+            
+    },
+    {
+        "itemCode": 4,
+        "category": "Vehicles",
+        "imgLink": ["https://apollo-singapore.akamaized.net/v1/files/oy8qbwolk4aq-IN/image;s=780x0;q=60",
+        "https://apollo-singapore.akamaized.net/v1/files/r2rg0xehbckd1-IN/image;s=780x0;q=60"
+        ],
+        "title": " Maruti Suzuki Ritz (2014)",
+        "location":"Kanpur,Uttar Pradesh",
+        "owner":"Dogesh",
+        "used":"4 years",
+        "newprice": 100000,
+        "description": {
+                "Accidental":"No",
+                "Adjustable External Mirror": "Manual",
+                "Air Conditioning": "With Heater",
+                "Number of Airbags": "2",
+                "Insurance Type":"Comprehensive",
+                "Alloy Wheels": "Yes",
+                "Aux Compatibility": "Yes",
+                "Battery Condition": "Old",
+                "Bluetooth": "Yes"
+            }
+        
+    },
+    {
+        "itemCode": 5,
+        "category": "Vehicles",
+        "imgLink": ["https://apollo-singapore.akamaized.net/v1/files/gc8xf0982drf2-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/406lxikkj39w1-IN/image;s=1080x1080",
+            "https://apollo-singapore.akamaized.net/v1/files/b2g67x6ifjn91-IN/image;s=1080x1080"
+        ],
+        "title": "Mercedes-Benz A Class (2014)",
+       "location":"Mumbai,Maharastra",
+       "owner":"Daksh",
+       "used":"10 months",
+        "newprice": 1750000,
+        
+        "description": {
+            
+                "Accidental":"No",
+                "Adjustable External Mirror": "Automatic",
+                "Air Conditioning": "With Heater",
+                "Number of Airbags": "4",
+                "Insurance Type":"Comprehensive",
+                "Alloy Wheels": "Yes",
+                "Aux Compatibility": "Yes",
+                "Battery Condition": "New",
+                "Bluetooth": "Yes"
+            }
+        
+    },
+    {
+        "itemCode": 6,
+        "category": "Vehicles",
+        "imgLink": ["https://apollo-singapore.akamaized.net/v1/files/gc8xf0982drf2-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/406lxikkj39w1-IN/image;s=1080x1080",
+            "https://apollo-singapore.akamaized.net/v1/files/b2g67x6ifjn91-IN/image;s=1080x1080"
+        ],
+        "title": "Mercedes-Benz A Class (2014)",
+       "location":"Mumbai,Maharastra",
+       "owner":"Daksh",
+       "used":"10 months",
+        "newprice": 1750000,
+        
+        "description": {
+            
+                "Accidental":"No",
+                "Adjustable External Mirror": "Automatic",
+                "Air Conditioning": "With Heater",
+                "Number of Airbags": "4",
+                "Insurance Type":"Comprehensive",
+                "Alloy Wheels": "Yes",
+                "Aux Compatibility": "Yes",
+                "Battery Condition": "New",
+                "Bluetooth": "Yes"
+            }
+        
+    },
+    {
+        "itemCode": 7,
+        "category": "Electronic",
+        "imgLink":[ "https://rukminim2.flixcart.com/image/416/416/kevpwnk0/washing-machine-new/g/t/5/wa65a4002vs-tl-samsung-original-imafvgz4qzfazbsh.jpeg?q=70",
+        "https://rukminim2.flixcart.com/image/416/416/kevpwnk0/washing-machine-new/g/t/5/wa65a4002vs-tl-samsung-original-imafvgz4fsahdzhg.jpeg?q=70",
+        "https://rukminim2.flixcart.com/image/416/416/kevpwnk0/washing-machine-new/g/t/5/wa65a4002vs-tl-samsung-original-imafvgz4dwezp9wy.jpeg?q=70"],
+        "title": "SAMSUNG 6.5 kg Diamond Drum",
+        "location":"Delhi",
+        "owner":"Sri Harsh",        
+        "used":"11 months",
+        "newprice": 27999,
+         "description": {
+            "features":"Fully Automatic Top Load Washing Machines are ergonomically friendly and provide great wash quality",
+            "specification":"680 rpm Higher the spin speed, lower the drying time"
+             }
+    },
+    {
+        "itemCode": 8,
+        "category": "Home",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/8gkiv4vys5on1-IN/image;s=780x0;q=60"], 
+        "title": "Sofa and dining",
+        "location":"Kotma,Madhya Pradesh",
+        "owner":"Sid Joshi",
+        "used":"7 months",
+        "newprice":29999,
+        "description": {
+            "features":"Brand new L shape sofa set with table & puffies Customer satisfaction is our responsibility According to dimensio Hand made product Under warranty"
+        }
+    },
+    {
+        "itemCode": 9,
+        "category": "Vehicles",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/08r7t29uxgs03-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/z9yh4ctrl6fn1-IN/image;s=780x0;q=60",
+        "https://apollo-singapore.akamaized.net/v1/files/08r7t29uxgs03-IN/image;s=780x0;q=60"], 
+        "title": "Tvs Jupiter ( model - 2017 )",
+        "location":"Shahdol,Madhya Pradesh",
+        "owner":"Sid Patel",
+        "used":"15 months",
+        "newprice":50000,
+        "description": {
+            "features":"The specifications of the Scooter include engine displacement 109.19 , fuel tank capacity of 5 litres, maximum power of 8 bhp @ 7,500 rpm , maximum torque of 9 Nm @ 5,500 rpm and transmission is Automatic"
+        }
+    },
+    {
+        "itemCode": 10,
+        "category": "Vehicles",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/vrsuzdm27znt2-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/tjwh5s1m9jc41-IN/image;s=780x0;q=60"], 
+        "title": "Tvs scooty pep ( model - 2015 )",
+        "location":"Nagpur,Maharstra",
+        "owner":"Dhruv Patel",
+        "used":"18 months",
+        "newprice":60000,
+        "description": {
+            "features":"The specifications of the Scooter include engine displacement 88 cc , fuel efficiency level 45 KMPL , fuel tank capacity of 5 litres, maximum power of 5 bhp @ 6,500 rpm "
+        }
+    },
+    {
+        "itemCode": 11,
+        "category": "Electronic",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/8d2gm1ntyzgk3-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/rdqmy6y4vhns2-IN/image;s=780x0;q=60"], 
+        "title": "Canon 200D mark-II, under warranty, with two lenses",
+        "location":"Pune,Maharstra",
+        "owner":"Ram Hastar",
+        "used":"19 months",
+        "newprice":35000,
+        "description": {
+            "features":"Excellent as new condition,One 18-55mm lens,second 50mm lense for excellent photography"
+        }
+    },
+    {
+        "itemCode": 12,
+        "category": "Electronic",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/tbljfzfvj2b23-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/grbkfje8qnjd1-IN/image;s=780x0;q=60"], 
+        "title": "SONY NX5",
+        "location":"Raipur,Chattisgarh",
+        "owner":"Shivani",
+        "used":"20 months",
+        "newprice":39000,
+        "description": {
+            "features":"Less than 50 k shutter , 50 mm 1.8 lens"
+        }
+  
+    },
+    {
+        "itemCode": 13,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/iekv8pabesbm-IN/image;s=780x0;q=60",
+            "https://www.olx.in/item/brand-new-harmoniam-iid-1683229678"], 
+        "title": "harmonium",
+        "location":"Bilaspur,Chattisgarh",
+        "owner":"Sai Priyanka",
+        "used":"2 months",
+        "newprice":11000,
+        "description": {
+            "features":"Brand New Harmonium"
+        }
+    },
+    {
+        "itemCode": 14,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/100839nbm5wc-IN/image;s=780x0;q=60"], 
+        "title": "Acoustic Guitar",
+        "location":"Bhopal,Madhya pradesh",
+        "owner":"Shruti",
+        "used":"5 months",
+        "newprice":3000,
+        "description": {
+            "features":"YAMAHA PACIFIC012 ELECTRIC GUITAR,MINT CONDITION,ALMOST NEW"
+        }
+    },
+    {
+        "itemCode": 15,
+        "category": "Electronic",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/lylveobttxf01-IN/image;s=780x0;q=60",
+           " https://apollo-singapore.akamaized.net/v1/files/qd59cwjdeujl1-IN/image;s=780x0;q=60"], 
+        "title": "DELL LAPTOP XPS 15 inch Business Edition laptop",
+        "location":"Indore,Madhya pradesh",
+        "owner":"Smirti sharma",
+        "used":"7 months",
+        "newprice":125000,
+        "description": {
+            "features":"Ram 32 GB i7 10th generation (quad core) 12 threadsTouch screen Ultra HD Display-UHDDisplay Brightness 500 nits(highest in laptops)15 inch-3860x24001 TB SSD"
+        }
+    },
+    {
+        "itemCode": 16,
+        "category": "Electronic",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/l7mhxxj1z4kx-IN/image;s=780x0;q=60",
+           " https://apollo-singapore.akamaized.net/v1/files/nkz4mbtvlwlq2-IN/image;s=780x0;q=60"], 
+        "title": "MacBook air A1932",
+        "location":"Gwalior,Madhya pradesh",
+        "owner":"Annirudha",
+        "used":"9 months",
+        "newprice":45000,
+        "description": {
+            "features":"I5 processor,8 gb ram,128 gb SSD ,Rose gold colour 1 and half year old good condition"
+        }
+    },
+    {
+        "itemCode": 17,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/zwmfpmvhuvzv-IN/image;s=780x0;q=60",
+           "https://apollo-singapore.akamaized.net/v1/files/etcuj37spqqa-IN/image;s=780x0;q=60"], 
+        "title": "Lawn tennis Rackets & Badminton Racket",
+        "location":"Guna,Madhya pradesh",
+        "owner":"Sudhanshu",
+        "used":"14 months",
+        "newprice":1000,
+        "description": {
+            "features":"Lawn tennis Rackets & Badminton Racket, in great condition"
+        }
+    },
+    {
+        "itemCode": 18,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/duw5chvh8ksw-IN/image;s=780x0;q=60",
+           "https://apollo-singapore.akamaized.net/v1/files/aiq787sep3sy2-IN/image;s=780x0;q=60"], 
+        "title": "Gm imported cricket bat",
+        "location":"Sector 13,Delhi",
+        "owner":"Saksham",
+        "used":"19 months",
+        "newprice":34000,
+        "description": {
+            "features":"Weight 1160 slightly thicker at bottom hand grip.Original design of Gm and made for England player ollie pope"
+        }
+    },
+    {
+        "itemCode": 19,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/jgjb798n8rj71-IN/image;s=780x0;q=60",
+           "https://apollo-singapore.akamaized.net/v1/files/1de3xb7hf0ba-IN/image;s=780x0;q=60"], 
+        "title": "FIT Plus FP1(30 lbs Flywheel) exercise bike",
+        "location":"Sector 16,Delhi",
+        "owner":"Samyak",
+        "used":"4 months",
+        "newprice":14000,
+        "description": {
+            "features":"Fitplus excercise bike in very good condition like new only. weight support upto 150kg. for heavy weight,Smart feature,bluetooth connectivity with mobile TAB with Fitwiz App"
+        }  
+    },
+    {"itemCode": 20,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/52cz0zzxm6sb3-IN/image;s=780x0;q=60",
+           "https://apollo-singapore.akamaized.net/v1/files/4kd1l7nq9w1y-IN/image;s=780x0;q=60"], 
+        "title": "Heavy duty full commercial gym equipment machine setup",
+        "location":"Raigarh,Chattisgarh",
+        "owner":"Anmol",
+        "used":"2 years",
+        "newprice":375000,
+        "description": {
+            "features":"We have different qualities with different pipes in 8,10,& 12 gauge also, bending pipe used bio mechanical functional machine"
+        }
+    },
+  
+    {
+        "itemCode": 21,
+        "category": "Electronic",
+        "imgLink":[ "https://apollo-singapore.akamaized.net/v1/files/w0zqltfh6oih2-IN/image;s=780x0;q=60",
+           " https://apollo-singapore.akamaized.net/v1/files/nh21nzc0tmz92-IN/image;s=780x0;q=60"
+  ],
+        "title": "One Plus 7 T pro McLean Edition",
+        "location":"Jabalpur,Madhya Pradesh",
+        "owner":"Raj",
+        "used":"1 year",
+        "newprice":8000,
+        "description":
+  
+              { "Ram": "8 GB RAM | 128 GB ROM",
+               "Display": "16.36 cm (6.44 inch) Full HD+ Display",
+               "Camera": "64MP + 8MP + 2MP | 50MP + 8MP Dual Front Camera",
+               "Battery": "4200 mAh Lithium Battery",
+                "Proccessor":"Mediatek Dimensity 920 Processor"}
+        
+    },
+    {
+        "itemCode": 22,
+        "category": "Electronic",
+        "imgLink":[ "https://apollo-singapore.akamaized.net/v1/files/7qy0mq091tjr1-IN/image;s=780x0;q=60",
+           "https://apollo-singapore.akamaized.net/v1/files/uwufyfef0okr3-IN/image;s=780x0;q=60"
+  ],
+        "title": "Oppo f17 Pro",
+        "location":"Bhopal,Madhya Pradesh",
+        "owner":"Raj Aryan",
+        "used":"2 years",
+        "newprice":12000,
+        "description":
+  
+              { "Ram": "4 GB Ram",
+               "Display": "17.8 cm (6.44 inch) Full HD+ Display",
+               "Camera": " 8MP  Front Camera",
+               "Battery": "4500 mAh Lithium Battery",
+                "Proccessor":"Intel Processor"}
+        
+    },
+    {
+        "itemCode": 23,
+        "category": "Electronic",
+        "imgLink":[ "https://apollo-singapore.akamaized.net/v1/files/b4jko9tlafxg1-IN/image;s=780x0;q=60",
+           "https://apollo-singapore.akamaized.net/v1/files/41u1bsbijh5x2-IN/image;s=780x0;q=60"
+  ],
+        "title": "Redmi 9 prime",
+        "location":"Annuppur,Madhya Pradesh",
+        "owner":"Ramesh",
+        "used":"11 months",
+        "newprice":13000,
+        "description":
+  
+              { "Ram": "4 GB Ram",
+               "Display": "15.8 cm (6.44 inch) Full HD+ Display",
+               "Camera": "64MP  back Camera",
+               "Battery": "3000 mAh Lithium Battery",
+                "Proccessor":"Intel Processor"}
+        
+    },{
+        "itemCode": 24,
+        "category": "Electronic",
+        "imgLink":[ "https://apollo-singapore.akamaized.net/v1/files/mjlxcxlsadbj3-IN/image;s=780x0;q=60",
+           "https://apollo-singapore.akamaized.net/v1/files/qkvnl8hmjj7h2-IN/image;s=780x0;q=60"
+  ],
+        "title": "M31 Prime",
+        "location":"Lucknow,Uttar Pradesh",
+        "owner":"Suresh",
+        "used":"10 months",
+        "newprice":15000,
+        "description":{
+          "features":"Memory 6gb and 128 gb .ultra fast dual charging c type. Silver black glossy color. 4 cameras at back and pin camera in the screen includong intelli camera .Ultra amoled full screen display . Phone excellent condition with box amd all accessories"
+        }
+    },
+    {
+        "itemCode": 25,
+        "category": "Vehicles",
+        "imgLink": ["https://apollo-singapore.akamaized.net/v1/files/z6f7fu2ws8373-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/iiq1k672nwax2-IN/image;s=780x0;q=60"],
+        "title": "Maruti Suzuki Swift Dzire (2017)",
+        "location":"Raj Nagar, Ghaziabad",
+        "owner":"Yagnesh",
+        "used":"2 years",
+        "newprice":2200000,            
+        "description": {
+               "Adjustable External Mirror": "Power",
+                "Adjustable Steering":"Yes",
+               "Air Conditioning": "With Heater",
+               "Aux Compatibility":"Yes",
+                "Battery Condition":"New",
+                "Bluetooth":"Yes",
+                "Insurance Type":"No Insurance"
+        
+           
+        }
+    },
+    {
+        "itemCode": 26,
+        "category": "Vehicles",
+        "imgLink": ["https://apollo-singapore.akamaized.net/v1/files/895g7saxza4c-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/z6p1ty2jxozy1-IN/image;s=780x0;q=60"],
+        "title": "Tata Tiago (2019)",
+        "location":"Kothrud Paschima Nagri, Pune",
+        "owner":"Santosh Nikam",
+        "used":"3 years",
+        "newprice":1200000,            
+        "description": {
+            
+               "Adjustable External Mirror": "Power",
+                "Adjustable Steering":"Yes",
+               "Air Conditioning": "With Heater",
+               "Aux Compatibility":"Yes",
+                "Battery Condition":"New",
+                "Bluetooth":"Yes",
+                "Insurance Type":"No Insurance"
+        
+           
+        }
+    },
+    {
+        "itemCode": 27,
+        "category": "Vehicles",
+        "imgLink": ["https://apollo-singapore.akamaized.net/v1/files/qvs5rsq9udqd3-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/tn1tf7sh5t4i-IN/image;s=780x0;q=60"],
+        "title":"Hyundai I10 (2010)",
+        "location":"Vanarpattai, Tirunelveli",
+        "owner":"Santosh Mishra",
+        "used":"10 months",
+        "newprice":3200000,            
+        "description": {
+          
+                "para":"Bought this year",
+                "Adjustable Steering":"Yes",
+               "Air Conditioning": "With Heater",
+               "Aux Compatibility":"Yes",
+                "Battery Condition":"New",
+                "Bluetooth":"Yes",
+                "Insurance Type":"Insurance"
+        
+           
+        }
+    },
+    {
+        "itemCode": 28,
+        "category": "Electronic",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/ifi4fyy96hrs-IN/image;s=780x0;q=60",
+        "https://apollo-singapore.akamaized.net/v1/files/tz8mme4s7tbz-IN/image;s=780x0;q=60"],
+        "title": "Sony home theater system 5.1",
+        "location":"Hyderabad,Telangana",
+        "owner":"Jantar",        
+        "used":"10 months",
+        "newprice": 24000,
+     
+        "description": 
+             {
+                "Features":"Working condition Sony home theatre system 5.1 with high output sub woofer and wireless surround speakers."
+             }
+    },
+    {
+            "itemCode": 29,
+            "category": "Electronic",
+            "imgLink":[ "https://apollo-singapore.akamaized.net/v1/files/hca2mtlq04xc3-IN/image;s=780x0;q=60",
+                "https://apollo-singapore.akamaized.net/v1/files/t0j28zqxkiwe2-IN/image;s=780x0;q=60"
+            ],
+            "title": "Samsung galaxy note 9",
+            "location":"Ghat,Madhya Pradesh",
+            "owner":"Prashant Garg",
+            "used":"2 years",
+            "newprice": 22000,
+           
+            "description":
+    
+                { "Ram": "4 GB RAM | 64 GB ROM | Expandable Upto 256 GB",
+                 "Display":"16.51 cm (6.5 inch) HD+ Display",
+                 "Camera":  "50MP + 2MP + 2MP | 8MP Front Camera",
+                 "Battery":  "6000 mAh Battery",
+                  "Proccessor":"MediaTek Helio G85 Processor"}
+          
+        },
+        {
+            "itemCode": 30,
+            "category": "Electronic",
+            "imgLink":[ "https://apollo-singapore.akamaized.net/v1/files/v3ufs2qbka263-IN/image;s=780x0;q=60",
+                "https://apollo-singapore.akamaized.net/v1/files/uaold4bye8at-IN/image;s=780x0;q=60"
+            ],
+            "title": "Apple i phone 11",
+            "location":"Ghanbh,Madhya Pradesh",
+            "owner":"Priyansh Garg",
+            "used":"1 year",
+            "newprice": 37000,
+           
+            "description":
+    
+                { "Ram": "8 GB RAM | 128 GB ROM",
+                 "Display":"16.51 cm (6.5 inch) HD+ Display",
+                 "Camera":  "50MP + 2MP + 2MP | 8MP Front Camera",
+                 "Battery":  "6000 mAh Battery",
+                  "Proccessor":"MediaTek Helio G85 Processor"}
+          
+        }, 
+  
+        {
+                "itemCode": 31,
+                "category": "Electronic",
+                "imgLink":["https://apollo-singapore.akamaized.net/v1/files/0e68yq3cdp352-IN/image;s=780x0;q=60",
+                   "https://apollo-singapore.akamaized.net/v1/files/xgg7kxla1o342-IN/image;s=780x0;q=60"], 
+                "title": "Asus Tuf Gaming FX505DT",
+                "location":"Gwalior,Madhya pradesh",
+                "owner":"Shunt",
+                "used":"10 months",
+                "newprice":65000,
+                "description": {
+                    "features":"Ryzen 7 3750H,Ram -8GB,Ssd-258,Hdd-1TB,GPU- 4GB Nadia GeForce GTX 1650"
+                }
+            },
+    {
+        "itemCode": 32,
+        "category": "Electronic",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/yx3p7519q92c1-IN/image;s=780x0;q=60",
+           "https://apollo-singapore.akamaized.net/v1/files/2xi5kmnbgd4d3-IN/image;s=780x0;q=60"], 
+        "title": "Sony wiow laptop",
+        "location":"Bhopal,Madhya pradesh",
+        "owner":"Series",
+        "used":"13 months",
+        "newprice":22000,
+        "description": {
+            "features":"Ryzen 7 3750H,Ram -8GB,Ssd-258,Hdd-1TB,GPU- 4GB Nadia GeForce GTX 1650"
+        }
+    },{
+        "itemCode": 33,
+        "category": "Electronic",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/080wy2k6xxvs-IN/image;s=780x0;q=60"
+           ], 
+        "title": "Acer Predator Helios 300",
+        "location":"Indore,Madhya pradesh",
+        "owner":"Sam",
+        "used":"16 months",
+        "newprice":76000,
+        "description": {
+            "features":"I5 8th gen, 6 GB GTX 1060,1TB SSD, 128GB SSD, Good working condition"
+        }
+    },
+    {
+        "itemCode": 34,
+        "category": "Electronic",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/eu16p0vg2eer1-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/9vj1qq2487i81-IN/image;s=780x0;q=60"], 
+        "title": "LAPTOP i3 2ND GENERATION",
+        "location":"Damoh,Madhya Pradesh",
+        "owner":"Chris",
+        "used":"20 months",
+        "newprice":16000,
+        "description": {
+            "features":"INTEL PROCESSOR 2ND GENERATION ,i3-2350M, 2.30 GHZ,4GB DDR3 RAM,(UPGRADABLE UPTO 16GB)15.6 INCHES DISLPLAY,320 GB HDD,1 HOUR BATTERY BACKUP,"
+        }
+    },
+    {
+        "itemCode": 35,
+        "category": "Electronic",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/8ae71ttjb9b6-IN/image;s=780x0;q=60",
+            "https://apollo-singapore.akamaized.net/v1/files/gel42cmsd5o02-IN/image;s=780x0;q=60"], 
+        "title": "Canon 200D mark-II, under warranty, with two lenses",
+        "location":"Pune,Maharstra",
+        "owner":"Ram Hastar",
+        "used":"19 months",
+        "newprice":31000,
+        "description": {
+            "features":"Excellent as new condition,One 18-55mm lens"
+        }
+    },
+    {
+        "itemCode": 36,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/qpkzedmqug2r-IN/image;s=1080x1080",
+        "https://apollo-singapore.akamaized.net/v1/files/xyh0fsp2nx87-IN/image;s=780x0;q=60"], 
+        "title": "Guitar hernix 38",
+        "location":"Bhopal,Madhya pradesh",
+        "owner":"Shruti Sharma",
+        "used":"9 months",
+        "newprice":2000,
+        "description": {
+            "features":"38 inches guitar,Brand hernix MRP newprice 2800,Sale newprice 2000,Fully unused guitar not a single scratch on it,Sun burst colour"
+        }
+    },
+    {
+        "itemCode": 37,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/cvuc7x5vzmqi2-IN/image;s=780x0;q=60",
+        "https://apollo-singapore.akamaized.net/v1/files/rps0kgkh9idi-IN/image;s=780x0;q=60"], 
+        "title": "Ibanez GRG 170DX With Ibanez 50W Amp",
+        "location":"Bhopal,Madhya pradesh",
+        "owner":"Shruti Sharma",
+        "used":"9 months",
+        "newprice":5000,
+        "description": {
+            "features":"40 inches guitar,Brand hernix Sun burst colour"
+        }
+    },
+    {
+        "itemCode": 38,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/pd6h8osa2n311-IN/image;s=780x0;q=60",
+        "https://apollo-singapore.akamaized.net/v1/files/bxzma8z35yqj2-IN/image;s=780x0;q=60"], 
+        "title": "Casio ctx-9000",
+        "location":"Indore,Madhya pradesh",
+        "owner":"Bharat",
+        "used":"10 months",
+        "newprice":5000,
+        "description": {
+            "features":"Casio ctx-9000 +adapter"
+        }
+  
+    },
+    {
+        "itemCode": 39,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/92ybdp8o4xcq1-IN/image;s=780x0;q=60",
+        "https://apollo-singapore.akamaized.net/v1/files/klehi2uuo5u62-IN/image;s=780x0;q=60"], 
+        "title": "Guitar Amplifier vox ac 30vr",
+        "location":"Pehlawa,Madhya pradesh",
+        "owner":"Bhasan",
+        "used":"15 months",
+        "newprice":22000,
+        "description": {
+            "features":"Guitar Amp, New condition,Hardly used"
+        }
+    },
+    {
+        "itemCode": 40,
+        "category": "General",
+        "imgLink":["https://apollo-singapore.akamaized.net/v1/files/3bqqgykqtgap-IN/image;s=780x0;q=60",
+        "https://apollo-singapore.akamaized.net/v1/files/afkmi8oz5uw82-IN/image;s=780x0;q=60"], 
+        "title": "Kadence pulse drum kit",
+        "location":"Pehl,Haryana",
+        "owner":"Siddhant",
+        "used":"20 months",
+        "newprice":33000,
+        "description": {
+            "features":"Brand- kadence,product type- Drum kit with hardwres,colour- sparkle cherry satin laquerer,Features- perfect for begginers and it sound's beautiful,Includes- cymbals and Drum pedal"
+        }
+    }
+        
+    
+  
+    
+    
+    
+  
+  ]

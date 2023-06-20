@@ -1,0 +1,63 @@
+.googleButton{
+    width: 122px;
+    height: 35px;
+    padding: 15px 15px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+
+  .google{
+    background-color: #2C9E4D;
+  }
+  .facebook{
+    background-color: #507cc0;
+  }
+  .email{
+    background-color: grey;
+  }
+
+  .icon{
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+  }
+
+
+  .center{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.or{
+  border: 2px solid lightgray;
+  border-radius: 50%;
+  padding: 10px;
+  position: absolute;
+  color: gray;
+  background-color: white;
+  font-weight: bold;
+}
+
+.line{
+  width: 80%;
+  height: 0.5px;
+  background-color: lightgray;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.phone::placeholder{
+  text-align: center;
+}
