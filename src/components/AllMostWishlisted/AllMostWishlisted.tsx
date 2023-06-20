@@ -8,7 +8,6 @@ import { getTotalItems } from '../../redux/reducers/items'
 // Css files 
 import './AllMostWishlisted.css'
 import '../../index.css'
-
 const AllMostWishlisted: React.FC = () => {
     const dispatch = useAppDispatch();
     const { getAllProductsStatus, dataAllProducts } = useAppSelector((state) => state.items);
@@ -22,13 +21,13 @@ const AllMostWishlisted: React.FC = () => {
     useEffect(() => {
         if (getAllProductsStatus === "SUCCESS") {
             setItems(dataAllProducts.docs)
-            console.log("total",dataAllProducts.total)
+            console.log("total", dataAllProducts.total)
             setItemsPerPage(dataAllProducts.total)
         }
     }, [getAllProductsStatus])
     useEffect(() => {
         // console.log("I am in")
-        dispatch(getTotalItems({ }));
+        dispatch(getTotalItems({}));
         // dispatch(getTotalItems({ 'store': '6232a2a4cd65fb954ebd83a5', 'limit': itemsPerPage, 'page': pageNumber }));
     }, [itemsPerPage])
     console.log(items)
@@ -74,24 +73,25 @@ const AllMostWishlisted: React.FC = () => {
                     <Flex fontSize={"2xl"} fontWeight="bold" >All MostWishlisted Products</Flex>
                 </Flex>
                 <hr />
-                {getAllProductsStatus === "FETCHING" ||  getAllProductsStatus === "NOT_STARTED" 
-                ?<Flex alignItems={"center"} justifyContent={"center"} width={"100vw"} height={"46.7vh"}><Spinner size={"xl"} /></Flex>
-                :<Flex height={"auto"} wrap="wrap" width={"100%"} direction="column">
-                    <Grid templateColumns='repeat(4, 1fr)'>
-                        {items.map((dat: any) =>
-                            <GridItem
-                                w='95%' h='auto' bg='pink.50'
-                                color={"black"} m={2}
-                                borderRadius={"2rem"}
-                                key={dat._id}>
-                                <Product id={dat._id}  desc = {dat.shortDescription || ""} minStock={dat.minStock || ""} stock = {dat.stock || ""} title={dat.name || ""} company={dat.company || ""} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.sellingPrice || ""} key={dat._id} />
-                            </GridItem>
-                        )}
-                    </Grid>
-                </Flex>
+                {getAllProductsStatus === "FETCHING" || getAllProductsStatus === "NOT_STARTED"
+                    ? <Flex alignItems={"center"} justifyContent={"center"} width={"100vw"} height={"46.7vh"}><Spinner size={"xl"} /></Flex>
+                    : <Flex height={"auto"} wrap="wrap" width={"100%"} direction="column">
+                        <Grid templateColumns='repeat(4, 1fr)'>
+                            {items.map((dat: any) =>
+                                <GridItem
+                                    w='95%' h='auto' bg='pink.50'
+                                    color={"black"} m={2}
+                                    borderRadius={"2rem"}
+                                    key={dat._id}>
+                                    <Product id={dat._id} desc={dat.shortDescription || ""} minStock={dat.minStock || ""} stock={dat.stock || ""} title={dat.name || ""} company={dat.company || ""} image={['https://imgs.search.brave.com/isdKYX7EEeNnP2ixz4e1HKCAMcviT21y9eh_DPmEuTE/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/cklleG5HZEZQVDRj/M01IQXpvRmd3SGFF/OCZwaWQ9QXBp']} price={dat.sellingPrice || ""} key={dat._id} />
+                                </GridItem>
+                            )}
+                        </Grid>
+                    </Flex>
                 }
             </Flex>
         </Flex>
-    </>)
+    </>
+    )
 }
 export default AllMostWishlisted
