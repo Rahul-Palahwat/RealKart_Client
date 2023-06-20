@@ -8,6 +8,7 @@ import { getTotalItems } from '../../redux/reducers/items'
 // Css files 
 import './AllMostWishlisted.css'
 import '../../index.css'
+
 const AllMostWishlisted: React.FC = () => {
     const dispatch = useAppDispatch();
     const { getAllProductsStatus, dataAllProducts } = useAppSelector((state) => state.items);
